@@ -1,0 +1,177 @@
+@charset "UTF-8";
+@import "reset.css";
+@import "layout.css";
+@import "style-common.css";
+@import "gallery.css";
+
+:root {
+	--clr-primary-blue: hsl(216, 61%, 18%);
+	--clr-primary-yellow: hsl(44, 89%, 53%);
+
+	--clr-bgLight: hsl(0, 0%, 95%);
+	--clr-bgGrey: hsl(0, 0%, 90%);
+	--clr-black: hsl(0, 0%, 8%);
+	--clr-black-transparent: hsla(0, 0%, 0%, 0.24);
+	--clr-lightblack: hsl(0, 0%, 24%);
+	--clr-grey: hsl(0, 0%, 40%);
+	--clr-grey-transparent: hsla(0, 0%, 92%, 0.24);
+	--clr-lightgrey: hsl(0, 0%, 81%);
+	--clr-white: hsl(0, 0%, 92%);
+	--clr-white-transparent: hsla(0, 0%, 92%, 0.1);
+
+	--nav-height: 120px;
+}
+
+*,
+*::before,
+*::after {
+	list-style: none;
+	text-decoration: none;
+}
+html {
+	scroll-behavior: smooth;
+}
+body {
+	font-family: "Lato", "Noto Sans TC", sans-serif;
+	scroll-behavior: smooth;
+	letter-spacing: 1.3px;
+}
+
+/* Header Design */
+/* Nav */
+nav {
+	background-color: var(--clr-primary-blue);
+}
+nav > div {
+	height: var(--nav-height);
+}
+.logo {
+	width: 240px;
+}
+.navMenu {
+	width: 50%;
+}
+.navMenu li {
+	width: calc(100% / 5);
+	text-align: center;
+	transition: 0.5s;
+}
+.navMenu a {
+	font-weight: 300;
+	color: var(--clr-white);
+	transition: 0.5s;
+}
+.navMenu > ul > li.active > a,
+.navMenu > ul > li:hover > a {
+	font-weight: 500;
+	letter-spacing: 1.8px;
+}
+.dropdown-icon {
+	position: relative;
+	color: var(--clr-white);
+	font-size: 0.8rem;
+	left: 5px;
+	top: -2px;
+}
+.dropdown-icon i {
+	transition: transform 0.5s;
+}
+
+.has-dropdown {
+	z-index: 2;
+}
+.has-dropdown ul {
+	width: 100%;
+	top: 24px;
+	background-color: var(--clr-primary-blue);
+	height: max-content;
+	padding-top: calc(calc(var(--nav-height) - 24px) / 2);
+	z-index: -1;
+
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-50%);
+	transition: 0.5s 0.3s;
+}
+.has-dropdown li {
+	padding: 0 0 1rem 0;
+	width: inherit;
+}
+.has-dropdown a {
+	transition: 0.5s;
+}
+.has-dropdown:hover .dropdown-icon i {
+	transform: rotate(180deg);
+}
+.has-dropdown:hover ul {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0%);
+	transition: 0.5s;
+}
+:is(.has-dropdown li:hover, .has-dropdown li.active) a {
+	font-weight: 500;
+	letter-spacing: 1.5px;
+}
+/* Need???? */
+.navMenu li.active > a {
+	padding-bottom: 5px;
+	border-bottom: solid 2px var(--clr-white);
+}
+
+/* Banner */
+.banner-container {
+	width: 100%;
+	min-height: calc(100vh - var(--nav-height));
+	display: grid;
+	place-items: center;
+}
+.banner-container img {
+	--img-heght: 450px;
+	width: min(81vw, 1280px);
+	height: var(--img-heght);
+	object-fit: cover;
+	object-position: 50% 38%;
+}
+
+/* Footer */
+footer {
+	height: 24vh;
+	background-color: var(--clr-primary-blue);
+	color: var(--clr-white);
+}
+.contact {
+	height: inherit;
+}
+.clinic {
+	width: 42%;
+}
+.clinic-2 {
+	padding-left: 2.4rem;
+}
+.clinic-name {
+	width: max-content;
+	font-weight: 300;
+	padding-right: 3rem;
+}
+.clinic-content a {
+	color: var(--clr-white);
+	font-weight: 100;
+}
+.clinic-content a span {
+	font-weight: 600;
+}
+.clinic-content li:last-child {
+	padding-top: 0.4rem;
+}
+.contact .line {
+	width: 2px;
+	height: 10vh;
+	padding: 0;
+	margin: 0;
+	border-radius: 1px;
+	background-color: var(--clr-primary-yellow);
+}
+.clinic-content li:hover a {
+	border-bottom: solid 1.5px var(--clr-white);
+}
