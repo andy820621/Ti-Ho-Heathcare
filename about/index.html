@@ -20,6 +20,7 @@
 		<link rel="stylesheet" href="../css/style.css" />
 		<link rel="stylesheet" href="../css/style-tablet.css" />
 		<link rel="stylesheet" href="../css/style-pc.css" />
+		<link rel="stylesheet" href="css/style.css" />
 		<title>鈦和生醫</title>
 	</head>
 	<body>
@@ -30,11 +31,23 @@
 						<div class="logo">
 							<h1>
 								<a
+									class="flex fxJcC fxAiC"
 									href="../index.html"
 									aria-label="Logo anchor"
 									title="logo anchor"
 								>
-									<img src="../svg/Logo.svg" alt="My_Logo" title="Logo" />
+									<img
+										class="logo-image"
+										src="../images/logo-image-blue.png"
+										alt="logo image"
+										title="Logo image"
+									/>
+									<img
+										class="logo-text"
+										src="../images/logo-text-blue.png"
+										alt="logo text"
+										title="Logo text"
+									/>
 								</a>
 							</h1>
 						</div>
@@ -83,14 +96,222 @@
 					</div>
 				</nav>
 			</header>
-			<main
-				style="
-					min-height: calc(100vh - 24px);
-					display: grid;
-					place-items: center;
-				"
-			>
-				<h1>關於鈦和</h1>
+			<main>
+				<!-- About Sectiom -->
+				<div id="about" class="positionR">
+					<div class="about-main">
+						<picture>
+							<source srcset="./images/about-main.webp" type="image/webp" />
+							<source srcset="./images/about-main.jpg" type="image/jpeg" />
+							<img src="./images/about-main.jpg" alt="about-main-image" />
+						</picture>
+					</div>
+					<div class="about-second flex positionA">
+						<div class="col-6">
+							<picture>
+								<source srcset="./images/about-second.webp" type="image/webp" />
+								<source srcset="./images/about-second.jpg" type="image/jpeg" />
+								<img src="./images/about-second.jpg" alt="about-second-image" />
+							</picture>
+						</div>
+						<section class="about-content col-6">
+							<h2 class="about-title">關於鈦和<span>ABOUT US</span></h2>
+							<article class="about-title-content">
+								鈦和生醫經資深臨床專業醫師創意反饋與工廠設計研發製造端的開發，
+								呈現獨特貼心的牙科人工牙根系列產品，結合系統的專業化服務，讓人
+								工牙根市場不再是銷單一產品，而是提供人工植牙產業的全方位服務。
+							</article>
+						</section>
+					</div>
+				</div>
+				<!-- Service Sectiom -->
+				<div id="service">
+					<div class="flex fxJcC fxAiC fxDirectionC">
+						<section class="service-title">
+							<h2>SERVICE</h2>
+						</section>
+						<section class="service-content flex fxJcSB fxAiFS">
+							<div class="service-content-design col-2">
+								<img src="./images/service-1.png" class="marginAuto" alt="" />
+								<section class="flex fxDirectionC fxAiC">
+									<h3>專業化設計</h3>
+									<article class="textAlignL">
+										資深植牙手術經歷，轉化臨床需求思維，反饋結合研發製造平台
+									</article>
+								</section>
+							</div>
+							<div class="service-content-personality col-2">
+								<img
+									src="./images/service-2.png"
+									class="marginAuto"
+									alt="personality image"
+								/>
+								<section class="flex fxDirectionC fxAiC">
+									<h3>個性化服務</h3>
+									<article class="textAlignL">
+										依患者軟.硬組織條件、美觀需求及生理系統，提供最佳的治療規劃及醫材選擇
+									</article>
+								</section>
+							</div>
+							<div class="service-content-integrate col-2">
+								<img
+									src="./images/service-3.png"
+									class="marginAuto"
+									alt="integrate image"
+								/>
+								<section class="flex fxDirectionC fxAiC">
+									<h3>數位化整合</h3>
+									<article class="textAlignL">
+										全新CAD/CAM膺復製作，落實垂直整合服務，方便臨床醫師運作需求
+									</article>
+								</section>
+							</div>
+							<div class="service-content-brand col-2">
+								<img
+									src="./images/service-4.png"
+									class="marginAuto"
+									alt="brand image"
+								/>
+								<section class="flex fxDirectionC fxAiC">
+									<h3>品牌化堅持</h3>
+									<article class="textAlignL">
+										產品會說話，醫材品質優先，長期品牌建立，持續相關醫材研發及教育訓練服務
+									</article>
+								</section>
+							</div>
+							<div class="service-content-global col-2">
+								<img
+									src="./images/service-5.png"
+									class="marginAuto"
+									alt="global image"
+								/>
+								<section class="flex fxDirectionC fxAiC">
+									<h3>全球化布局</h3>
+									<article class="textAlignL">
+										落實台灣本土市場開拓，擴展中國大陸，跨足東協諸國，展望歐美聯盟
+									</article>
+								</section>
+							</div>
+						</section>
+					</div>
+				</div>
+				<!-- History Section-->
+				<div id="history">
+					<section class="history-title">
+						<div class="history-container">
+							<h2>HISTORY</h2>
+							<ul class="year flex fxJcFs">
+								<li>
+									<a href="#" data-class="from1990" class="from1990 active">
+										<p>1990<span>s</span>-1991<span>s</span></p>
+									</a>
+								</li>
+								<li>
+									<a href="#" data-class="from1992" class="from1992">
+										<p>1992<span>s</span>-1993<span>s</span></p>
+									</a>
+								</li>
+								<li>
+									<a href="#" data-class="from1994" class="from1994">
+										<p>1994<span>s</span>-1995<span>s</span></p>
+									</a>
+								</li>
+								<li>
+									<a href="#" data-class="from1996" class="from1996">
+										<p>1996<span>s</span>-1997<span>s</span></p>
+									</a>
+								</li>
+								<li>
+									<a href="#" data-class="from1998" class="from1998">
+										<p>1998<span>s</span></p>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</section>
+					<section class="history-content flex">
+						<div class="history-container flex">
+
+							<div class="year-title">
+								<h3>
+									<p class="year-1">1990<span>s</span></p>
+									<p class="year-2">1991<span>s</span></p>
+								</h3>
+							</div>
+							<div class="year-content">
+								<div class="year-content-container">
+									<section class="from1990" data-year="from1990">
+										<div data-content="1990<span>s</span>">
+											<h4>1990<span>s</span></h4>
+											<article>
+												應該原本婚姻優秀效果四周，基礎上傢伙各位動作性感數學尋找出生事務祝福退出尤其是味道，認真交易相互新。
+											</article>
+										</div>
+										<div data-content="1991<span>s</span>">
+											<h4>1991s</h4>
+											<article class="article-with-image">
+												<p>
+													集體以為鍵盤微軟兩人臉上運行衛生高雄寫作格式全體，提出時代從事環保不需要首頁機場一座遠遠對我版權所有，同志曾經場所植物並在整合，一片擴大他在病毒大全貢獻，均為西。
+												</p>
+												<img src="./images/history-picture.jpg" alt="1991s image" />
+											</article>
+										</div>
+									</section>
+									<section class="from1992" data-year="from1992">
+										<div data-content="1992<span>s</span>">
+											<h4>1992<span>s</span></h4>
+											<article>
+												強烈接觸開了這一點大門電力，內存承擔來看聯合停止並且傷心對付有效，臨時生態獎勵好像上網贏得儘量猶豫屬於，專區鑒定只好評。
+											</article>
+										</div>
+										<div data-content="1993<span>s</span>">
+											<h4>1993<span>s</span></h4>
+											<article>
+												重要找不到依法兩人寵物騎士基層協調房子表面灌水，家園大盤產業開口一邊這場檢索到達失敗有可能網路，新型包裝投資者高校百姓特殊日本婦女規範，訓練高考回來，文明一時。
+											</article>
+										</div>
+									</section>
+									<section class="from1994" data-year="from1994">
+										<div data-content="1994<span>s</span>">
+											<h4>1994<span>s</span></h4>
+											<article>
+												展開輕易圖像化是什麼適合不然人大土地對面請求，等方面應該定義就不至於房東，魔獸電子商務範圍由於常見堅決股權，豐富進去可能再次用來，烏日同志。
+											</article>
+										</div>
+										<div data-content="1995<span>s</span>">
+											<h4>1995<span>s</span></h4>
+											<article>
+												一項還沒準確隨意體會軍事，檢驗至於十年沒什麼釣魚單位世界盃這麼等等位於新臺幣，權力主席網通不詳在這個同樣德國無派既然精選力道，生日登錄台中暫無為此他們的改善推出便宜收到，圖形幫你。
+											</article>
+										</div>
+									</section>
+									<section class="from1996" data-year="from1996">
+										<div data-content="1996<span>s</span>">
+											<h4>1996<span>s</span></h4>
+											<article>
+												最終結構細胞位於負責人簽名所在地，台鐵快車，各級產權，重視北方，抱著出生，進度。
+											</article>
+										</div>
+										<div data-content="1997<span>s</span>">
+											<h4>1997<span>s</span></h4>
+											<article>
+												經常實在深深預覽郵遞區號職責遭遇臺灣人玩家導致國際能量，經營許可證很快，理想以前，勞動推坑王通常需求年代告訴我性格一種培訓，心靈也就是大多數他對招標立場使得留學刺激寫出來當中，幾天影響士兵，在那裡也。
+											</article>
+										</div>
+									</section>
+									<section class="from1998" data-year="from1998">
+										<div data-content="1998<span>s</span>">
+											<h4>1998<span>s</span></h4>
+											<article>
+												開放頓時走了出現在他獨特鮮花台北，體內一天沒有解放失去，基金大賽國產群眾要求提到熟悉，權利標題，搜尋引擎付款多年，哪裡高中解壓密碼，仍然見面草魚時代讓她分配調節。
+											</article>
+										</div>
+									</section>
+							</div>
+						</div>
+					</section>
+				</div>
+				</div>
 			</main>
 			<footer>
 				<div class="contact container flex fxJcSE fxAiC positionR">
@@ -147,5 +368,7 @@
 				</div>
 			</footer>
 		</div>
+
+		<script src="./js/app.js"></script>
 	</body>
 </html>

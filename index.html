@@ -20,6 +20,7 @@
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/style-tablet.css" />
 		<link rel="stylesheet" href="css/style-pc.css" />
+		<link rel="stylesheet" href="css/style-index.css" />
 		<title>鈦和生醫</title>
 	</head>
 	<body>
@@ -30,17 +31,29 @@
 						<div class="logo">
 							<h1>
 								<a
+									class="flex fxJcC fxAiC"
 									href="index.html"
 									aria-label="Logo anchor"
 									title="logo anchor"
 								>
-									<img src="./svg/Logo.svg" alt="My_Logo" title="Logo" />
+									<img
+										class="logo-image"
+										src="./images/logo-image-white.png"
+										alt="logo image"
+										title="Logo image"
+									/>
+									<img
+										class="logo-text"
+										src="./images/logo-text-white.png"
+										alt="logo text"
+										title="Logo text"
+									/>
 								</a>
 							</h1>
 						</div>
 						<div class="navMenu">
 							<ul class="flex fxAiC">
-								<li class="about active">
+								<li class="about">
 									<a href="./about/" data-link="about" title="about"
 										>關於鈦和</a
 									>
@@ -86,18 +99,19 @@
 			<main>
 				<div class="banner-container">
 					<picture>
-						<source srcset="./images/1-1.jpg" type="image/webp" />
-						<img src="./images/1-1.jpg" alt="banner-image" />
+						<source srcset="./images/banner.webp" type="image/webp" />
+						<source srcset="./images/banner.jpg" type="image/jpeg" />
+						<img src="./images/banner.jpg" alt="banner-image" />
 					</picture>
 				</div>
 			</main>
 			<footer>
 				<div class="contact container flex fxJcSE fxAiC positionR">
 					<div class="clinic clinic-1 flex fxAiC">
-						<div class="clinic-name">
+						<section class="clinic-name">
 							<p>鈦和牙醫診所</p>
-						</div>
-						<div class="clinic-content">
+						</section>
+						<section class="clinic-content">
 							<ul itemscope itemtype="https://schema.org/LocalBusiness">
 								<li itemprop="telephone">
 									<a href="tel:02-8227-6797"><span>02-8227-6797</span></a>
@@ -121,14 +135,14 @@
 									>
 								</li>
 							</ul>
-						</div>
+						</section>
 					</div>
 					<div class="line"></div>
 					<div class="clinic clinic-2 flex fxAiC">
-						<div class="clinic-name">
+						<section class="clinic-name">
 							<span>台中鈦和牙醫診所</span>
-						</div>
-						<div class="clinic-content">
+						</section>
+						<section class="clinic-content">
 							<ul itemscope itemtype="https://schema.org/LocalBusiness">
 								<li itemprop="telephone">
 									<a href="tel:04-2312-1128"><span>04-2312-1128</span></a>
@@ -141,7 +155,7 @@
 									>
 								</li>
 							</ul>
-						</div>
+						</section>
 					</div>
 				</div>
 			</footer>
