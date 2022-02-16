@@ -88,8 +88,23 @@ nav {
 	margin: 5rem 0 6rem;
 	font-size: 1.3rem;
 }
+.service-content {
+	position: relative;
+}
+.service-content::before {
+	position: absolute;
+	content: "";
+	width: 81%;
+	height: 0.24rem;
+	background-color: var(--clr-white);
+	top: 100px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
 .service-content img {
 	margin-bottom: 5rem;
+	position: relative;
+	z-index: 1;
 }
 .service-content h3 {
 	font-size: 1.39rem;
@@ -109,6 +124,9 @@ nav {
 }
 .service-content article {
 	font-weight: 100;
+}
+.service-content article span {
+	font-weight: 700;
 }
 
 /* History */
@@ -241,7 +259,7 @@ nav {
 }
 .history-content .year-content {
 	width: calc(100% - var(--padding-left) - var(--year-box-1));
-	background-color: var(--clr-primary-lightblue);
+	background-color: var(--clr-primary-paleblue);
 	padding: 5.5rem 0 0 0;
 }
 .year-content-container {
@@ -258,11 +276,11 @@ nav {
 	overflow-y: auto;
 	overscroll-behavior-inline: contain;
 	scroll-behavior: smooth;
-	scroll-snap-type: y mandatory;
+	scroll-snap-type: y proximity;
 }
 .year-content-container section {
 	min-height: var(--section-min-height);
-	scroll-snap-align: start;
+	/* scroll-snap-align: start; */
 }
 .year-content-container section > div {
 	scroll-snap-align: start;

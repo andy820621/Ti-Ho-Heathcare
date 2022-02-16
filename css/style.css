@@ -7,7 +7,9 @@
 :root {
 	--clr-primary-blue: hsl(216, 61%, 18%);
 	--clr-primary-yellow: hsl(44, 89%, 53%);
-	--clr-primary-lightblue: hsl(204, 83%, 98%);
+	--clr-primary-lightblue: hsl(214, 47%, 93%);
+	/* --clr-primary-lightblue: hsl(207, 32%, 82%); */
+	--clr-primary-paleblue: hsl(204, 83%, 98%);
 
 	--clr-black: hsl(0, 0%, 8%);
 	--clr-lightblack: hsl(0, 0%, 24%);
@@ -16,7 +18,7 @@
 	--clr-white: hsl(0, 0%, 92%);
 	--clr-white-transparent: hsla(0, 0%, 92%, 0.1);
 
-	--nav-height: 120px;
+	--nav-height: 150px;
 }
 
 html {
@@ -26,6 +28,7 @@ body {
 	font-family: "Lato", "Noto Sans TC", sans-serif;
 	scroll-behavior: smooth;
 	letter-spacing: 1.3px;
+	color: var(--clr-primary-blue);
 }
 
 /* Header Design */

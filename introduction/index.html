@@ -20,6 +20,7 @@
 		<link rel="stylesheet" href="../css/style.css" />
 		<link rel="stylesheet" href="../css/style-tablet.css" />
 		<link rel="stylesheet" href="../css/style-pc.css" />
+		<link rel="stylesheet" href="css/style.css" />
 		<title>鈦和生醫</title>
 	</head>
 	<body>
@@ -30,11 +31,23 @@
 						<div class="logo">
 							<h1>
 								<a
+									class="flex fxJcC fxAiC"
 									href="../index.html"
 									aria-label="Logo anchor"
 									title="logo anchor"
 								>
-									<img src="../svg/Logo.svg" alt="My_Logo" title="Logo" />
+									<img
+										class="logo-image"
+										src="../images/logo-image-blue.png"
+										alt="logo image"
+										title="Logo image"
+									/>
+									<img
+										class="logo-text"
+										src="../images/logo-text-blue.png"
+										alt="logo text"
+										title="Logo text"
+									/>
 								</a>
 							</h1>
 						</div>
@@ -83,14 +96,102 @@
 					</div>
 				</nav>
 			</header>
-			<main
-				style="
-					min-height: calc(100vh - 24px);
-					display: grid;
-					place-items: center;
-				"
-			>
-				<h1>診所介紹</h1>
+			<main>
+				<div id="banner">
+					<picture>
+						<source srcset="./images/header-image.webp" type="image/webp" />
+						<source srcset="./images/header-image.jpg" type="image/jpeg" />
+						<img src="./images/header-image.jpg" alt="header-image-image" />
+					</picture>
+					<div class="banner-content">
+						<article>
+							<p class="textAlignC">
+								秉持的視病猶親我們深知這是我們不同於市場其他植體品牌服務的差異化，<br />
+								<span>TTII(Taipei Tiho Implant Institute)</span>
+								更是我們鈦和人工牙根植牙服務系統的整合行銷平台，<br />
+								<span>one stop shopping</span>
+								一站式整合行銷服務平台，藉由垂直水平整合臨床人工牙根植牙產業服務，<br />
+								是我們成功切入各國市場的最佳商業模式。
+							</p>
+						</article>
+					</div>
+				</div>
+				<div id="introduction" class="flex fxJcC">
+					<div class="clinic-introduction">
+						<picture class="img-container">
+							<source
+								srcset="./images/clinic-introduction.webp"
+								type="image/webp"
+							/>
+							<source
+								srcset="./images/clinic-introduction.jpg"
+								type="image/jpeg"
+							/>
+							<img
+								src="./images/clinic-introduction.jpg"
+								alt="clinic-introduction-image"
+							/>
+						</picture>
+						<section class="content">
+							<div class="title">
+								<h2>
+									<p class="en">CLINIC INTRODUCTION</p>
+									<p class="ch">診所服務</p>
+								</h2>
+							</div>
+							<ul class="navigation">
+								<li>
+									<a href="clinic-service/#clinic-position">台灣診所介紹</a>
+								</li>
+								<li>
+									<a href="clinic-service/#clinic-position">海外診所介紹</a>
+								</li>
+								<li><a href="../contact/">聯繫方式</a></li>
+							</ul>
+							<div class="btn">
+								<button type="button">
+									<a href="clinic-service/">LEARN MORE</a>
+								</button>
+							</div>
+						</section>
+					</div>
+					<div class="technical-cooperation">
+						<picture class="img-container">
+							<source
+								srcset="./images/technical-cooperation.webp"
+								type="image/webp"
+							/>
+							<source
+								srcset="./images/technical-cooperation.jpg"
+								type="image/jpeg"
+							/>
+							<img
+								src="./images/technical-cooperation.jpg"
+								alt="technical-cooperation-image"
+							/>
+						</picture>
+						<section class="content">
+							<div class="title">
+								<h2>
+									<p class="en">TECHNICAL COOPERATION</p>
+									<p class="ch">技術合作</p>
+								</h2>
+							</div>
+							<ul class="navigation">
+								<li><a href="technical-cooperation/">醫師PGY組訓</a></li>
+								<li><a href="technical-cooperation/">診所策略加盟</a></li>
+								<li><a href="../contact/">聯繫方式</a></li>
+							</ul>
+							<div class="btn">
+								<button type="button">
+									<a href="technical-cooperation/" class="whitefont"
+										>LEARN MORE</a
+									>
+								</button>
+							</div>
+						</section>
+					</div>
+				</div>
 			</main>
 			<footer>
 				<div class="contact container flex fxJcSE fxAiC positionR">

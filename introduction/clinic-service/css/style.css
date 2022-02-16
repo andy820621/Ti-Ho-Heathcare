@@ -1,0 +1,224 @@
+/* Nav */
+nav {
+	background-color: var(--clr-white);
+}
+.navMenu a {
+	color: var(--clr-primary-blue);
+	font-weight: 400;
+}
+.dropdown-icon {
+	color: var(--clr-primary-blue);
+}
+.has-dropdown ul {
+	background-color: var(--clr-white);
+}
+/* Need???? */
+.navMenu li.active > a {
+	border-bottom: solid 2px var(--clr-primary-blue);
+}
+
+/* Main tag Start */
+body {
+	background-color: var(--clr-white);
+}
+
+.have-side-container {
+	--margin: calc((100% - 1280px) / 2);
+	--side-nav-width: min(16rem, 24%);
+
+	width: min(100%, 90rem);
+	margin: 0 auto;
+	padding-left: 4%;
+}
+/* Side navigation */
+#side-navigation {
+	flex-basis: var(--side-nav-width);
+}
+#side-navigation ul {
+	width: 100%;
+}
+#side-navigation a {
+	width: 100%;
+	display: block;
+	color: var(--clr-primary-blue);
+	margin-bottom: 1.3em;
+}
+.main-side-container {
+	flex-basis: calc(100% - var(--side-nav-width));
+}
+
+/* Banner */
+#banner {
+	width: 100%;
+}
+#banner picture {
+	display: block;
+	width: 100%;
+	/* height: min(calc(100vh - var(--nav-height)), 1053px); */
+	aspect-ratio: 16 / 8;
+}
+#banner picture img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+.banner-content {
+	font-size: clamp(10px, 0.5rem + 0.4vw, 1rem + 0.1vw);
+	padding: 5.5rem 0;
+	letter-spacing: 0.24em;
+	line-height: 2.5em;
+	width: 60%;
+	margin: 0 auto;
+}
+
+/* Clinic Service */
+#clinic-service {
+	width: 100%;
+	background-color: var(--clr-primary-blue);
+	color: var(--clr-white);
+	padding-bottom: 2rem;
+}
+.title {
+	padding-top: 2.4em;
+	font-size: clamp(1.1rem, 0.8rem + 0.5vw, 1.5rem);
+}
+.title h2 {
+	position: relative;
+	width: max-content;
+	border-bottom: solid 0.24rem var(--clr-primary-yellow);
+	margin: 0 auto;
+	margin-bottom: 2.4em;
+}
+#clinic-service .content {
+	width: 70%;
+	margin: 0 auto;
+	flex-wrap: wrap;
+}
+#clinic-service .card {
+	flex-basis: calc(100% / 3);
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	margin-bottom: 5rem;
+}
+#clinic-service .card img {
+	max-width: 120px;
+	margin: 0 auto;
+	margin-bottom: 1.35rem;
+}
+
+/* Clinic Position */
+#clinic-position {
+	width: 100%;
+}
+#clinic-position .title h2 {
+	margin-bottom: 1.1em;
+}
+.position-navigation {
+	padding-bottom: 5em;
+}
+.position-navigation a {
+	display: block;
+	color: var(--clr-primary-blue);
+	width: max-content;
+	margin: 0 1vw;
+	font-size: clamp(1.1rem, 0.8rem + 0.5vw, 1.4rem);
+	letter-spacing: 0.125em;
+	cursor: pointer;
+	transition: 0.3s;
+}
+.position-navigation a.active,
+.position-navigation a:hover {
+	font-weight: 600;
+	letter-spacing: 0.15em;
+}
+.position-navigation a.active {
+	border-bottom: solid 0.15rem var(--clr-primary-blue);
+	font-weight: 600;
+}
+
+#clinic-position .content {
+	width: inherit;
+	padding: 0 2rem 0 4rem;
+	margin-bottom: 5rem;
+}
+.scroll-container {
+	width: inherit;
+	padding-right: 2rem;
+	height: 45rem;
+	overflow: auto;
+	overscroll-behavior-inline: contain;
+	scroll-behavior: smooth;
+	scroll-snap-type: y proximity;
+	/* scrollbar-gutter: stable both-edges; */
+	scrollbar-gutter: stable;
+}
+/* Scrollbar Design Start */
+.scroll-container::-webkit-scrollbar {
+	width: 0.5rem;
+}
+.scroll-container::-webkit-scrollbar-track {
+	background-color: var(--clr-lightgrey);
+	border-radius: 0.25rem;
+}
+.scroll-container::-webkit-scrollbar-thumb {
+	background-color: var(--clr-primary-blue);
+	border-radius: 0.25rem;
+	border: 1px solid var(--clr-lightgrey);
+}
+/* Scrollbar Design End */
+.scroll-container .clinic {
+	scroll-snap-align: start;
+	width: 100%;
+	display: flex;
+	padding: 0.81rem;
+	border: solid 2.2px var(--clr-primary-yellow);
+	margin-bottom: 0.81rem;
+}
+.scroll-container .clinic:nth-child(even) {
+	border: solid 2.2px var(--clr-primary-blue);
+}
+.scroll-container .clinic img {
+	width: 300px;
+	aspect-ratio: 2 / 1;
+	object-fit: cover;
+	object-position: top;
+	margin-right: 1rem;
+}
+.scroll-container .clinic h3 {
+	margin-bottom: 0.4rem;
+}
+.scroll-container .clinic a {
+	color: var(--clr-primary-blue);
+	font-weight: 400;
+	font-size: 0.95rem;
+	display: inline-block;
+	margin-bottom: 0.4rem;
+	transition: 0.4s;
+}
+.scroll-container .clinic a:hover {
+	font-weight: 600;
+}
+.scroll-container .clinic .map {
+	margin-bottom: 0.4rem;
+}
+.scroll-container .clinic .detail {
+	font-weight: 300;
+	font-size: 0.95rem;
+	padding-right: 24%;
+}
+/* Links Animation */
+.scroll-container .clinic {
+	max-height: 500px;
+	transition: max-height 0.8s, font-size 0.8s, margin 0.8s, padding 0.8s,
+		opacity 0.6s;
+}
+.scroll-container .clinic.disappear {
+	max-height: 0;
+	font-size: 0;
+	margin: 0;
+	opacity: 0;
+	padding: 0;
+}
