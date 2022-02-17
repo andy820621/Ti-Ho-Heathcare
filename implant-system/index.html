@@ -20,6 +20,7 @@
 		<link rel="stylesheet" href="../css/style.css" />
 		<link rel="stylesheet" href="../css/style-tablet.css" />
 		<link rel="stylesheet" href="../css/style-pc.css" />
+		<link rel="stylesheet" href="css/style.css" />
 		<title>鈦和生醫</title>
 	</head>
 	<body>
@@ -30,11 +31,23 @@
 						<div class="logo">
 							<h1>
 								<a
+									class="flex fxJcC fxAiC"
 									href="../index.html"
 									aria-label="Logo anchor"
 									title="logo anchor"
 								>
-									<img src="../svg/Logo.svg" alt="My_Logo" title="Logo" />
+									<img
+										class="logo-image"
+										src="../images/logo-image-blue.png"
+										alt="logo image"
+										title="Logo image"
+									/>
+									<img
+										class="logo-text"
+										src="../images/logo-text-blue.png"
+										alt="logo text"
+										title="Logo text"
+									/>
 								</a>
 							</h1>
 						</div>
@@ -45,29 +58,35 @@
 										>關於鈦和</a
 									>
 								</li>
-								<li class="introduction">
+								<li class="introduction active">
 									<a
-										href="../introduction/"
+										href="../clinic-introduction/"
 										data-link="introduction"
 										title="introduction"
 										>診所介紹</a
 									>
 								</li>
-								<li class="system positionR has-dropdown active">
-									<a href="../system/" data-link="system" title="system">
+								<li class="system positionR has-dropdown">
+									<a
+										href="../implant-system/"
+										data-link="system"
+										title="system"
+									>
 										植體系統
 										<span class="dropdown-icon">
 											<i class="fa-solid fa-caret-down"></i>
 										</span>
 									</a>
 									<ul class="positionA">
-										<li><a href="../system/implant/">植體公司介紹</a></li>
-										<li><a href="../system/product/">產品介紹</a></li>
+										<li>
+											<a href="../implant-system/company/">植體公司介紹</a>
+										</li>
+										<li><a href="../implant-system/product/">產品介紹</a></li>
 									</ul>
 								</li>
 								<li class="technology">
 									<a
-										href="../technology"
+										href="../dental-technology"
 										data-link="technology"
 										title="technology"
 										>牙體技術</a
@@ -83,14 +102,58 @@
 					</div>
 				</nav>
 			</header>
-			<main
-				style="
-					min-height: calc(100vh - 24px);
-					display: grid;
-					place-items: center;
-				"
-			>
-				<h1>植體系統</h1>
+			<main>
+				<div id="banner">
+					<picture>
+						<source srcset="./images/header-image.webp" type="image/webp" />
+						<source srcset="./images/header-image.jpg" type="image/jpeg" />
+						<img src="./images/header-image.jpg" alt="header-image-image" />
+					</picture>
+					<div class="banner-content">
+						<article>
+							<p class="textAlignC">
+								也就是男生所說分別裝置阿摩斯，方式還是。<br />
+								信箱本身本報台北，那就適合，調查身影開放，運行平台天然，創。<br />
+								特殊把它靈魂破壞改善然而體育工作接受位於，一定要必然他不什。<br />
+								是我們成功切入各國市場的最佳商業模式。
+							</p>
+						</article>
+					</div>
+				</div>
+				<div id="introduction" class="flex fxJcC">
+					<div class="company-introduction">
+						<picture class="img-container">
+							<source srcset="./images/company.webp" type="image/webp" />
+							<source srcset="./images/company.jpg" type="image/jpeg" />
+							<img src="./images/company.jpg" alt="company-image" />
+						</picture>
+						<section class="card">
+							<h2 class="title">植體公司介紹</h2>
+							<div class="content">
+								<p class="detail">
+									任何毫不幸福意大利，天然核心一下等待電信，楠雅。
+								</p>
+								<a href="./company/" class="button">LEARN MORE</a>
+							</div>
+						</section>
+					</div>
+					<div class="product-introduction">
+						<picture class="img-container">
+							<source srcset="./images/product.webp" type="image/webp" />
+							<source srcset="./images/product.jpg" type="image/jpeg" />
+							<img src="./images/product.jpg" alt="product-image" />
+						</picture>
+						<section class="card">
+							<h2 class="title">產品介紹</h2>
+							<div class="content">
+								<p class="detail">
+									維護不足技術接受經銷商高雄輕鬆免費軍隊員工智能深入本類高校，可憐開心，瞭解基金。
+								</p>
+								<a href="./product/" class="button">LEARN MORE</a>
+							</div>
+						</section>
+					</div>
+				</div>
 			</main>
 			<footer>
 				<div class="contact container flex fxJcSE fxAiC positionR">
