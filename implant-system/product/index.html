@@ -20,6 +20,7 @@
 		<link rel="stylesheet" href="../../css/style.css" />
 		<link rel="stylesheet" href="../../css/style-tablet.css" />
 		<link rel="stylesheet" href="../../css/style-pc.css" />
+		<link rel="stylesheet" href="css/style.css" />
 		<title>鈦和生醫</title>
 	</head>
 	<body>
@@ -30,11 +31,23 @@
 						<div class="logo">
 							<h1>
 								<a
+									class="flex fxJcC fxAiC"
 									href="../../index.html"
 									aria-label="Logo anchor"
 									title="logo anchor"
 								>
-									<img src="../../svg/Logo.svg" alt="My_Logo" title="Logo" />
+									<img
+										class="logo-image"
+										src="../../images/logo-image-blue.png"
+										alt="logo image"
+										title="Logo image"
+									/>
+									<img
+										class="logo-text"
+										src="../../images/logo-text-blue.png"
+										alt="logo text"
+										title="Logo text"
+									/>
 								</a>
 							</h1>
 						</div>
@@ -68,7 +81,7 @@
 										<li>
 											<a href="../../implant-system/company/">植體公司介紹</a>
 										</li>
-										<li class="active">
+										<li>
 											<a href="../../implant-system/product/">產品介紹</a>
 										</li>
 									</ul>
@@ -91,14 +104,167 @@
 					</div>
 				</nav>
 			</header>
-			<main
-				style="
-					min-height: calc(100vh - 24px);
-					display: grid;
-					place-items: center;
-				"
-			>
-				<h1>產品介紹</h1>
+			<main>
+				<div id="banner">
+					<div class="banner-title">
+						<h2>產品介紹</h2>
+					</div>
+					<picture>
+						<source srcset="./images/banner-image.webp" type="image/webp" />
+						<source srcset="./images/banner-image.jpg" type="image/jpeg" />
+						<img src="./images/banner-image.jpg" alt="banner-image-image" />
+					</picture>
+				</div>
+				<div id="product">
+					<div class="product-navigation flex fxJcC fxDirectionC">
+						<ul class="nav-links flex fxJcSB marginAuto">
+							<li><h3 class="active" data-sort="implant-sort">植體系統</h3></li>
+							<li><h3 data-sort="another-sort">其他產品</h3></li>
+						</ul>
+						<div class="sort">
+							<div class="sort-container marginAuto">
+								<ul class="implant-sort flex active">
+									<li class="active">
+										OS
+										<div class="data-container">
+											<span
+												data-webp="./images/webp/os-1.webp"
+												data-jpg="./images/os-1.jpg"
+											></span>
+											<span
+												data-webp="./images/webp/os-2.webp"
+												data-jpg="./images/os-2.jpg"
+											></span>
+										</div>
+									</li>
+									<li>
+										OP
+										<div class="data-container">
+											<span
+												data-webp="./images/webp/op-1.webp"
+												data-jpg="./images/op-1.jpg"
+											></span>
+											<span
+												data-webp="./images/webp/op-2.webp"
+												data-jpg="./images/op-2.jpg"
+											></span>
+										</div>
+									</li>
+									<li>
+										TS
+										<div class="data-container">
+											<span
+												data-webp="./images/webp/ts-1.webp"
+												data-jpg="./images/ts-1.jpg"
+											></span>
+											<span
+												data-webp="./images/webp/ts-2.webp"
+												data-jpg="./images/ts-2.jpg"
+											></span>
+										</div>
+									</li>
+									<li>
+										KITS
+										<div class="data-container">
+											<span
+												data-webp="./images/webp/kits.webp"
+												data-jpg="./images/kits.jpg"
+											></span>
+										</div>
+									</li>
+								</ul>
+								<ul class="another-sort flex">
+									<li class="active">
+										ZIRCONIA
+										<div class="data-container">
+											<span
+												data-webp="./images/webp/ZIRCONIA.webp"
+												data-jpg="./images/ZIRCONIA.jpg"
+											></span>
+										</div>
+									</li>
+									<li>
+										CGF
+										<div class="data-container">
+											<span
+												data-webp="./images/webp/CGF-1.webp"
+												data-jpg="./images/CGF-1.jpg"
+											></span>
+											<span
+												data-webp="./images/webp/CGF-2.webp"
+												data-jpg="./images/CGF-2.jpg"
+											></span>
+										</div>
+									</li>
+									<li>
+										ZIRCONIA DRILLS
+										<div class="data-container">
+											<span
+												data-webp="./images/webp/ZIRCONIA-DRILLS-1.webp"
+												data-jpg="./images/ZIRCONIA-DRILLS-1.jpg"
+											></span>
+											<span
+												data-webp="./images/webp/ZIRCONIA-DRILLS-2.webp"
+												data-jpg="./images/ZIRCONIA-DRILLS-2.jpg"
+											></span>
+											<span
+												data-webp="./images/webp/ZIRCONIA-DRILLS-3.webp"
+												data-jpg="./images/ZIRCONIA-DRILLS-3.jpg"
+											></span>
+											<span
+												data-webp="./images/webp/ZIRCONIA-DRILLS-4.webp"
+												data-jpg="./images/ZIRCONIA-DRILLS-4.jpg"
+											></span>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="product-content">
+						<div class="slider-container">
+							<ul class="slider-gallery">
+								<li>
+									<picture>
+										<source
+											srcset="./images/webp/os-1.webp"
+											type="image/webp"
+										/>
+										<source srcset="./images/os-1.jpg" type="image/jpeg" />
+										<img src="./images/os-1.jpg" alt="slider-image" />
+									</picture>
+								</li>
+								<li>
+									<picture>
+										<source
+											srcset="./images/webp/os-2.webp"
+											type="image/webp"
+										/>
+										<source srcset="./images/os-2.jpg" type="image/jpeg" />
+										<img src="./images/os-2.jpg" alt="slider-image" />
+									</picture>
+								</li>
+							</ul>
+						</div>
+						<button
+							class="prev fas fa-caret-left inactive"
+							id="prev"
+							aria-label="goPrevBtn"
+							tabindex
+						></button>
+						<button
+							class="next fas fa-caret-right"
+							id="next"
+							aria-label="goNextBtn"
+							tabindex
+						></button>
+
+						<div class="dot-container flex">
+							<span class="dot active"></span>
+							<span class="dot"></span>
+						</div>
+					</div>
+				</div>
 			</main>
 			<footer>
 				<div class="contact container flex fxJcSE fxAiC positionR">
@@ -154,6 +320,7 @@
 					</div>
 				</div>
 			</footer>
+			<script src="./js/app.js"></script>
 		</div>
 	</body>
 </html>

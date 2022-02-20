@@ -1,0 +1,206 @@
+/* Nav */
+nav {
+	background-color: var(--clr-white);
+}
+.navMenu a {
+	color: var(--clr-primary-blue);
+	font-weight: 400;
+}
+.dropdown-icon {
+	color: var(--clr-primary-blue);
+}
+.has-dropdown ul {
+	background-color: var(--clr-white);
+}
+/* Need???? */
+.navMenu li.active > a {
+	border-bottom: solid 2px var(--clr-primary-blue);
+}
+
+/* Main tag Start */
+body {
+	background-color: var(--clr-white);
+}
+
+/* Banner */
+#banner {
+	width: 100%;
+	height: 20rem;
+	position: relative;
+	background-color: aqua;
+}
+.banner-title {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	color: var(--clr-white);
+	z-index: 1;
+}
+#banner picture {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	inset: 0;
+}
+#banner img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+/* Product */
+#product {
+	width: 100%;
+}
+.product-navigation {
+	width: 100%;
+	padding-top: 4rem;
+}
+.nav-links {
+	width: clamp(12rem, 8rem + 5rem, 15rem);
+	padding-bottom: 2rem;
+}
+.nav-links li h3 {
+	display: block;
+	font-weight: 500;
+	transition: 0.4s ease;
+	cursor: pointer;
+}
+.nav-links li h3.active,
+.nav-links li h3:hover {
+	font-weight: 600;
+	border-bottom: solid 0.24em var(--clr-primary-yellow);
+}
+.sort {
+	width: 100%;
+}
+.sort-container {
+	width: min(100%, 800px);
+	height: 2.5rem;
+	position: relative;
+	display: grid;
+	place-items: center;
+}
+.sort-container ul {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: 0 auto;
+	transition: 0.5s;
+	opacity: 0;
+}
+.sort-container .implant-sort {
+	transform: translateX(-150%);
+}
+.sort-container .another-sort {
+	transform: translateX(50%);
+}
+.sort-container ul.active {
+	opacity: 1;
+	transform: translateX(-50%);
+}
+.sort-container ul.active li {
+	cursor: pointer;
+}
+.sort-container li {
+	width: max-content;
+	padding: 0 10px;
+	font-size: 1.2rem;
+	letter-spacing: 0.1em;
+	transition: 0.4s ease;
+}
+.sort-container li.active,
+.sort-container li:hover {
+	font-weight: 900;
+}
+
+/* Slider */
+.product-content {
+	width: min(75%, 1280px);
+	margin: 3rem auto 8rem;
+	position: relative;
+	margin-top: 3rem;
+}
+.slider-container {
+	width: 100%;
+	aspect-ratio: 375 / 188;
+	position: relative;
+	overflow-x: hidden;
+}
+.slider-container .slider-gallery {
+	width: calc(100% * 4);
+	display: flex;
+	transition: 0.5s ease;
+}
+.slider-container li {
+	width: calc(100% / 4);
+	height: auto;
+	display: grid;
+	place-items: center;
+}
+.slider-container img {
+	width: 100%;
+	height: min-content;
+	object-fit: cover;
+	object-position: center;
+}
+/* Btn Design */
+.product-content button {
+	/* display: block; */
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 2.75rem;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	transition: 0.4s ease;
+}
+.product-content .prev {
+	left: -1.25em;
+}
+.product-content .next {
+	right: -1.25em;
+}
+.product-content .prev:hover {
+	transform: translateY(-50%) translateX(-0.24em);
+	color: var(--clr-primary-yellow);
+}
+.product-content .next:hover {
+	transform: translateY(-50%) translateX(0.24rem);
+	color: var(--clr-primary-yellow);
+}
+/* Btn & Dot inactive class */
+.inactive {
+	opacity: 0;
+	visibility: hidden;
+	cursor: initial;
+}
+/* Dot Design */
+.dot-container {
+	position: absolute;
+	width: max-content;
+	left: 50%;
+	bottom: -5.2rem;
+	transform: translateX(-50%);
+}
+.dot-container .dot {
+	display: block;
+	width: 1.1rem;
+	height: 1.1rem;
+	border-radius: 50%;
+	background-color: transparent;
+	outline: solid 0.15rem var(--clr-primary-blue);
+	margin: 1.7rem 0.8rem;
+	transition: 0.4s ease;
+}
+.dot-container .dot.active,
+.dot-container .dot:hover {
+	background-color: var(--clr-primary-blue);
+	border: solid 0.15rem var(--clr-white);
+}
