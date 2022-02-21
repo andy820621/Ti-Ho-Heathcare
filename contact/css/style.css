@@ -163,8 +163,9 @@ body {
 	width: 90vw;
 	margin: 0 auto;
 	position: relative;
-	min-height: 900px;
-	overflow-x: hidden;
+	min-height: 38rem;
+	/* overflow-x: hidden; */
+	overflow: hidden;
 	margin-top: 4.5rem;
 }
 .clinic-container > div {
@@ -210,13 +211,13 @@ body {
 }
 
 .city {
-	padding-bottom: 3rem;
 	/* inactive */
 	opacity: 0;
 	max-height: 0;
 	transition: 0.4s ease;
 }
 .city.active {
+	padding-bottom: 3rem;
 	opacity: 1;
 	max-height: initial;
 }
@@ -224,13 +225,22 @@ body {
 	font-size: 1.3rem;
 	width: max-content;
 	padding: 0.24em 1em;
+	/* inactive */
+	opacity: 0;
+	padding: 0;
+	max-height: 0;
+	transition: 0.4s ease;
+}
+.city.active .city-name {
 	border: solid 0.1rem var(--clr-primary-blue);
+	opacity: 1;
+	padding: 0.24em 1em;
+	max-height: initial;
 }
 .clinic-card {
 	display: flex;
 	align-items: center;
 	padding: 0.8em 0;
-	border-bottom: solid 0.2em var(--clr-primary-yellow);
 	/* inactive */
 	opacity: 0;
 	padding: 0;
@@ -238,24 +248,20 @@ body {
 	transition: 0.4s ease;
 }
 .clinic-card.active {
+	border-bottom: solid 0.2em var(--clr-primary-yellow);
 	opacity: 1;
 	padding: 0.8rem 0;
 	max-height: initial;
 }
-.clinic-card .name {
+.clinic-card.active .name {
 	width: 33%;
 	font-size: 1.2rem;
 	letter-spacing: 0.1em;
 }
-.name h4 {
-	/* display: grid;
-	grid-auto-flow: column;
-	width: fit-content; */
-}
 .name h4.en {
 	letter-spacing: 0.08em;
 }
-.clinic-card .name .icon {
+.clinic-card.active .name .icon {
 	display: inline-block;
 	width: 1.65em;
 	height: 1.65em;
@@ -263,31 +269,35 @@ body {
 	vertical-align: -0.45em;
 }
 .clinic-card .name .icon a {
+	color: #c30d23;
+}
+.clinic-card.active .name .icon a {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	display: block;
 	font-size: 0.8em;
-	color: #c30d23;
 }
-.clinic-card .information {
+.clinic-card.active .information {
 	display: flex;
 	flex-direction: column;
 }
 .clinic-card .information a {
+	color: var(--clr-primary-blue);
+}
+.clinic-card.active .information a {
 	display: inline-block;
 	line-height: 2em;
-	color: var(--clr-primary-blue);
 	font-size: 0.95rem;
 	font-weight: 400;
 	position: relative;
 	transition: font-weight 0.4s ease;
 }
-.clinic-card .information a:hover {
+.clinic-card.active .information a:hover {
 	font-weight: 600;
 }
-.clinic-card .information a::after {
+.clinic-card.active .information a::after {
 	position: absolute;
 	content: "";
 	width: 100%;
@@ -300,7 +310,7 @@ body {
 	transform-origin: left bottom;
 	transition: opacity 0.4s ease, transform 0.4s ease;
 }
-.clinic-card .information a:hover::after {
+.clinic-card.active .information a:hover::after {
 	opacity: 1;
 	transform: scaleX(100%);
 }

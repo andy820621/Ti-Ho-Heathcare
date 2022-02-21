@@ -6,34 +6,49 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
+	// Map Navigation
+	let clinic = document.querySelector("#clinic");
+
+	addGlobalEventListener("click", ".banner-navigation li h2", (e) => {
+		if (e.target.closest("li").classList.contains("active")) return;
+		document
+			.querySelector(".banner-navigation li.active")
+			.classList.remove("active");
+		e.target.closest("li").classList.add("active");
+		let targetSelector = document.querySelector(
+			`.countries > li > h2[data-country="${e.target.dataset.country}"]`
+		);
+		CountryChangeFunction(targetSelector);
+		window.scrollTo(0, clinic.offsetTop);
+	});
+
 	// Clinic Navigation
 	const clinicContainer = document.querySelector(".clinic-container");
-	// let clinicContainerHeight = clinicContainer.offsetHeight;
 
 	function resetClinicContainerHeight() {
-		clinicContainer.style.minHeight =
-			document.querySelector(".clinic-container>div.active").scrollHeight +
-			240 +
-			"px";
+		setTimeout(() => {
+			clinicContainer.style.minHeight =
+				document.querySelector(".clinic-container>div.active").scrollHeight +
+				80 +
+				"px";
+		}, 450);
 	}
-
-	addGlobalEventListener("click", ".countries > li > h2", (e) => {
-		if (e.target.closest("li").classList.contains("active")) return;
+	function CountryChangeFunction(selector) {
 		// Remove all old active class
 		let allOldActives = document.querySelectorAll("#clinic .active");
 		allOldActives.forEach((allOldActive) =>
 			allOldActive.classList.remove("active")
 		);
 		// Set Main Nav active List
-		e.target.closest("li").classList.add("active");
+		selector.closest("li").classList.add("active");
 
 		// Set Sub Nav active list
-		e.target.nextElementSibling
+		selector.nextElementSibling
 			.querySelectorAll("li h3")[0]
 			.classList.add("active");
 
 		// Set clinic-country active
-		let activeCountry = document.querySelector(`.${e.target.dataset.country}`);
+		let activeCountry = document.querySelector(`.${selector.dataset.country}`);
 		activeCountry.classList.add("active");
 
 		// Set clinic-country's first child Active
@@ -51,6 +66,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		);
 
 		resetClinicContainerHeight();
+	}
+
+	addGlobalEventListener("click", ".countries > li > h2", (e) => {
+		if (e.target.closest("li").classList.contains("active")) return;
+		let selector = e.target;
+		CountryChangeFunction(selector);
 	});
 
 	addGlobalEventListener("click", ".lists li h3", (e) => {
@@ -69,7 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		let activeSort = document.querySelector(
 			`.clinic-container>div.active .${targetSort}`
 		);
-		console.log(activeSort);
 		activeSort.classList.add("active");
 
 		if (e.target.dataset.clinic === "franchisees") {
@@ -87,5 +107,6 @@ document.addEventListener("DOMContentLoaded", function () {
 				.querySelectorAll(`.clinic-card`)
 				.forEach((e) => e.classList.add("active"));
 		}
+		resetClinicContainerHeight();
 	});
 });
