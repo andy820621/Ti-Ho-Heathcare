@@ -26,7 +26,10 @@
 	<body>
 		<div id="home">
 			<header class="header">
-				<nav>
+				<nav aria-labelledby="primary-nav-label">
+					<div id="primary-nav-label" class="need-hidden">
+						主導航<span>primary</span>
+					</div>
 					<div class="container flex fxJcSB fxAiC">
 						<div class="logo">
 							<h1>
@@ -39,32 +42,55 @@
 									<img
 										class="logo-image"
 										src="../../images/logo-image-blue.png"
-										alt="logo image"
-										title="Logo image"
+										alt="Our logo for "
 									/>
 									<img
 										class="logo-text"
 										src="../../images/logo-text-blue.png"
-										alt="logo text"
-										title="Logo text"
+										alt="TI-HO HEALTHCARE "
 									/>
 								</a>
 							</h1>
 						</div>
-						<div class="navMenu">
-							<ul class="flex fxAiC">
-								<li class="about">
+						<button
+							class="hamburger positionF"
+							title="menu burger"
+							aria-label="menu button"
+							aria-controls="menu-control"
+							aria-haspopup="menu"
+							tabindex="0"
+						>
+							<span>menu burger</span>
+							<div class="hambuger-container positionR">
+								<div class="hamburger_line line1"></div>
+								<div class="hamburger_line line2"></div>
+								<div class="hamburger_line line3"></div>
+							</div>
+						</button>
+						<div class="navMenu" aria-expanded="false" id="menu-control">
+							<ul class="flex fxAiC" role="menubar">
+								<li class="about" role="menuitem">
 									<a href="../../about/" data-link="about" title="about"
 										>關於鈦和</a
 									>
 								</li>
-								<li class="introduction active">
-									<a
-										href="../../clinic-introduction/"
-										data-link="introduction"
-										title="introduction"
-										>診所介紹</a
-									>
+								<li class="introduction positionR has-dropdown active">
+									<a href="../" data-link="introduction" title="introduction"
+										>診所介紹
+										<span class="dropdown-icon">
+											<i class="fa-solid fa-caret-down"></i>
+										</span>
+									</a>
+									<ul class="positionA" role="menubar" aria-expanded="false">
+										<ul class="positionA" role="menubar" aria-expanded="false">
+											<li class="active">
+												<a href="./">診所服務</a>
+											</li>
+											<li>
+												<a href="../technical-cooperation/">技術合作</a>
+											</li>
+										</ul>
+									</ul>
 								</li>
 								<li class="system positionR has-dropdown">
 									<a
@@ -77,7 +103,7 @@
 											<i class="fa-solid fa-caret-down"></i>
 										</span>
 									</a>
-									<ul class="positionA">
+									<ul class="positionA" role="menubar" aria-expanded="false">
 										<li>
 											<a href="../../implant-system/company/">植體公司介紹</a>
 										</li>
@@ -86,7 +112,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="technology">
+								<li class="technology" role="menuitem">
 									<a
 										href="../../dental-technology"
 										data-link="technology"
@@ -94,7 +120,7 @@
 										>牙體技術</a
 									>
 								</li>
-								<li class="contact">
+								<li class="contact" role="menuitem">
 									<a href="../../contact/" data-link="contact" title="contact"
 										>聯絡我們</a
 									>
@@ -113,23 +139,26 @@
 						</ul>
 					</div>
 					<div class="main-side-container">
-						<div id="banner">
+						<section id="banner" aria-labelledby="banner-title">
 							<picture>
 								<source srcset="./images/banner-image.webp" type="image/webp" />
 								<source srcset="./images/banner-image.jpg" type="image/jpeg" />
 								<img src="./images/banner-image.jpg" alt="banner-image" />
 							</picture>
 							<div class="banner-content">
+								<h2 id="banner-title" class="need-hidden">
+									關於我們的服務 About our service
+								</h2>
 								<article>
 									<p class="textAlignC">
 										家長恢復滿意心裡大家主流，軟體遠遠幸福預計一隻空中總數他不軍事您是遠程表達加工經驗，年度理由基隆將來集中，承諾有可能保障表演嘗試想想，它們。
 									</p>
 								</article>
 							</div>
-						</div>
-						<div id="clinic-service">
+						</section>
+						<section id="clinic-service" aria-labelledby="service-title">
 							<div class="title textAlignC">
-								<h2>診所服務</h2>
+								<h2 id="service-title">診所服務</h2>
 							</div>
 							<div class="content flex fxJcC fxAiFs">
 								<div class="card">
@@ -157,24 +186,42 @@
 									<div class="card-title">兒童牙科</div>
 								</div>
 							</div>
-						</div>
-						<div id="clinic-position">
+						</section>
+						<section id="clinic-position" aria-labelledby="position-title">
 							<div class="title textAlignC">
-								<h2>診所位置</h2>
+								<h2 id="position-title">診所位置</h2>
 							</div>
 							<div class="position-navigation">
 								<ul class="flex fxJcSA col-7 marginAuto">
-									<li><a data-city="all" class="active">所有診所</a></li>
-									<li><a data-city="Taipei city">台北市</a></li>
-									<li><a data-city="New Taipei city">新北市</a></li>
-									<li><a data-city="Taichung city">台中市</a></li>
-									<li><a data-city="Foreign">海外診所</a></li>
+									<li>
+										<a data-city="all" class="active" aria-selected="true"
+											>所有診所</a
+										>
+									</li>
+									<li>
+										<a data-city="Taipei city" aria-selected="false">台北市</a>
+									</li>
+									<li>
+										<a data-city="New Taipei city" aria-selected="false"
+											>新北市</a
+										>
+									</li>
+									<li>
+										<a data-city="Taichung city" aria-selected="false"
+											>台中市</a
+										>
+									</li>
+									<li>
+										<a data-city="Foreign" aria-selected="false">海外診所</a>
+									</li>
 								</ul>
 							</div>
 							<div class="content">
 								<div class="scroll-container">
 									<div class="clinic" data-position="New Taipei city">
-										<img src="./images/clinic.jpg" alt="clinic image" />
+										<div class="img-container">
+											<img src="./images/clinic.jpg" alt="clinic image" />
+										</div>
 										<section class="information">
 											<h3 class="name">鈦和牙醫診所</h3>
 											<div class="number">
@@ -197,7 +244,9 @@
 										</section>
 									</div>
 									<div class="clinic" data-position="Taichung city">
-										<img src="./images/clinic.jpg" alt="clinic image" />
+										<div class="img-container">
+											<img src="./images/clinic.jpg" alt="clinic image" />
+										</div>
 										<section class="information">
 											<h3 class="name">台中鈦和牙醫診所</h3>
 											<div class="number">
@@ -218,7 +267,9 @@
 										</section>
 									</div>
 									<div class="clinic" data-position="New Taipei city">
-										<img src="./images/clinic.jpg" alt="clinic image" />
+										<div class="img-container">
+											<img src="./images/clinic.jpg" alt="clinic image" />
+										</div>
 										<section class="information">
 											<h3 class="name">凱旋牙醫診所</h3>
 											<div class="number">
@@ -239,7 +290,9 @@
 										</section>
 									</div>
 									<div class="clinic" data-position="New Taipei city">
-										<img src="./images/clinic.jpg" alt="clinic image" />
+										<div class="img-container">
+											<img src="./images/clinic.jpg" alt="clinic image" />
+										</div>
 										<section class="information">
 											<h3 class="name">有全牙醫診所</h3>
 											<div class="number">
@@ -260,7 +313,9 @@
 										</section>
 									</div>
 									<div class="clinic" data-position="Taipei city">
-										<img src="./images/clinic.jpg" alt="clinic image" />
+										<div class="img-container">
+											<img src="./images/clinic.jpg" alt="clinic image" />
+										</div>
 										<section class="information">
 											<h3 class="name">景美牙醫診所</h3>
 											<div class="number">
@@ -281,7 +336,9 @@
 										</section>
 									</div>
 									<div class="clinic" data-position="New Taipei city">
-										<img src="./images/clinic.jpg" alt="clinic image" />
+										<div class="img-container">
+											<img src="./images/clinic.jpg" alt="clinic image" />
+										</div>
 										<section class="information">
 											<h3 class="name">祥齡牙醫診所</h3>
 											<div class="number">
@@ -302,11 +359,13 @@
 										</section>
 									</div>
 									<div class="clinic" data-position="Foreign">
-										<img src="./images/clinic.jpg" alt="clinic image" />
+										<div class="img-container">
+											<img src="./images/clinic.jpg" alt="clinic image" />
+										</div>
 										<section class="information">
 											<h3 class="name">
-												Tiho Dental Clinic | Klinik Pergigian TIHO (Dental
-												Clinic Kuala Lumpur)
+												Tiho Dental Clinic | Klinik Pergigian TIHO <br />
+												(Dental Clinic Kuala Lumpur)
 											</h3>
 											<div class="number">
 												<a href="tel:+60102581285">+06 10-258-1285</a>
@@ -328,7 +387,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</section>
 					</div>
 				</div>
 			</main>

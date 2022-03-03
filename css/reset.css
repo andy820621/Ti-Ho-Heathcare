@@ -48,7 +48,8 @@ a {
 }
 
 /* Make images easier to work with */
-img {
+img,
+picture {
 	max-width: 100%;
 	display: block;
 }

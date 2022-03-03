@@ -1,24 +1,24 @@
 /* Nav */
 nav {
-	background-color: var(--clr-white);
+	background-color: hsl(var(--clr-white));
 }
 .navMenu a {
-	color: var(--clr-primary-blue);
+	color: hsl(var(--clr-primary-blue));
 	font-weight: 400;
 }
 .dropdown-icon {
-	color: var(--clr-primary-blue);
+	color: hsl(var(--clr-primary-blue));
 }
 .has-dropdown ul {
-	background-color: var(--clr-white);
+	background-color: hsl(var(--clr-white));
 }
 /* Need???? */
 .navMenu li.active > a {
-	border-bottom: solid 2px var(--clr-primary-blue);
+	border-bottom: solid 2px hsl(var(--clr-primary-blue));
 }
 
 body {
-	background-color: var(--clr-white);
+	background-color: hsl(var(--clr-white));
 }
 /* Banner */
 #banner {
@@ -45,8 +45,8 @@ body {
 
 .banner-navigation li {
 	z-index: 10;
-	color: var(--clr-primary-yellow);
-	border: solid 0.2em var(--clr-primary-yellow);
+	color: hsl(var(--clr-primary-yellow));
+	border: solid 0.2em hsl(var(--clr-primary-yellow));
 	font-size: calc(81vw * 0.012);
 	width: max(12%, 5.5rem);
 	padding: 0.24em 0;
@@ -55,10 +55,10 @@ body {
 	transition: 0.4s ease;
 }
 
-.banner-navigation li.active,
+.banner-navigation li[aria-selected="true"],
 .banner-navigation li:hover {
-	background-color: var(--clr-primary-yellow);
-	color: var(--clr-white);
+	background-color: hsl(var(--clr-primary-yellow));
+	color: hsl(var(--clr-white));
 }
 .banner-navigation .taiwan-link {
 	top: 25%;
@@ -72,7 +72,7 @@ body {
 	filter: contrast(120%) grayscale(81%);
 	transition: filter 0.4s ease;
 }
-.banner-navigation li.active + picture {
+.banner-navigation li[aria-selected="true"] + picture {
 	filter: contrast(100%) grayscale(0%);
 }
 .banner-navigation li:hover + picture {
@@ -105,7 +105,7 @@ body {
 	cursor: pointer;
 	position: relative;
 }
-.countries li.active h2 {
+.countries li[aria-selected="true"] h2 {
 	font-weight: 700;
 }
 .countries h2::after {
@@ -115,13 +115,14 @@ body {
 	height: 0.1em;
 	left: 0;
 	bottom: 0;
-	background-color: var(--clr-primary-yellow);
+	background-color: hsl(var(--clr-primary-yellow));
 	opacity: 0;
 	transform: scaleX(0);
-	transform-origin: left bottom;
+	transform-origin: right bottom;
 	transition: opacity 0.4s ease, transform 0.4s ease;
 }
-.countries :is(li.active, li:hover) h2::after {
+.countries :is(li[aria-selected="true"], li:hover) h2::after {
+	transform-origin: left bottom;
 	opacity: 1;
 	transform: scaleX(100%);
 }
@@ -138,7 +139,7 @@ body {
 .malaysia .lists {
 	transform: translateX(100%);
 }
-.countries li.active .lists {
+.countries li[aria-selected="true"] .lists {
 	opacity: 1;
 	visibility: visible;
 	transform: translateX(0);
@@ -152,7 +153,7 @@ body {
 	cursor: pointer;
 	transition: 0.4s ease;
 }
-.lists li h3.active,
+.lists li h3[aria-selected="true"],
 .lists li h3:hover {
 	font-weight: 700;
 	transform: scaleY(1.05);
@@ -232,7 +233,7 @@ body {
 	transition: 0.4s ease;
 }
 .city.active .city-name {
-	border: solid 0.1rem var(--clr-primary-blue);
+	border: solid 0.1rem hsl(var(--clr-primary-blue));
 	opacity: 1;
 	padding: 0.24em 1em;
 	max-height: initial;
@@ -248,7 +249,7 @@ body {
 	transition: 0.4s ease;
 }
 .clinic-card.active {
-	border-bottom: solid 0.2em var(--clr-primary-yellow);
+	border-bottom: solid 0.2em hsl(var(--clr-primary-yellow));
 	opacity: 1;
 	padding: 0.8rem 0;
 	max-height: initial;
@@ -279,12 +280,20 @@ body {
 	display: block;
 	font-size: 0.8em;
 }
+/* Map icon animation Start */
+.clinic-card.active .name .icon {
+	transition: transform 0.4s ease;
+}
+.clinic-card.active .name .icon:hover {
+	transform: scale(1.5);
+}
+/* Map icon animation End */
 .clinic-card.active .information {
 	display: flex;
 	flex-direction: column;
 }
 .clinic-card .information a {
-	color: var(--clr-primary-blue);
+	color: hsl(var(--clr-primary-blue));
 }
 .clinic-card.active .information a {
 	display: inline-block;
@@ -304,13 +313,14 @@ body {
 	height: 1.3px;
 	left: 0;
 	bottom: 0;
-	background-color: var(--clr-primary-blue);
+	background-color: hsl(var(--clr-primary-blue));
 	opacity: 0;
+	transform-origin: right bottom;
 	transform: scaleX(0);
-	transform-origin: left bottom;
 	transition: opacity 0.4s ease, transform 0.4s ease;
 }
 .clinic-card.active .information a:hover::after {
+	transform-origin: left bottom;
 	opacity: 1;
 	transform: scaleX(100%);
 }

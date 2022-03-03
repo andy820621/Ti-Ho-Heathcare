@@ -26,7 +26,10 @@
 	<body>
 		<div id="home">
 			<header class="header">
-				<nav>
+				<nav aria-labelledby="primary-nav-label">
+					<div id="primary-nav-label" class="need-hidden">
+						主導航<span>primary</span>
+					</div>
 					<div class="container flex fxJcSB fxAiC">
 						<div class="logo">
 							<h1>
@@ -39,32 +42,67 @@
 									<img
 										class="logo-image"
 										src="../../images/logo-image-blue.png"
-										alt="logo image"
-										title="Logo image"
+										alt="Our logo for "
 									/>
 									<img
 										class="logo-text"
 										src="../../images/logo-text-blue.png"
-										alt="logo text"
-										title="Logo text"
+										alt="TI-HO HEALTHCARE "
 									/>
 								</a>
 							</h1>
 						</div>
-						<div class="navMenu">
-							<ul class="flex fxAiC">
-								<li class="about">
+						<button
+							class="hamburger positionF"
+							title="menu burger"
+							aria-label="menu button"
+							aria-controls="menu-control"
+							aria-haspopup="menu"
+							tabindex="0"
+						>
+							<span>menu burger</span>
+							<div class="hambuger-container positionR">
+								<div class="hamburger_line line1"></div>
+								<div class="hamburger_line line2"></div>
+								<div class="hamburger_line line3"></div>
+							</div>
+						</button>
+						<div class="navMenu" aria-expanded="false" id="menu-control">
+							<ul class="flex fxAiC" role="menubar">
+								<li class="about" role="menuitem">
 									<a href="../../about/" data-link="about" title="about"
 										>關於鈦和</a
 									>
 								</li>
-								<li class="introduction">
+								<li
+									class="introduction positionR has-dropdown"
+									role="menuitem"
+									aria-haspopout="true"
+								>
 									<a
 										href="../../clinic-introduction/"
 										data-link="introduction"
 										title="introduction"
-										>診所介紹</a
-									>
+										>診所介紹
+										<span class="dropdown-icon">
+											<i class="fa-solid fa-caret-down"></i>
+										</span>
+									</a>
+									<ul class="positionA" role="menubar" aria-expanded="false">
+										<ul class="positionA" role="menubar" aria-expanded="false">
+											<li>
+												<a href="../../clinic-introduction/clinic-service/"
+													>診所服務</a
+												>
+											</li>
+											<li>
+												<a
+													href="../../clinic-introduction/technical-cooperation/"
+													>技術合作</a
+												>
+											</li>
+										</ul>
+									</ul>
 								</li>
 								<li class="system positionR has-dropdown active">
 									<a
@@ -77,16 +115,16 @@
 											<i class="fa-solid fa-caret-down"></i>
 										</span>
 									</a>
-									<ul class="positionA">
+									<ul class="positionA" role="menubar" aria-expanded="false">
 										<li>
 											<a href="../../implant-system/company/">植體公司介紹</a>
 										</li>
-										<li>
+										<li class="active">
 											<a href="../../implant-system/product/">產品介紹</a>
 										</li>
 									</ul>
 								</li>
-								<li class="technology">
+								<li class="technology" role="menuitem">
 									<a
 										href="../../dental-technology"
 										data-link="technology"
@@ -94,7 +132,7 @@
 										>牙體技術</a
 									>
 								</li>
-								<li class="contact">
+								<li class="contact" role="menuitem">
 									<a href="../../contact/" data-link="contact" title="contact"
 										>聯絡我們</a
 									>
@@ -105,26 +143,30 @@
 				</nav>
 			</header>
 			<main>
-				<div id="banner">
+				<section id="banner" aria-labelledby="banner-title">
 					<div class="banner-title">
-						<h2>產品介紹</h2>
+						<h2 id="banner-title">產品介紹</h2>
 					</div>
 					<picture>
 						<source srcset="./images/banner-image.webp" type="image/webp" />
 						<source srcset="./images/banner-image.jpg" type="image/jpeg" />
 						<img src="./images/banner-image.jpg" alt="banner-image-image" />
 					</picture>
-				</div>
-				<div id="product">
+				</section>
+				<section id="product" aria-label="Product Introduction">
 					<div class="product-navigation flex fxJcC fxDirectionC">
 						<ul class="nav-links flex fxJcSB marginAuto">
-							<li><h3 class="active" data-sort="implant-sort">植體系統</h3></li>
-							<li><h3 data-sort="another-sort">其他產品</h3></li>
+							<li>
+								<h3 aria-selected="true" data-sort="implant-sort">植體系統</h3>
+							</li>
+							<li>
+								<h3 aria-selected="false" data-sort="another-sort">其他產品</h3>
+							</li>
 						</ul>
 						<div class="sort">
 							<div class="sort-container marginAuto">
-								<ul class="implant-sort flex active">
-									<li class="active">
+								<ul aria-selected="true" class="implant-sort flex">
+									<li aria-selected="true">
 										OS
 										<div class="data-container">
 											<span
@@ -137,7 +179,7 @@
 											></span>
 										</div>
 									</li>
-									<li>
+									<li aria-selected="false">
 										OP
 										<div class="data-container">
 											<span
@@ -150,7 +192,7 @@
 											></span>
 										</div>
 									</li>
-									<li>
+									<li aria-selected="false">
 										TS
 										<div class="data-container">
 											<span
@@ -163,7 +205,7 @@
 											></span>
 										</div>
 									</li>
-									<li>
+									<li aria-selected="false">
 										KITS
 										<div class="data-container">
 											<span
@@ -173,8 +215,8 @@
 										</div>
 									</li>
 								</ul>
-								<ul class="another-sort flex">
-									<li class="active">
+								<ul aria-selected="false" class="another-sort flex">
+									<li aria-selected="true">
 										ZIRCONIA
 										<div class="data-container">
 											<span
@@ -183,7 +225,7 @@
 											></span>
 										</div>
 									</li>
-									<li>
+									<li aria-selected="false">
 										CGF
 										<div class="data-container">
 											<span
@@ -196,7 +238,7 @@
 											></span>
 										</div>
 									</li>
-									<li>
+									<li aria-selected="false">
 										ZIRCONIA DRILLS
 										<div class="data-container">
 											<span
@@ -260,11 +302,11 @@
 						></button>
 
 						<div class="dot-container flex">
-							<span class="dot active"></span>
-							<span class="dot"></span>
+							<span class="dot" aria-selected="true"></span>
+							<span class="dot" aria-selected="false"></span>
 						</div>
 					</div>
-				</div>
+				</section>
 			</main>
 			<footer>
 				<div class="contact container flex fxJcSE fxAiC positionR">

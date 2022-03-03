@@ -1,30 +1,30 @@
 /* Nav */
 nav {
-	background-color: var(--clr-white);
+	background-color: hsl(var(--clr-white));
 }
 .navMenu a {
-	color: var(--clr-primary-blue);
+	color: hsl(var(--clr-primary-blue));
 	font-weight: 400;
 }
 .dropdown-icon {
-	color: var(--clr-primary-blue);
+	color: hsl(var(--clr-primary-blue));
 }
 .has-dropdown ul {
-	background-color: var(--clr-white);
+	background-color: hsl(var(--clr-white));
 }
 /* Need???? */
 .navMenu li.active > a {
-	border-bottom: solid 2px var(--clr-primary-blue);
+	border-bottom: solid 2px hsl(var(--clr-primary-blue));
 }
 
 /* Main tag Start */
 body {
-	background-color: var(--clr-white);
+	background-color: hsl(var(--clr-white));
 }
 
 .have-side-container {
 	--margin: calc((100% - 1280px) / 2);
-	--side-nav-width: min(16rem, 24%);
+	--side-nav-width: clamp(8rem, 20%, 14rem);
 
 	width: min(100%, 90rem);
 	margin: 0 auto;
@@ -33,6 +33,7 @@ body {
 /* Side navigation */
 #side-navigation {
 	flex-basis: var(--side-nav-width);
+	min-width: 8rem;
 }
 #side-navigation ul {
 	width: 100%;
@@ -40,7 +41,7 @@ body {
 #side-navigation a {
 	width: 100%;
 	display: block;
-	color: var(--clr-primary-blue);
+	color: hsl(var(--clr-primary-blue));
 	margin-bottom: 1.3em;
 	font-weight: 500;
 	transition: 0.4s;
@@ -58,7 +59,6 @@ body {
 	width: 100%;
 }
 #banner picture {
-	display: block;
 	width: 100%;
 	/* height: min(calc(100vh - var(--nav-height)), 1053px); */
 	aspect-ratio: 16 / 8;
@@ -81,7 +81,7 @@ body {
 /* Clinic Service */
 #concept {
 	width: 100%;
-	background-color: var(--clr-primary-lightblue);
+	background-color: hsl(var(--clr-primary-lightblue));
 	padding-bottom: 2rem;
 }
 .title {
@@ -91,7 +91,7 @@ body {
 .title h2 {
 	position: relative;
 	width: max-content;
-	border-bottom: solid 0.24rem var(--clr-primary-yellow);
+	border-bottom: solid 0.24rem hsl(var(--clr-primary-yellow));
 	margin: 0 auto;
 }
 #concept .content {
@@ -112,7 +112,7 @@ body {
 .card .card-title {
 	font-weight: 600;
 	font-size: 1rem;
-	border: solid 0.1em var(--clr-primary-yellow);
+	border: solid 0.1em hsl(var(--clr-primary-yellow));
 	letter-spacing: 0.2em;
 	width: max-content;
 	padding: 0.24em 0.5em;
@@ -139,15 +139,14 @@ body {
 
 /* Implant System */
 #implant-system {
-	color: var(--clr-white);
-	background-color: var(--clr-primary-blue);
+	color: hsl(var(--clr-white));
+	background-color: hsl(var(--clr-primary-blue));
 	padding-bottom: 6em;
 }
 #implant-system .title {
 	padding: 4.5em 0;
 }
 #implant-system picture {
-	display: block;
 	width: 100%;
 	padding-left: 8%;
 	padding-right: 12%;
@@ -180,49 +179,25 @@ body {
 	top: 0;
 	left: 0;
 	display: flex;
-	transition: 0.5s;
+	transition: transform 0.5s ease;
+	transform: translateX(0);
+}
+.content ul.grabbing {
+	transition: none;
 }
 .content li {
 	width: 50%;
 	display: flex;
 	align-items: center;
-	background-color: var(--clr-primary-blue);
+	background-color: hsl(var(--clr-primary-blue));
 	margin: 0;
+	user-select: none;
+	cursor: grab;
+	transition: transform 0.3s ease-in-out;
 }
-
-/* li active animation Satrt */
-.content li > section > *,
-.content li > section > *::after {
-	opacity: 0;
-	transform-origin: left top;
+.grabbing li {
+	cursor: grabbing;
 }
-.content li h3 {
-	transform: scaleX(0.5);
-	transition: 0.3s ease-out;
-}
-.content li > section > h3::after {
-	transition: 0.6s ease-out;
-	transform: scaleX(0);
-}
-.content li p {
-	transform: scaleX(0.5);
-	transition: 0.8s ease-out;
-}
-.content li.active > section > *,
-.content li.active > section > *::after {
-	opacity: 1;
-	transform: scale(1);
-}
-.content li.active h3 {
-	transition-delay: 0.5s;
-}
-.content li.active h3::after {
-	transition-delay: 0.7s;
-}
-.content li.active p {
-	transition-delay: 0.9s;
-}
-/* li active animation End */
 
 .content .content-caption {
 	display: flex;
@@ -230,7 +205,7 @@ body {
 	justify-content: center;
 	width: 50%;
 	aspect-ratio: 700 / 467;
-	color: var(--clr-white);
+	color: hsl(var(--clr-white));
 	padding: 0 4rem;
 }
 .content .content-caption h3 {
@@ -245,11 +220,10 @@ body {
 	content: "";
 	width: calc(100% - 1rem);
 	height: 0.19rem;
-	background-color: var(--clr-primary-yellow);
+	background-color: hsl(var(--clr-primary-yellow));
 	bottom: 0;
 	left: 0;
 }
-
 .content .content-caption p {
 	font-size: 0.9rem;
 	font-weight: 400;
@@ -260,13 +234,20 @@ body {
 .content .img-container {
 	width: 50%;
 	aspect-ratio: 700 / 467;
+	overflow: hidden;
 }
 .content .img-container img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	object-position: center;
+	transition: transform 0.3s ease-in-out;
+	transform: scale(1.05);
 }
+.content .grabbing img {
+	transform: scale(1);
+}
+
 /* Btn Desighn */
 .button-container {
 	width: 100%;
@@ -278,10 +259,10 @@ body {
 	height: 1.3rem;
 	border-radius: 50%;
 	margin: 0 0.8rem;
-	border: solid 2.5px var(--clr-primary-blue);
+	border: solid 2.5px hsl(var(--clr-primary-blue));
 	transition: background-color 0.4s ease;
 }
 .button-container button:hover,
-.button-container button.active {
-	background-color: var(--clr-primary-blue);
+.button-container button[aria-selected="true"] {
+	background-color: hsl(var(--clr-primary-blue));
 }

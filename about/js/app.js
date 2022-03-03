@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 	// Global EventListener
 	// function addGlobalEventListener(type, selector, callback) {
-	// 	document.addEventListener(type, (e) => {
+	// 	document.body.addEventListener(type, (e) => {
 	// 		if (e.target.matches(selector)) callback(e);
 	// 	});
 	// }
@@ -33,11 +33,11 @@ document.addEventListener("DOMContentLoaded", function () {
 			) {
 				let current = entry.target.dataset.year;
 				document
-					.querySelector(".history-title a.active")
-					.classList.remove("active");
+					.querySelector(`[aria-selected="true"]`)
+					.setAttribute("aria-selected", "false");
 				document
 					.querySelector(`.history-title a.${current}`)
-					.classList.add("active");
+					.setAttribute("aria-selected", "true");
 				let activeSectionDiv = document.querySelectorAll(
 					".year-content-container .active >div"
 				);

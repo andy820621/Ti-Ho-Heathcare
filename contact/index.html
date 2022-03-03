@@ -26,7 +26,10 @@
 	<body>
 		<div id="home">
 			<header class="header">
-				<nav>
+				<nav aria-labelledby="primary-nav-label">
+					<div id="primary-nav-label" class="need-hidden">
+						主導航<span>primary</span>
+					</div>
 					<div class="container flex fxJcSB fxAiC">
 						<div class="logo">
 							<h1>
@@ -39,34 +42,68 @@
 									<img
 										class="logo-image"
 										src="../images/logo-image-blue.png"
-										alt="logo image"
-										title="Logo image"
+										alt="Our logo for "
 									/>
 									<img
 										class="logo-text"
 										src="../images/logo-text-blue.png"
-										alt="logo text"
-										title="Logo text"
+										alt="TI-HO HEALTHCARE "
 									/>
 								</a>
 							</h1>
 						</div>
-						<div class="navMenu">
-							<ul class="flex fxAiC">
-								<li class="about">
+						<button
+							class="hamburger positionF"
+							title="menu burger"
+							aria-label="menu button"
+							aria-controls="menu-control"
+							aria-haspopup="menu"
+							tabindex="0"
+						>
+							<span>menu burger</span>
+							<div class="hambuger-container positionR">
+								<div class="hamburger_line line1"></div>
+								<div class="hamburger_line line2"></div>
+								<div class="hamburger_line line3"></div>
+							</div>
+						</button>
+						<div class="navMenu" aria-expanded="false" id="menu-control">
+							<ul class="flex fxAiC" role="menubar">
+								<li class="about" role="menuitem">
 									<a href="../about/" data-link="about" title="about"
 										>關於鈦和</a
 									>
 								</li>
-								<li class="introduction">
+								<li
+									class="introduction positionR has-dropdown"
+									role="menuitem"
+									aria-haspopout="true"
+								>
 									<a
 										href="../clinic-introduction/"
 										data-link="introduction"
 										title="introduction"
-										>診所介紹</a
-									>
+										>診所介紹
+										<span class="dropdown-icon">
+											<i class="fa-solid fa-caret-down"></i>
+										</span>
+									</a>
+									<ul class="positionA" role="menubar" aria-expanded="false">
+										<ul class="positionA" role="menubar" aria-expanded="false">
+											<li>
+												<a href="../clinic-introduction/clinic-service/"
+													>診所服務</a
+												>
+											</li>
+											<li>
+												<a href="../clinic-introduction/technical-cooperation/"
+													>技術合作</a
+												>
+											</li>
+										</ul>
+									</ul>
 								</li>
-								<li class="system positionR has-dropdown active">
+								<li class="system positionR has-dropdown">
 									<a
 										href="../implant-system/"
 										data-link="system"
@@ -77,14 +114,14 @@
 											<i class="fa-solid fa-caret-down"></i>
 										</span>
 									</a>
-									<ul class="positionA">
+									<ul class="positionA" role="menubar" aria-expanded="false">
 										<li>
 											<a href="../implant-system/company/">植體公司介紹</a>
 										</li>
 										<li><a href="../implant-system/product/">產品介紹</a></li>
 									</ul>
 								</li>
-								<li class="technology">
+								<li class="technology" role="menuitem">
 									<a
 										href="../dental-technology"
 										data-link="technology"
@@ -92,7 +129,7 @@
 										>牙體技術</a
 									>
 								</li>
-								<li class="contact">
+								<li class="contact active">
 									<a href="../contact/" data-link="contact" title="contact"
 										>聯絡我們</a
 									>
@@ -103,15 +140,15 @@
 				</nav>
 			</header>
 			<main>
-				<div id="banner">
+				<section id="banner" aria-label="Map">
 					<picture>
 						<source srcset="./images/header-map.webp" type="image/webp" />
 						<source srcset="./images/header-map.jpg" type="image/jpeg" />
 						<img src="./images/header-map.jpg" alt="header-map-image" />
 					</picture>
-					</picture>
+
 					<ul class="banner-navigation positionR">
-						<li class="taiwan-link positionA active">
+						<li aria-selected="true" class="taiwan-link positionA active">
 							<h2 data-country="clinic-taiwan">TAIWAN</h2>
 						</li>
 						<picture class="positionA">
@@ -128,51 +165,82 @@
 							<img src="./images/malaysia.png" alt="malaysia-image" />
 						</picture>
 					</ul>
-				</div>
-				<div id="clinic">
-					<div class="clinic-navigation">
+				</section>
+				<section id="clinic" aria-label="Contact Information">
+					<section
+						class="clinic-navigation"
+						aria-label="Information Navigation"
+					>
 						<ul class="countries grid">
-							<li class="taiwan active">
+							<li aria-selected="true" class="taiwan">
 								<h2 data-country="clinic-taiwan">TAIWAN</h2>
 								<ul class="lists flex positionA">
-									<li><h3 data-sort="clinics" data-clinic="original">診所服務</h3></li>
 									<li>
-										<h3 class="active" data-sort="clinics" data-clinic="franchisees">策略加盟診所</h3>
+										<h3
+											aria-selected="false"
+											data-sort="clinics"
+											data-clinic="original"
+										>
+											診所服務
+										</h3>
 									</li>
-									<li><h3 data-sort="dental-workshop">牙體技術工坊</h3></li>
+									<li>
+										<h3
+											aria-selected="true"
+											data-sort="clinics"
+											data-clinic="franchisees"
+										>
+											策略加盟診所
+										</h3>
+									</li>
+									<li>
+										<h3 aria-selected="false" data-sort="dental-workshop">
+											牙體技術工坊
+										</h3>
+									</li>
 								</ul>
 							</li>
-							<li class="malaysia">
+							<li aria-selected="false" class="malaysia">
 								<h2 data-country="clinic-malaysia">MALAYSIA</h2>
 								<ul class="lists flex positionA">
-									<li><h3 data-sort="clinics">診所服務</h3></li>
-									<li><h3 data-sort="dental-workshop">牙體技術工坊</h3></li>
+									<li>
+										<h3 aria-selected="false" data-sort="clinics">診所服務</h3>
+									</li>
+									<li>
+										<h3 aria-selected="false" data-sort="dental-workshop">
+											牙體技術工坊
+										</h3>
+									</li>
 								</ul>
 							</li>
 						</ul>
-					</div>
-					<div class="clinic-container">
+					</section>
+					<section class="clinic-container" aria-label="Detail Information">
 						<div class="clinic-taiwan active">
 							<div class="clinics active">
 								<div class="city active">
 									<div class="city-name">台北市</div>
 									<div class="clinic-card active" data-link="franchisees">
 										<div class="name">
-											<h4>景美牙醫診所
+											<h4>
+												景美牙醫診所
 												<span class="icon">
-													<a href="#" class="fa-solid fa-location-dot"></a>
+													<a
+														href="https://www.google.com/maps/place/%E6%99%AF%E7%BE%8E%E7%89%99%E9%86%AB%E8%A8%BA%E6%89%80/@24.9913974,121.5396544,17z/data=!3m1!4b1!4m5!3m4!1s0x3442aa00da5533a9:0x594d9f64d03366c8!8m2!3d24.9913953!4d121.5418571"
+														class="fa-solid fa-location-dot"
+														target="_Jingmei"
+													></a>
 												</span>
 											</h4>
 										</div>
 										<div class="information">
 											<div class="number">
-												<a href="tel:+886229339793"
-													>02-2933-9793</a>
+												<a href="tel:+886229339793">02-2933-9793</a>
 											</div>
 											<a
 												class="address"
 												href="https://www.google.com/maps/place/%E6%99%AF%E7%BE%8E%E7%89%99%E9%86%AB%E8%A8%BA%E6%89%80/@24.9913974,121.5396544,17z/data=!3m1!4b1!4m5!3m4!1s0x3442aa00da5533a9:0x594d9f64d03366c8!8m2!3d24.9913953!4d121.5418571"
-												target="_blank"
+												target="_Jingmei"
 												>台北市文山區景美街20號3樓</a
 											>
 										</div>
@@ -184,34 +252,42 @@
 
 									<div class="clinic-card" data-link="original">
 										<div class="name">
-											<h4>鈦和牙醫診所
+											<h4>
+												鈦和牙醫診所
 												<span class="icon">
-													<a href="#" class="fa-solid fa-location-dot"></a>
+													<a
+														href="https://www.google.com/maps/place/%E9%88%A6%E5%92%8C%E7%89%99%E9%86%AB%E8%A8%BA%E6%89%80/@25.0000466,121.4882014,17z/data=!3m1!4b1!4m5!3m4!1s0x3468028013666341:0x1a0a01dd0b4c47fe!8m2!3d25.0000466!4d121.4903954"
+														class="fa-solid fa-location-dot"
+														target="_TiHo"
+													></a>
 												</span>
 											</h4>
 										</div>
 
 										<div class="information">
 											<div class="number">
-												<a href="tel:02-8227-7106"
-													>02-8227-7106#16</a
-												>
+												<a href="tel:02-8227-7106">02-8227-7106#16</a>
 												<span>/</span>
 												<a href="tel:02-8227-6797">02-8227-6797</a>
 											</div>
 											<a
 												class="address"
 												href="https://www.google.com/maps/place/%E9%88%A6%E5%92%8C%E7%89%99%E9%86%AB%E8%A8%BA%E6%89%80/@25.0000466,121.4882014,17z/data=!3m1!4b1!4m5!3m4!1s0x3468028013666341:0x1a0a01dd0b4c47fe!8m2!3d25.0000466!4d121.4903954"
-												target="_blank"
+												target="_TiHo"
 												>新北市中和區建康路156、158號2樓</a
 											>
 										</div>
 									</div>
 									<div class="clinic-card active" data-link="franchisees">
 										<div class="name">
-											<h4>凱旋牙醫診所
+											<h4>
+												凱旋牙醫診所
 												<span class="icon">
-													<a href="#" class="fa-solid fa-location-dot"></a>
+													<a
+														href="https://www.google.com/maps/place/%E5%87%B1%E6%97%8B%E7%89%99%E9%86%AB%E8%A8%BA%E6%89%80/@24.963264,121.5115924,17z/data=!3m1!4b1!4m5!3m4!1s0x346802481cac77df:0x48e2dd0faf5248b4!8m2!3d24.9632657!4d121.5137852"
+														class="fa-solid fa-location-dot"
+														target="_triumph"
+													></a>
 												</span>
 											</h4>
 										</div>
@@ -223,53 +299,59 @@
 											<a
 												class="address"
 												href="https://www.google.com/maps/place/%E5%87%B1%E6%97%8B%E7%89%99%E9%86%AB%E8%A8%BA%E6%89%80/@24.963264,121.5115924,17z/data=!3m1!4b1!4m5!3m4!1s0x346802481cac77df:0x48e2dd0faf5248b4!8m2!3d24.9632657!4d121.5137852"
-												target="_blank"
+												target="_triumph"
 												>新北市新店區安康路二段88號</a
 											>
 										</div>
 									</div>
 									<div class="clinic-card active" data-link="franchisees">
 										<div class="name">
-											<h4>有全牙醫診所
+											<h4>
+												有全牙醫診所
 												<span class="icon">
-													<a href="#" class="fa-solid fa-location-dot"></a>
+													<a
+														href="https://www.google.com/maps/place/%E6%9C%89%E5%85%A8%E7%89%99%E9%86%AB%E8%A8%BA%E6%89%80/@24.97562,121.5409349,17z/data=!3m1!4b1!4m5!3m4!1s0x346801f129ef5bef:0xde1b01a5fca1b1d0!8m2!3d24.97562!4d121.5431289"
+														class="fa-solid fa-location-dot"
+														target="_YuChuan"
+													></a>
 												</span>
 											</h4>
 										</div>
 
 										<div class="information">
-											<div class="number">		
-												<a href="tel:+886229101388"
-													>02-2910-1388</a
-												>
+											<div class="number">
+												<a href="tel:+886229101388">02-2910-1388</a>
 											</div>
 											<a
 												class="address"
 												href="https://www.google.com/maps/place/%E6%9C%89%E5%85%A8%E7%89%99%E9%86%AB%E8%A8%BA%E6%89%80/@24.97562,121.5409349,17z/data=!3m1!4b1!4m5!3m4!1s0x346801f129ef5bef:0xde1b01a5fca1b1d0!8m2!3d24.97562!4d121.5431289"
-												target="_blank"
+												target="_YuChuan"
 												>新北市新店區北新路二段164號</a
 											>
 										</div>
 									</div>
 									<div class="clinic-card active" data-link="franchisees">
 										<div class="name">
-											<h4>祥齡牙醫診所
+											<h4>
+												祥齡牙醫診所
 												<span class="icon">
-													<a href="#" class="fa-solid fa-location-dot"></a>
+													<a
+														href="https://www.google.com/maps/place/%E7%A5%A5%E9%BD%A1%E7%89%99%E9%86%AB%E8%A8%BA%E6%89%80/@25.0067012,121.4695025,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a8208eba5221:0x8a52df23f21c773b!8m2!3d25.0067012!4d121.4716965"
+														class="fa-solid fa-location-dot"
+														target="_SiangLing"
+													></a>
 												</span>
 											</h4>
 										</div>
 
 										<div class="information">
-											<div class="number">					
-												<a href="tel:+886229523299"
-													>02-2952-3299</a
-												>
+											<div class="number">
+												<a href="tel:+886229523299">02-2952-3299</a>
 											</div>
 											<a
 												class="address"
 												href="https://www.google.com/maps/place/%E7%A5%A5%E9%BD%A1%E7%89%99%E9%86%AB%E8%A8%BA%E6%89%80/@25.0067012,121.4695025,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a8208eba5221:0x8a52df23f21c773b!8m2!3d25.0067012!4d121.4716965"
-												target="_blank"
+												target="_SiangLing"
 												>新北市中和區中山路三段204號</a
 											>
 										</div>
@@ -280,20 +362,25 @@
 									<div class="city-name">台中市</div>
 									<div class="clinic-card" data-link="original">
 										<div class="name">
-											<h4>台中鈦和牙醫診所
+											<h4>
+												台中鈦和牙醫診所
 												<span class="icon">
-													<a href="#" class="fa-solid fa-location-dot"></a>
+													<a
+														href="https://www.google.com/maps/place/%E9%88%A6%E5%92%8C%E7%89%99%E9%86%AB%E8%A8%BA%E6%89%80/@24.161548,120.650181,17z/data=!3m1!4b1!4m5!3m4!1s0x34693d8f080de00d:0x87f600aa25664fd0!8m2!3d24.161548!4d120.652375"
+														class="fa-solid fa-location-dot"
+														target="_TaichungTiHo"
+													></a>
 												</span>
 											</h4>
 										</div>
 										<div class="information">
-											<div class="number">											
+											<div class="number">
 												<a href="tel:04-2312-1128">04-2312-1128</a>
 											</div>
 											<a
 												class="address"
 												href="https://www.google.com/maps/place/%E9%88%A6%E5%92%8C%E7%89%99%E9%86%AB%E8%A8%BA%E6%89%80/@24.161548,120.650181,17z/data=!3m1!4b1!4m5!3m4!1s0x34693d8f080de00d:0x87f600aa25664fd0!8m2!3d24.161548!4d120.652375"
-												target="_blank"
+												target="_TaichungTiHo"
 												>台中市西屯區中港路二段58-2號</a
 											>
 										</div>
@@ -305,19 +392,25 @@
 									<div class="city-name">新北市</div>
 									<div class="clinic-card" data-link="workshop">
 										<div class="name">
-											<h4>鈦和數位牙體技術工坊
+											<h4>
+												鈦和數位牙體技術工坊
 												<span class="icon">
-													<a href="#" class="fa-solid fa-location-dot"></a>
+													<a
+														href="https://www.google.com/maps/place/235%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%92%8C%E5%8D%80%E5%BB%BA%E5%BA%B7%E8%B7%AF174%E8%99%9F/@25.0000788,121.4887839,17z/data=!3m1!4b1!4m5!3m4!1s0x346802800ecd0d15:0xa1265cd9b97fb5e4!8m2!3d25.0000788!4d121.4909726"
+														class="fa-solid fa-location-dot"
+														target="_dentalLaboratory"
+													></a>
 												</span>
 											</h4>
 										</div>
 										<div class="information">
-											<div class="number">						
-												<a href="tel:02-8227-7106" >02-8227-7106#21</a>
+											<div class="number">
+												<a href="tel:02-8227-7106">02-8227-7106#21</a>
 											</div>
 											<a
 												href="https://www.google.com/maps/place/235%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%92%8C%E5%8D%80%E5%BB%BA%E5%BA%B7%E8%B7%AF174%E8%99%9F/@25.0000788,121.4887839,17z/data=!3m1!4b1!4m5!3m4!1s0x346802800ecd0d15:0xa1265cd9b97fb5e4!8m2!3d25.0000788!4d121.4909726"
 												class="address"
+												target="_dentalLaboratory"
 												>新北市中和區建康路174號</a
 											>
 										</div>
@@ -328,14 +421,18 @@
 						<div class="clinic-malaysia">
 							<div class="clinics active">
 								<div class="city active">
-									<div class="city-name"></div>
+									<div class="city-name">吉隆坡</div>
 									<div class="clinic-card active" data-link="franchisees">
 										<div class="name">
 											<h4 class="en">
 												Tiho Dental Clinic | Klinik Pergigian TIHO (Dental
 												Clinic Kuala Lumpur)
 												<span class="icon">
-													<a href="#" class="fa-solid fa-location-dot"></a>
+													<a
+														href="https://www.google.com/maps/place/Tiho+Dental+Clinic+%7C+Klinik+Pergigian+TIHO+(Dental+Clinic+Kuala+Lumpur)/@3.1490292,101.6944483,17z/data=!3m1!4b1!4m5!3m4!1s0x31cc49256eea6ef5:0x8ad88384f5ff16cb!8m2!3d3.1490292!4d101.6966423"
+														class="fa-solid fa-location-dot"
+														target="_KualaLumpurClinic"
+													></a>
 												</span>
 											</h4>
 										</div>
@@ -346,7 +443,7 @@
 											<a
 												class="address"
 												href="https://www.google.com/maps/place/Tiho+Dental+Clinic+%7C+Klinik+Pergigian+TIHO+(Dental+Clinic+Kuala+Lumpur)/@3.1490292,101.6944483,17z/data=!3m1!4b1!4m5!3m4!1s0x31cc49256eea6ef5:0x8ad88384f5ff16cb!8m2!3d3.1490292!4d101.6966423"
-												target="_blank"
+												target="_KualaLumpurClinic"
 												>2nd Floor, Wisma Lau Chung No. 11&13, Jalan Tun Perak,
 												50050 Kuala Lumpur, Malaysia</a
 											>
@@ -356,22 +453,28 @@
 							</div>
 							<div class="dental-workshop">
 								<div class="city">
-									<div class="city-name"></div>
+									<div class="city-name">吉隆坡</div>
 									<div class="clinic-card" data-link="workshop">
 										<div class="name">
-											<h4 class="en">Tiho Dental Laboratory
+											<h4 class="en">
+												Tiho Dental Laboratory
 												<span class="icon">
-													<a href="#" class="fa-solid fa-location-dot"></a>
+													<a
+														href="https://www.google.com/maps/place/Tiho+Dental+Clinic+%7C+Klinik+Pergigian+TIHO+(Dental+Clinic+Kuala+Lumpur)/@3.1490292,101.6966423,15z/data=!4m5!3m4!1s0x0:0x8ad88384f5ff16cb!8m2!3d3.1490292!4d101.6966423"
+														class="fa-solid fa-location-dot"
+														target="_KualaLumpurdentalLaboratory"
+													></a>
 												</span>
 											</h4>
 										</div>
 										<div class="information">
 											<div class="number">
-												<a href="tel:+60102581285" >+60 10-258-1285</a>
+												<a href="tel:+60102581285">+60 10-258-1285</a>
 											</div>
 											<a
 												href="https://www.google.com/maps/place/Tiho+Dental+Clinic+%7C+Klinik+Pergigian+TIHO+(Dental+Clinic+Kuala+Lumpur)/@3.1490292,101.6966423,15z/data=!4m5!3m4!1s0x0:0x8ad88384f5ff16cb!8m2!3d3.1490292!4d101.6966423"
 												class="address"
+												target="_KualaLumpurdentalLaboratory"
 												>2nd Floor,Wisma Lau Chung No. 11&13, Jalan Tun
 												Perak,50050 Kuala Lumpur, Malaysia</a
 											>
@@ -380,8 +483,8 @@
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
+					</section>
+				</section>
 			</main>
 			<footer>
 				<div class="contact container flex fxJcSE fxAiC positionR">

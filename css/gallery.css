@@ -49,19 +49,19 @@
 	position: absolute;
 	left: 0;
 	bottom: -2rem;
-	color: var(--clr-lightgrey);
+	color: hsl(var(--clr-lightgrey));
 }
 .lightbox-image-wrapper .lightbox-text-right {
 	position: absolute;
 	right: 0;
 	bottom: -2rem;
-	color: var(--clr-lightgrey);
+	color: hsl(var(--clr-lightgrey));
 }
 
 .lightbox-container .lightbox-btn {
 	background-color: transparent;
 	border: none;
-	color: var(--clr-white);
+	color: hsl(var(--clr-white));
 	font-size: 3rem;
 	cursor: pointer;
 	transition: all 0.3s ease-in-out;

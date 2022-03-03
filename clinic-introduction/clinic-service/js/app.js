@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 	// Global EventListener
 	function addGlobalEventListener(type, selector, callback) {
-		document.addEventListener(type, (e) => {
+		document.body.addEventListener(type, (e) => {
 			if (e.target.matches(selector)) callback(e);
 		});
 	}
@@ -20,13 +20,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	const clinics = document.querySelectorAll(".clinic");
 
 	addGlobalEventListener("click", ".position-navigation a", (e) => {
+		if (e.target.getAttribute("aria-selected") === "true") return;
 		document
-			.querySelector(".position-navigation a.active")
-			.classList.remove("active");
-		e.target.classList.add("active");
+			.querySelector(`.position-navigation a[aria-selected="true"]`)
+			.setAttribute("aria-selected", "false");
+		e.target.setAttribute("aria-selected", "true");
 
 		let activeCity = e.target.dataset.city;
-		console.log(e.target.dataset.city);
 		clinics.forEach((clinic) => {
 			if (activeCity === "all") {
 				clinic.classList.remove("disappear");

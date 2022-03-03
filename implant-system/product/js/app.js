@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 	// Global EventListener
 	function addGlobalEventListener(type, selector, callback) {
-		document.addEventListener(type, (e) => {
+		document.body.addEventListener(type, (e) => {
 			if (e.target.matches(selector)) callback(e);
 		});
 	}
@@ -22,10 +22,14 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Functions
 	function setActiveSort() {
 		document
-			.querySelector(".sort ul.active li.active")
-			.classList.remove("active");
-		document.querySelectorAll(".sort ul.active li")[0].classList.add("active");
-		setSliderImage(document.querySelectorAll(".sort ul.active li")[0]);
+			.querySelector(`.sort ul[aria-selected="true"] li[aria-selected="true"]`)
+			.setAttribute("aria-selected", "false");
+		document
+			.querySelectorAll(`.sort ul[aria-selected="true"] li`)[0]
+			.setAttribute("aria-selected", "true");
+		setSliderImage(
+			document.querySelectorAll(`.sort ul[aria-selected="true"] li`)[0]
+		);
 	}
 	function setSliderImage(target) {
 		// Remove old images & dots
@@ -55,13 +59,17 @@ document.addEventListener("DOMContentLoaded", function () {
 		sliderGalleryList = document.querySelectorAll(".slider-gallery li");
 		dots = document.querySelectorAll(".dot");
 		if (dots.length !== 1) {
-			dotContainer.querySelectorAll("span")[0].classList.add("active");
+			dotContainer
+				.querySelectorAll("span")[0]
+				.setAttribute("aria-selected", "true");
 			dots.forEach(function dot(e, index) {
 				e.addEventListener("click", function () {
 					if (index !== currentIndex) {
 						currentIndex = index;
 						resetCounter();
-						sliderGallery.style.marginLeft = -currentIndex * sliderWidth + "px";
+						sliderGallery.style.transform = `translateX(-${
+							currentIndex * sliderWidth
+						}px)`;
 						SetDotActive(currentIndex);
 						detectIfNeedtoAddInactive(currentIndex);
 					}
@@ -80,7 +88,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		// Reset slideFunction
 		currentIndex = 0;
-		sliderGallery.style.marginLeft = -currentIndex * sliderWidth + "px";
+		sliderGallery.style.transform = `translateX(-${
+			currentIndex * sliderWidth
+		}px)`;
 		if (imageDatas.length !== 1) {
 			sliderWidth = sliderGalleryList[0].getBoundingClientRect().width;
 			sliderOffsetHeight = slider.offsetHeight;
@@ -92,15 +102,23 @@ document.addEventListener("DOMContentLoaded", function () {
 			cancelAnimationFrame(slideanimationId);
 		}
 	}
+	// Disable content menu
+	window.oncontextmenu = function (event) {
+		event.preventDefault();
+		event.stopPropagation();
+		return false;
+	};
 
 	// SlideFunction EventListener
 	window.addEventListener("resize", function () {
 		sliderWidth = sliderGalleryList[0].getBoundingClientRect().width;
-		sliderGallery.style.marginLeft = -currentIndex * sliderWidth + "px";
+		sliderGallery.style.transform = `translateX(-${
+			currentIndex * sliderWidth
+		}px)`;
 
 		sliderOffsetHeight = slider.offsetHeight;
 	});
-	addGlobalEventListener("click", "button", (e) => {
+	addGlobalEventListener("click", "button.fas", (e) => {
 		resetCounter();
 		e.target.classList.contains("prev") ? slide("prev") : slide();
 	});
@@ -109,17 +127,19 @@ document.addEventListener("DOMContentLoaded", function () {
 			if (index !== currentIndex) {
 				currentIndex = index;
 				resetCounter();
-				sliderGallery.style.marginLeft = -currentIndex * sliderWidth + "px";
+				sliderGallery.style.transform = `translateX(-${
+					currentIndex * sliderWidth
+				}px)`;
 				SetDotActive(currentIndex);
 				detectIfNeedtoAddInactive(currentIndex);
 			}
 		});
 	});
 	if (dots.length !== 1) {
-		slider.addEventListener("mouseover", (e) => {
+		slider.addEventListener("mouseenter", (e) => {
 			cancelAnimationFrame(slideanimationId);
 		});
-		slider.addEventListener("mouseout", () => {
+		slider.addEventListener("mouseleave", () => {
 			slideanimationId = requestAnimationFrame(SlideRepeater);
 		});
 		addGlobalEventListener("mouseover", ".dot", (e) =>
@@ -128,15 +148,15 @@ document.addEventListener("DOMContentLoaded", function () {
 		addGlobalEventListener(
 			"mouseout",
 			".dot",
-			(e) => (cslideanimationId = requestAnimationFrame(SlideRepeater))
+			(e) => (slideanimationId = requestAnimationFrame(SlideRepeater))
 		);
-		addGlobalEventListener("mouseover", "button", (e) =>
-			cancelAnimationFrame(slideanimationId)
-		);
+		addGlobalEventListener("mouseover", "button.fas", (e) => {
+			cancelAnimationFrame(slideanimationId);
+		});
 		addGlobalEventListener(
 			"mouseout",
-			"button",
-			(e) => (cslideanimationId = requestAnimationFrame(SlideRepeater))
+			"button.fas",
+			(e) => (slideanimationId = requestAnimationFrame(SlideRepeater))
 		);
 	}
 
@@ -150,15 +170,19 @@ document.addEventListener("DOMContentLoaded", function () {
 				currentIndex === 0 ? sliderGalleryList.length : currentIndex;
 			currentIndex = (currentIndex - 1) % sliderGalleryList.length;
 		}
-		sliderGallery.style.marginLeft = -currentIndex * sliderWidth + "px";
+		sliderGallery.style.transform = `translateX(-${
+			currentIndex * sliderWidth
+		}px)`;
 		detectIfNeedtoAddInactive(currentIndex);
 
 		SetDotActive(currentIndex);
 	}
 	function SetDotActive(index) {
 		if (dots.length === 1) return;
-		document.querySelector(".dot.active").classList.remove("active");
-		dots[index].classList.add("active");
+		document
+			.querySelector(`.dot[aria-selected="true"]`)
+			.setAttribute("aria-selected", "false");
+		dots[index].setAttribute("aria-selected", "true");
 	}
 	function detectIfNeedtoAddInactive(index) {
 		switch (currentIndex) {
@@ -178,13 +202,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Loop
 	let slideCounter = 0;
 	function SlideRepeater() {
-		if (window.pageYOffset + window.innerHeight >= sliderOffsetHeight) {
+		if (window.pageYOffset + window.innerHeight >= slider.offsetTop) {
 			slideCounter++;
+			// console.log(slideCounter);
+			if (slideCounter % 300 === 0) {
+				slide();
+			}
 		}
-		if (slideCounter % 300 === 0) {
-			slide();
-		}
-
 		slideanimationId = requestAnimationFrame(SlideRepeater);
 	}
 	SlideRepeater();
@@ -224,33 +248,37 @@ document.addEventListener("DOMContentLoaded", function () {
 	addGlobalEventListener("click", ".nav-links li h3", (e) => {
 		// Remove active
 		document
-			.querySelector(".nav-links li h3.active")
-			.classList.remove("active");
-		document.querySelector(".sort ul.active").classList.remove("active");
+			.querySelector(`.nav-links li h3[aria-selected="true"]`)
+			.setAttribute("aria-selected", "false");
+		document
+			.querySelector(`.sort ul[aria-selected="true"]`)
+			.setAttribute("aria-selected", "false");
 
 		// Add active
 		let activeSortClassName = e.target.dataset.sort;
-		e.target.classList.add("active");
+		e.target.setAttribute("aria-selected", "true");
 		document
 			.querySelector(`.sort ul.${activeSortClassName}`)
-			.classList.add("active");
+			.setAttribute("aria-selected", "true");
 
 		// Set Gallery
 		setActiveSort();
 		// Set currentIndex
 		currentIndex = 0;
 	});
-	addGlobalEventListener("click", ".sort ul.active li ", (e) => {
+	addGlobalEventListener("click", `.sort ul[aria-selected="true"] li `, (e) => {
 		if (!e.target.classList.contains("active")) {
 			// Remove active
 			document
-				.querySelector(".sort ul.active li.active")
-				.classList.remove("active");
+				.querySelector(
+					`.sort ul[aria-selected="true"] li[aria-selected="true"]`
+				)
+				.setAttribute("aria-selected", "false");
 			// Add active
-			e.target.classList.add("active");
+			e.target.setAttribute("aria-selected", "true");
 			// Set Gallery
 			setSliderImage(e.target);
-			// Set currnt
+			// Set currentIndex
 			currentIndex = 0;
 		}
 	});

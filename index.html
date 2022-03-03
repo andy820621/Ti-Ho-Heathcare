@@ -25,62 +25,101 @@
 	</head>
 	<body>
 		<div id="home">
-			<header class="header">
-				<nav>
+			<header class="header positionR">
+				<nav aria-labelledby="primary-nav-label">
+					<div id="primary-nav-label" class="need-hidden">
+						主導航<span>primary</span>
+					</div>
 					<div class="container flex fxJcSB fxAiC">
 						<div class="logo">
 							<h1>
 								<a
 									class="flex fxJcC fxAiC"
-									href="index.html"
+									href="./"
 									aria-label="Logo anchor"
 									title="logo anchor"
 								>
 									<img
 										class="logo-image"
 										src="./images/logo-image-white.png"
-										alt="logo image"
-										title="Logo image"
+										alt="Our logo for "
 									/>
 									<img
 										class="logo-text"
 										src="./images/logo-text-white.png"
-										alt="logo text"
-										title="Logo text"
+										alt="TI-HO HEALTHCARE "
 									/>
 								</a>
 							</h1>
 						</div>
-						<div class="navMenu">
-							<ul class="flex fxAiC">
-								<li class="about">
+						<button
+							class="hamburger positionF"
+							title="menu burger"
+							aria-label="menu button"
+							aria-controls="menu-control"
+							aria-haspopup="menu"
+							tabindex="0"
+						>
+							<span>menu burger</span>
+							<div class="hambuger-container positionR">
+								<div class="hamburger_line line1"></div>
+								<div class="hamburger_line line2"></div>
+								<div class="hamburger_line line3"></div>
+							</div>
+						</button>
+						<div class="navMenu" aria-expanded="false" id="menu-control">
+							<ul class="flex fxAiC" role="menubar">
+								<li class="about" role="menuitem">
 									<a href="./about/" data-link="about" title="about"
 										>關於鈦和</a
 									>
 								</li>
-								<li class="introduction">
+								<li
+									class="introduction positionR has-dropdown"
+									role="menuitem"
+									aria-haspopout="true"
+								>
 									<a
 										href="./clinic-introduction/"
 										data-link="introduction"
 										title="introduction"
-										>診所介紹</a
-									>
+										>診所介紹
+										<span class="dropdown-icon">
+											<i class="fa-solid fa-caret-down"></i>
+										</span>
+									</a>
+									<ul class="positionA" role="menubar" aria-expanded="false">
+										<li>
+											<a href="./clinic-introduction/clinic-service/"
+												>診所服務</a
+											>
+										</li>
+										<li>
+											<a href="./clinic-introduction/technical-cooperation/"
+												>技術合作</a
+											>
+										</li>
+									</ul>
 								</li>
-								<li class="system positionR has-dropdown">
+								<li
+									class="system positionR has-dropdown"
+									role="menuitem"
+									aria-haspopout="true"
+								>
 									<a href="./implant-system/" data-link="system" title="system">
 										植體系統
 										<span class="dropdown-icon">
 											<i class="fa-solid fa-caret-down"></i>
 										</span>
 									</a>
-									<ul class="positionA">
+									<ul class="positionA" role="menubar" aria-expanded="false">
 										<li>
 											<a href="./implant-system/company/">植體公司介紹</a>
 										</li>
 										<li><a href="./implant-system/product/">產品介紹</a></li>
 									</ul>
 								</li>
-								<li class="technology">
+								<li class="technology" role="menuitem">
 									<a
 										href="./dental-technology/nology"
 										data-link="technology"
@@ -88,7 +127,7 @@
 										>牙體技術</a
 									>
 								</li>
-								<li class="contact">
+								<li class="contact" role="menuitem">
 									<a href="./contact/" data-link="contact" title="contact"
 										>聯絡我們</a
 									>

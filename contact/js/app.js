@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 	// Global EventListener
 	function addGlobalEventListener(type, selector, callback) {
-		document.addEventListener(type, (e) => {
+		document.body.addEventListener(type, (e) => {
 			if (e.target.matches(selector)) callback(e);
 		});
 	}
@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
 	let clinic = document.querySelector("#clinic");
 
 	addGlobalEventListener("click", ".banner-navigation li h2", (e) => {
-		if (e.target.closest("li").classList.contains("active")) return;
+		if (e.target.closest("li").getAttribute("aria-selected") === "true") return;
 		document
-			.querySelector(".banner-navigation li.active")
-			.classList.remove("active");
-		e.target.closest("li").classList.add("active");
+			.querySelector(`.banner-navigation li[aria-selected="true"]`)
+			.setAttribute("aria-selected", "false");
+		e.target.closest("li").setAttribute("aria-selected", "true");
 		let targetSelector = document.querySelector(
 			`.countries > li > h2[data-country="${e.target.dataset.country}"]`
 		);
@@ -34,18 +34,25 @@ document.addEventListener("DOMContentLoaded", function () {
 		}, 450);
 	}
 	function CountryChangeFunction(selector) {
+		// Remove all old [aria-selected="true"] arribute
+		let allOldArributes = document.querySelectorAll(
+			`#clinic [aria-selected="true"]`
+		);
+		allOldArributes.forEach((allOldArribute) =>
+			allOldArribute.setAttribute("aria-selected", "false")
+		);
 		// Remove all old active class
 		let allOldActives = document.querySelectorAll("#clinic .active");
 		allOldActives.forEach((allOldActive) =>
 			allOldActive.classList.remove("active")
 		);
-		// Set Main Nav active List
-		selector.closest("li").classList.add("active");
+		// Set Main Nav List arribute to true
+		selector.closest("li").setAttribute("aria-selected", "true");
 
-		// Set Sub Nav active list
+		// Set Sub Nav list arribute to true
 		selector.nextElementSibling
 			.querySelectorAll("li h3")[0]
-			.classList.add("active");
+			.setAttribute("aria-selected", "true");
 
 		// Set clinic-country active
 		let activeCountry = document.querySelector(`.${selector.dataset.country}`);
@@ -69,22 +76,25 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	addGlobalEventListener("click", ".countries > li > h2", (e) => {
-		if (e.target.closest("li").classList.contains("active")) return;
+		if (e.target.closest("li").getAttribute("aria-selected") === "true") return;
 		let selector = e.target;
 		CountryChangeFunction(selector);
 	});
 
 	addGlobalEventListener("click", ".lists li h3", (e) => {
-		if (e.target.classList.contains("active")) return;
+		if (e.target.getAttribute("aria-selected") === "true") return;
+		// Remove all old true attribute
+		document
+			.querySelector(`.lists li h3[aria-selected="true"]`)
+			.setAttribute("aria-selected", "false");
 		// Remove all old actives
-		document.querySelector(".lists li h3.active").classList.remove("active");
 		document
 			.querySelectorAll(".clinic-container>div.active .active")
 			.forEach((e) => {
 				e.classList.remove("active");
 			});
-		// Set active lists-link
-		e.target.classList.add("active");
+		// Set lists-link h3 attribute to true
+		e.target.setAttribute("aria-selected", "true");
 		// Set active Sort
 		let targetSort = e.target.dataset.sort;
 		let activeSort = document.querySelector(

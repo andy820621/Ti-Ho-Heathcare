@@ -26,7 +26,10 @@
 	<body>
 		<div id="home">
 			<header class="header">
-				<nav>
+				<nav aria-labelledby="primary-nav-label">
+					<div id="primary-nav-label" class="need-hidden">
+						主導航<span>primary</span>
+					</div>
 					<div class="container flex fxJcSB fxAiC">
 						<div class="logo">
 							<h1>
@@ -39,32 +42,66 @@
 									<img
 										class="logo-image"
 										src="../images/logo-image-blue.png"
-										alt="logo image"
-										title="Logo image"
+										alt="Our logo for "
 									/>
 									<img
 										class="logo-text"
 										src="../images/logo-text-blue.png"
-										alt="logo text"
-										title="Logo text"
+										alt="TI-HO HEALTHCARE "
 									/>
 								</a>
 							</h1>
 						</div>
-						<div class="navMenu">
-							<ul class="flex fxAiC">
-								<li class="about">
+						<button
+							class="hamburger positionF"
+							title="menu burger"
+							aria-label="menu button"
+							aria-controls="menu-control"
+							aria-haspopup="menu"
+							tabindex="0"
+						>
+							<span>menu burger</span>
+							<div class="hambuger-container positionR">
+								<div class="hamburger_line line1"></div>
+								<div class="hamburger_line line2"></div>
+								<div class="hamburger_line line3"></div>
+							</div>
+						</button>
+						<div class="navMenu" aria-expanded="false" id="menu-control">
+							<ul class="flex fxAiC" role="menubar">
+								<li class="about" role="menuitem">
 									<a href="../about/" data-link="about" title="about"
 										>關於鈦和</a
 									>
 								</li>
-								<li class="introduction">
+								<li
+									class="introduction positionR has-dropdown"
+									role="menuitem"
+									aria-haspopout="true"
+								>
 									<a
 										href="../clinic-introduction/"
 										data-link="introduction"
 										title="introduction"
-										>診所介紹</a
-									>
+										>診所介紹
+										<span class="dropdown-icon">
+											<i class="fa-solid fa-caret-down"></i>
+										</span>
+									</a>
+									<ul class="positionA" role="menubar" aria-expanded="false">
+										<ul class="positionA" role="menubar" aria-expanded="false">
+											<li>
+												<a href="../clinic-introduction/clinic-service/"
+													>診所服務</a
+												>
+											</li>
+											<li>
+												<a href="../clinic-introduction/technical-cooperation/"
+													>技術合作</a
+												>
+											</li>
+										</ul>
+									</ul>
 								</li>
 								<li class="system positionR has-dropdown active">
 									<a
@@ -77,14 +114,14 @@
 											<i class="fa-solid fa-caret-down"></i>
 										</span>
 									</a>
-									<ul class="positionA">
+									<ul class="positionA" role="menubar" aria-expanded="false">
 										<li>
 											<a href="../implant-system/company/">植體公司介紹</a>
 										</li>
 										<li><a href="../implant-system/product/">產品介紹</a></li>
 									</ul>
 								</li>
-								<li class="technology">
+								<li class="technology" role="menuitem">
 									<a
 										href="../dental-technology"
 										data-link="technology"
@@ -92,7 +129,7 @@
 										>牙體技術</a
 									>
 								</li>
-								<li class="contact">
+								<li class="contact" role="menuitem">
 									<a href="../contact/" data-link="contact" title="contact"
 										>聯絡我們</a
 									>
@@ -103,13 +140,16 @@
 				</nav>
 			</header>
 			<main>
-				<div id="banner">
+				<section id="banner" aria-labelledby="banner-title">
 					<picture>
 						<source srcset="./images/header-image.webp" type="image/webp" />
 						<source srcset="./images/header-image.jpg" type="image/jpeg" />
 						<img src="./images/header-image.jpg" alt="header-image-image" />
 					</picture>
 					<div class="banner-content">
+						<h2 id="banner-title" class="need-hidden">
+							植體系統 Inplant System
+						</h2>
 						<article>
 							<p class="textAlignC">
 								也就是男生所說分別裝置阿摩斯，方式還是。<br />
@@ -119,16 +159,21 @@
 							</p>
 						</article>
 					</div>
-				</div>
-				<div id="introduction">
+				</section>
+				<section id="introduction" aria-labelledby="introduction-title">
+					<h2 class="need-hidden" id="introduction-title">
+						子頁面連結 Sub Links
+					</h2>
 					<div class="company-introduction">
 						<picture class="img-container">
 							<source srcset="./images/company.webp" type="image/webp" />
 							<source srcset="./images/company.jpg" type="image/jpeg" />
 							<img src="./images/company.jpg" alt="company-image" />
 						</picture>
-						<section class="card">
-							<h2 class="title">植體公司介紹</h2>
+						<section class="card" aria-labelledby="compnay-introduction-title">
+							<h3 class="title" id="compnay-introduction-title">
+								植體公司介紹
+							</h3>
 							<div class="content">
 								<p class="detail">
 									任何毫不幸福意大利，天然核心一下等待電信，楠雅。
@@ -143,8 +188,8 @@
 							<source srcset="./images/product.jpg" type="image/jpeg" />
 							<img src="./images/product.jpg" alt="product-image" />
 						</picture>
-						<section class="card">
-							<h2 class="title">產品介紹</h2>
+						<section class="card" aria-labelledby="product-title">
+							<h3 class="title" id="product-title">產品介紹</h3>
 							<div class="content">
 								<p class="detail">
 									維護不足技術接受經銷商高雄輕鬆免費軍隊員工智能深入本類高校，可憐開心，瞭解基金。
@@ -153,7 +198,7 @@
 							</div>
 						</section>
 					</div>
-				</div>
+				</section>
 			</main>
 			<footer>
 				<div class="contact container flex fxJcSE fxAiC positionR">
