@@ -26,10 +26,7 @@
 	<body>
 		<div id="home">
 			<header class="header">
-				<nav aria-labelledby="primary-nav-label">
-					<div id="primary-nav-label" class="need-hidden">
-						主導航<span>primary</span>
-					</div>
+				<div class="navbar">
 					<div class="container flex fxJcSB fxAiC">
 						<div class="logo">
 							<h1>
@@ -42,16 +39,89 @@
 									<img
 										class="logo-image"
 										src="../images/logo-image-blue.png"
-										alt="Our logo for "
+										alt="Our Logo"
 									/>
 									<img
 										class="logo-text"
 										src="../images/logo-text-blue.png"
-										alt="TI-HO HEALTHCARE "
+										alt="TI-HO HEALTHCARE"
 									/>
 								</a>
+								<span class="need-hidden">TI-HO HEALTHCARE</span>
 							</h1>
 						</div>
+						<nav aria-labelledby="primary-nav-label">
+							<h2 id="primary-nav-label" class="need-hidden">
+								主導航<span>primary navigation</span>
+							</h2>
+							<div class="navMenu" aria-expanded="false" id="menu-control">
+								<ul class="flex fxAiC" role="menubar">
+									<li class="about">
+										<a href="../about/" data-link="about" title="about"
+											>關於鈦和</a
+										>
+									</li>
+									<li
+										class="introduction positionR has-dropdown"
+										role="menuitem"
+										aria-haspopout="true"
+									>
+										<a
+											href="../clinic-introduction/"
+											data-link="introduction"
+											title="introduction"
+											>診所介紹
+											<span class="dropdown-icon">
+												<i class="fa-solid fa-caret-down"></i>
+											</span>
+										</a>
+										<ul class="positionA" role="menubar" aria-expanded="false">
+											<li>
+												<a href="../clinic-introduction/clinic-service/"
+													>診所服務</a
+												>
+											</li>
+											<li>
+												<a href="../clinic-introduction/technical-cooperation/"
+													>技術合作</a
+												>
+											</li>
+										</ul>
+									</li>
+									<li class="system positionR has-dropdown active">
+										<a
+											href="../implant-system/"
+											data-link="system"
+											title="system"
+										>
+											植體系統
+											<span class="dropdown-icon">
+												<i class="fa-solid fa-caret-down"></i>
+											</span>
+										</a>
+										<ul class="positionA" role="menubar" aria-expanded="false">
+											<li>
+												<a href="../implant-system/company/">植體公司介紹</a>
+											</li>
+											<li><a href="../implant-system/product/">產品介紹</a></li>
+										</ul>
+									</li>
+									<li class="technology" role="menuitem">
+										<a
+											href="../dental-technology"
+											data-link="technology"
+											title="technology"
+											>牙體技術</a
+										>
+									</li>
+									<li class="contact" role="menuitem">
+										<a href="../contact/" data-link="contact" title="contact"
+											>聯絡我們</a
+										>
+									</li>
+								</ul>
+							</div>
+						</nav>
 						<button
 							class="hamburger positionF"
 							title="menu burger"
@@ -67,77 +137,8 @@
 								<div class="hamburger_line line3"></div>
 							</div>
 						</button>
-						<div class="navMenu" aria-expanded="false" id="menu-control">
-							<ul class="flex fxAiC" role="menubar">
-								<li class="about" role="menuitem">
-									<a href="../about/" data-link="about" title="about"
-										>關於鈦和</a
-									>
-								</li>
-								<li
-									class="introduction positionR has-dropdown"
-									role="menuitem"
-									aria-haspopout="true"
-								>
-									<a
-										href="../clinic-introduction/"
-										data-link="introduction"
-										title="introduction"
-										>診所介紹
-										<span class="dropdown-icon">
-											<i class="fa-solid fa-caret-down"></i>
-										</span>
-									</a>
-									<ul class="positionA" role="menubar" aria-expanded="false">
-										<ul class="positionA" role="menubar" aria-expanded="false">
-											<li>
-												<a href="../clinic-introduction/clinic-service/"
-													>診所服務</a
-												>
-											</li>
-											<li>
-												<a href="../clinic-introduction/technical-cooperation/"
-													>技術合作</a
-												>
-											</li>
-										</ul>
-									</ul>
-								</li>
-								<li class="system positionR has-dropdown active">
-									<a
-										href="../implant-system/"
-										data-link="system"
-										title="system"
-									>
-										植體系統
-										<span class="dropdown-icon">
-											<i class="fa-solid fa-caret-down"></i>
-										</span>
-									</a>
-									<ul class="positionA" role="menubar" aria-expanded="false">
-										<li>
-											<a href="../implant-system/company/">植體公司介紹</a>
-										</li>
-										<li><a href="../implant-system/product/">產品介紹</a></li>
-									</ul>
-								</li>
-								<li class="technology" role="menuitem">
-									<a
-										href="../dental-technology"
-										data-link="technology"
-										title="technology"
-										>牙體技術</a
-									>
-								</li>
-								<li class="contact" role="menuitem">
-									<a href="../contact/" data-link="contact" title="contact"
-										>聯絡我們</a
-									>
-								</li>
-							</ul>
-						</div>
 					</div>
-				</nav>
+				</div>
 			</header>
 			<main>
 				<section id="banner" aria-labelledby="banner-title">
@@ -235,7 +236,7 @@
 					<div class="line"></div>
 					<div class="clinic clinic-2 flex fxAiC">
 						<div class="clinic-name">
-							<span>台中鈦和牙醫診所</span>
+							<p>台中鈦和牙醫診所</p>
 						</div>
 						<div class="clinic-content">
 							<ul itemscope itemtype="https://schema.org/LocalBusiness">

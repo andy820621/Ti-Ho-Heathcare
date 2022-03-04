@@ -7,14 +7,13 @@
 	--clr-primary-blue: 216 61% 18%;
 	--clr-primary-yellow: 44 89% 53%;
 	--clr-primary-lightblue: 214 47% 93%;
-	/* --clr-primary-lightblue: 207 32% 82%; */
 	--clr-primary-paleblue: 204 83% 98%;
 
 	--clr-black: 0 0% 8%;
 	--clr-lightblack: 0 0% 24%;
 	--clr-grey: 0 0% 40%;
-	--clr-lightgrey: 0 0% 94%;
-	--clr-white: 0 0% 92%;
+	--clr-lightgrey: 0 0% 92%;
+	--clr-white: 0 0% 98%;
 
 	/* font-sizes */
 	--fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
@@ -25,8 +24,10 @@
 	--fs-400: 0.9375rem;
 	--fs-300: 1rem;
 	--fs-200: 0.875rem;
+	--fs-100: 0.81rem;
 
 	--nav-height: 120px;
+	--logo-width: 234px;
 }
 
 html {
@@ -54,10 +55,10 @@ body {
 
 /* Header Design */
 /* Nav */
-nav {
+.navbar {
 	background-color: hsl(var(--clr-primary-blue));
 }
-nav > div {
+.navbar > div {
 	height: var(--nav-height);
 }
 .logo {
@@ -69,52 +70,13 @@ nav > div {
 .logo:hover .logo-text {
 	transform: translateX(0.24rem);
 }
-.navMenu {
-	width: 50%;
-	/* Mobile design Start */
-	/* display: block;
-	position: absolute;
-	width: 100%;
-	padding-top: 80px;
-	inset: 0;
-	background-color: rgb(49, 99, 99);
-	transform: translateY(-380px);
-	opacity: 0;
-	visibility: hidden;
-	transition: all 0.3s ease;
-	z-index: 1; */
-	/* Mobile desigen end*/
-}
-.navMenu > ul {
-	/* Mobile design Start */
-	/* flex-direction: column;
-	background-color: red; */
-	/* Mobile desigen end*/
+nav {
+	width: max(35rem, 50%);
 }
 .navMenu li {
 	width: calc(100% / 5);
 	text-align: center;
 	transition: 0.5s;
-}
-.navMenu > ul > li {
-	/* Mobile design Start */
-	/* --li-height: 3rem;
-	background-color: blueviolet;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	line-height: var(--li-height); */
-	/* Mobile desigen end*/
-}
-.navMenu > ul > li.has-dropdown {
-	/* Mobile design Start */
-	/* background-color: rgb(56, 114, 95); */
-	/* Mobile desigen end*/
-}
-.navMenu > ul > li.has-dropdown:hover {
-	/* Mobile design Start */
-	/* padding-bottom: 8rem; */
-	/* Mobile desigen end*/
 }
 .navMenu a {
 	font-weight: 300;
@@ -153,12 +115,6 @@ nav > div {
 	transform: translateY(-50%);
 	transition: 0.5s 0.3s;
 }
-.navMenu > ul > li.has-dropdown:hover ul {
-	/* Mobile design */
-	/* top: var(--li-height);
-	padding-top: 0;
-	line-height: 2.5rem; */
-}
 .has-dropdown li {
 	padding: 0 0 1rem 0;
 	width: inherit;
@@ -179,7 +135,6 @@ nav > div {
 	font-weight: 500;
 	letter-spacing: 1.5px;
 }
-/* Need???? */
 .navMenu li.active > a {
 	padding-bottom: 5px;
 	border-bottom: solid 2px hsl(var(--clr-white));

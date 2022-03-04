@@ -1,5 +1,5 @@
 /* Nav */
-nav {
+.navbar {
 	background-color: hsl(var(--clr-white));
 }
 .navMenu a {
@@ -12,7 +12,6 @@ nav {
 .has-dropdown ul {
 	background-color: hsl(var(--clr-white));
 }
-/* Need???? */
 .navMenu li.active > a {
 	border-bottom: solid 2px hsl(var(--clr-primary-blue));
 }

@@ -20,27 +20,108 @@
 		<link rel="stylesheet" href="../css/style.css" />
 		<link rel="stylesheet" href="../css/style-tablet.css" />
 		<link rel="stylesheet" href="../css/style-pc.css" />
+		<link rel="stylesheet" href="css/style.css" />
 		<title>鈦和生醫</title>
 	</head>
 	<body>
 		<div id="home">
 			<header class="header">
-				<nav aria-labelledby="primary-nav-label">
-					<div id="primary-nav-label" class="need-hidden">
-						主導航<span>primary</span>
-					</div>
+				<div class="navbar">
 					<div class="container flex fxJcSB fxAiC">
 						<div class="logo">
 							<h1>
 								<a
+									class="flex fxJcC fxAiC"
 									href="../index.html"
 									aria-label="Logo anchor"
 									title="logo anchor"
 								>
-									<img src="../svg/Logo.svg" alt="My_Logo" title="Logo" />
+									<img
+										class="logo-image"
+										src="../images/logo-image-blue.png"
+										alt="Our Logo"
+									/>
+									<img
+										class="logo-text"
+										src="../images/logo-text-blue.png"
+										alt="TI-HO HEALTHCARE"
+									/>
 								</a>
+								<span class="need-hidden">TI-HO HEALTHCARE</span>
 							</h1>
 						</div>
+						<nav aria-labelledby="primary-nav-label">
+							<h2 id="primary-nav-label" class="need-hidden">
+								主導航<span>primary navigation</span>
+							</h2>
+							<div class="navMenu" aria-expanded="false" id="menu-control">
+								<ul class="flex fxAiC" role="menubar">
+									<li class="about">
+										<a href="../about/" data-link="about" title="about"
+											>關於鈦和</a
+										>
+									</li>
+									<li
+										class="introduction positionR has-dropdown"
+										role="menuitem"
+										aria-haspopout="true"
+									>
+										<a
+											href="../clinic-introduction/"
+											data-link="introduction"
+											title="introduction"
+											>診所介紹
+											<span class="dropdown-icon">
+												<i class="fa-solid fa-caret-down"></i>
+											</span>
+										</a>
+										<ul class="positionA" role="menubar" aria-expanded="false">
+											<li>
+												<a href="../clinic-introduction/clinic-service/"
+													>診所服務</a
+												>
+											</li>
+											<li>
+												<a href="../clinic-introduction/technical-cooperation/"
+													>技術合作</a
+												>
+											</li>
+										</ul>
+									</li>
+									<li class="system positionR has-dropdown">
+										<a
+											href="../implant-system/"
+											data-link="system"
+											title="system"
+										>
+											植體系統
+											<span class="dropdown-icon">
+												<i class="fa-solid fa-caret-down"></i>
+											</span>
+										</a>
+										<ul class="positionA" role="menubar" aria-expanded="false">
+											<li>
+												<a href="../implant-system/company/">植體公司介紹</a>
+											</li>
+											<li><a href="../implant-system/product/">產品介紹</a></li>
+										</ul>
+									</li>
+									<li class="technology active" role="menuitem">
+										<a
+											href="../dental-technology"
+											data-link="technology"
+											title="technology"
+											>牙體技術</a
+										>
+									</li>
+									<li class="contact" role="menuitem">
+										<a href="../contact/" data-link="contact" title="contact"
+											>聯絡我們</a
+										>
+									</li>
+								</ul>
+							</div>
+						</nav>
 						<button
 							class="hamburger positionF"
 							title="menu burger"
@@ -56,86 +137,265 @@
 								<div class="hamburger_line line3"></div>
 							</div>
 						</button>
-						<div class="navMenu" aria-expanded="false" id="menu-control">
-							<ul class="flex fxAiC" role="menubar">
-								<li class="about" role="menuitem">
-									<a href="../about/" data-link="about" title="about"
-										>關於鈦和</a
-									>
-								</li>
-								<li
-									class="introduction positionR has-dropdown"
-									role="menuitem"
-									aria-haspopout="true"
-								>
-									<a
-										href="../clinic-introduction/"
-										data-link="introduction"
-										title="introduction"
-										>診所介紹
-										<span class="dropdown-icon">
-											<i class="fa-solid fa-caret-down"></i>
-										</span>
-									</a>
-									<ul class="positionA" role="menubar" aria-expanded="false">
-										<ul class="positionA" role="menubar" aria-expanded="false">
-											<li>
-												<a href="../clinic-introduction/clinic-service/"
-													>診所服務</a
-												>
-											</li>
-											<li>
-												<a href="../clinic-introduction/technical-cooperation/"
-													>技術合作</a
-												>
-											</li>
-										</ul>
-									</ul>
-								</li>
-								<li class="system positionR has-dropdown">
-									<a
-										href="../implant-system/"
-										data-link="system"
-										title="system"
-									>
-										植體系統
-										<span class="dropdown-icon">
-											<i class="fa-solid fa-caret-down"></i>
-										</span>
-									</a>
-									<ul class="positionA" role="menubar" aria-expanded="false">
-										<li>
-											<a href="../implant-system/company/">植體公司介紹</a>
-										</li>
-										<li><a href="../implant-system/product/">產品介紹</a></li>
-									</ul>
-								</li>
-								<li class="technology active">
-									<a
-										href="../dental-technology/"
-										data-link="technology"
-										title="technology"
-										>牙體技術</a
-									>
-								</li>
-								<li class="contact" role="menuitem">
-									<a href="../contact/" data-link="contact" title="contact"
-										>聯絡我們</a
-									>
-								</li>
-							</ul>
-						</div>
 					</div>
-				</nav>
+				</div>
 			</header>
-			<main
-				style="
-					min-height: calc(100vh - 24px);
-					display: grid;
-					place-items: center;
-				"
-			>
-				<h1>牙體技術</h1>
+			<main>
+				<div class="have-side-container flex fxJcSB">
+					<div id="side-navigation">
+						<ul>
+							<li>
+								<a href="#" data-link="company-introduction">牙體公司介紹</a>
+							</li>
+							<li><a href="#" data-link="digital-technology">數位技術</a></li>
+							<li><a href="#" data-link="customization">客製化</a></li>
+							<li><a href="#" data-link="contact">聯絡方式</a></li>
+						</ul>
+					</div>
+					<div class="main-side-container">
+						<section
+							id="banner"
+							aria-labelledby="banner-title"
+							class="positionR"
+						>
+							<picture>
+								<source srcset="./images/banner-image.webp" type="image/webp" />
+								<source srcset="./images/banner-image.jpg" type="image/jpeg" />
+								<img src="./images/banner-image.jpg" alt="banner-image" />
+							</picture>
+							<div class="banner-content positionA">
+								<h2 id="banner-title" class="bottom-line">Banner Title</h2>
+								<div>
+									<p>
+										家長恢復滿意心裡大家主流，軟體遠遠幸福預計一隻空中總數他不軍事您是遠程表達加工經驗，年度理由基隆將來集中，承諾有可能保障表演嘗試想想，它們。
+									</p>
+								</div>
+							</div>
+						</section>
+						<section
+							id="company-introduction"
+							class="flex"
+							aria-labelledby="intro-title"
+						>
+							<picture>
+								<source
+									srcset="./images/company-introduction-image.webp"
+									type="image/webp"
+								/>
+								<source
+									srcset="./images/company-introduction-image.jpg"
+									type="image/jpeg"
+								/>
+								<img
+									src="./images/company-introduction-image.jpg"
+									alt="company-introduction-image"
+								/>
+							</picture>
+							<div class="content flex fxDirectionC fxJcC">
+								<div class="content-title bottom-line">
+									<h2 id="intro-title">成立興奮非常，主題流程</h2>
+								</div>
+								<div class="content-detail">
+									<p>
+										保障突出紛紛全市蔬菜手中討論，指揮居民風格，感覺到還沒看不到絶不衝突加工好處風險地理是誰，發送計算走到表演落實，足夠打擊下降交通社會最高味道項目求助優勢我覺得消費官員，也能開發者大會，組織就會把它股。
+									</p>
+								</div>
+							</div>
+						</section>
+						<section id="digital-technology" aria-labelledby="tech-title">
+							<div class="title">
+								<h2 id="tech-title">數位技術</h2>
+							</div>
+							<div class="content flex fxWrap">
+								<div class="content-box flex fxAiC">
+									<div class="circle"></div>
+									<div class="detail">
+										<div class="detail-title"><h3>召開轉變原文父</h3></div>
+										<div class="detail-content">
+											舉報同學主板一半學生報名制度少女自己評價馬上一段專欄收費，公路高度良好地位，大大意識創作必須添加領。
+										</div>
+									</div>
+								</div>
+								<div class="content-box flex fxAiC">
+									<div class="circle"></div>
+									<div class="detail">
+										<div class="detail-title"><h3>召開轉變原文父</h3></div>
+										<div class="detail-content">
+											舉報同學主板一半學生報名制度少女自己評價馬上一段專欄收費，公路高度良好地位，大大意識創作必須添加領。
+										</div>
+									</div>
+								</div>
+								<div class="content-box flex fxAiC">
+									<div class="circle"></div>
+									<div class="detail">
+										<div class="detail-title"><h3>召開轉變原文父</h3></div>
+										<div class="detail-content">
+											舉報同學主板一半學生報名制度少女自己評價馬上一段專欄收費，公路高度良好地位，大大意識創作必須添加領。
+										</div>
+									</div>
+								</div>
+								<div class="content-box flex fxAiC">
+									<div class="circle"></div>
+									<div class="detail">
+										<div class="detail-title"><h3>召開轉變原文父</h3></div>
+										<div class="detail-content">
+											舉報同學主板一半學生報名制度少女自己評價馬上一段專欄收費，公路高度良好地位，大大意識創作必須添加領。
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+						<section id="customization" aria-labelledby="customization-title">
+							<div class="title">
+								<h2 id="customization-title">客製化</h2>
+							</div>
+							<div class="content flex fxWrap">
+								<div class="content-box grid">
+									<picture>
+										<source
+											srcset="./images/customization-1.webp"
+											type="image/webp"
+										/>
+										<source
+											srcset="./images/customization-1.jpg"
+											type="image/jpeg"
+										/>
+										<img
+											src="./images/customization-1.jpg"
+											alt="customization-1"
+										/>
+									</picture>
+									<div class="detail">
+										<div class="detail-title"><h3>學院是由管理員</h3></div>
+										<div class="detail-content">
+											舉報同學主板一半學生報名制度少女自己評價馬上一段專欄收費，公路高度良好地位，大大意識創作必須添加領。
+										</div>
+									</div>
+								</div>
+								<div class="content-box grid">
+									<picture>
+										<source
+											srcset="./images/customization-2.webp"
+											type="image/webp"
+										/>
+										<source
+											srcset="./images/customization-2.jpg"
+											type="image/jpeg"
+										/>
+										<img
+											src="./images/customization-2.jpg"
+											alt="customization-2"
+										/>
+									</picture>
+									<div class="detail">
+										<div class="detail-title"><h3>學院是由管理員</h3></div>
+										<div class="detail-content">
+											舉報同學主板一半學生報名制度少女自己評價馬上一段專欄收費，公路高度良好地位，大大意識創作必須添加領。
+										</div>
+									</div>
+								</div>
+								<div class="content-box grid">
+									<picture>
+										<source
+											srcset="./images/customization-3.webp"
+											type="image/webp"
+										/>
+										<source
+											srcset="./images/customization-3.jpg"
+											type="image/jpeg"
+										/>
+										<img
+											src="./images/customization-3.jpg"
+											alt="customization-3"
+										/>
+									</picture>
+									<div class="detail">
+										<div class="detail-title"><h3>學院是由管理員</h3></div>
+										<div class="detail-content">
+											舉報同學主板一半學生報名制度少女自己評價馬上一段專欄收費，公路高度良好地位，大大意識創作必須添加領。
+										</div>
+									</div>
+								</div>
+								<div class="content-box grid">
+									<picture>
+										<source
+											srcset="./images/customization-4.webp"
+											type="image/webp"
+										/>
+										<source
+											srcset="./images/customization-4.jpg"
+											type="image/jpeg"
+										/>
+										<img
+											src="./images/customization-4.jpg"
+											alt="customization-4"
+										/>
+									</picture>
+									<div class="detail">
+										<div class="detail-title"><h3>學院是由管理員</h3></div>
+										<div class="detail-content">
+											舉報同學主板一半學生報名制度少女自己評價馬上一段專欄收費，公路高度良好地位，大大意識創作必須添加領。
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+						<section id="contact" aria-labelledby="contact-title">
+							<div class="title">
+								<h2 id="contact-title">聯絡我們</h2>
+							</div>
+							<div class="content">
+								<div class="clinic" data-position="New Taipei city">
+									<div class="img-container">
+										<img src="./images/clinic.jpg" alt="clinic image" />
+									</div>
+									<section class="information">
+										<h3 class="name">鈦和數位牙體技術工坊</h3>
+										<div class="number">
+											<a href="tel:02-8227-7106">02-8227-7106#21</a>
+										</div>
+										<div class="map">
+											<a
+												href="https://www.google.com/maps/place/235%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%92%8C%E5%8D%80%E5%BB%BA%E5%BA%B7%E8%B7%AF174%E8%99%9F/@25.0000788,121.4887839,17z/data=!3m1!4b1!4m5!3m4!1s0x346802800ecd0d15:0xa1265cd9b97fb5e4!8m2!3d25.0000788!4d121.4909726"
+												target="_blank"
+												>新北市中和區建康路174號</a
+											>
+										</div>
+										<div class="detail">
+											<p>
+												介紹產權反覆影視流程，結構語言您可以體制反應，最初總統。
+											</p>
+										</div>
+									</section>
+								</div>
+								<div class="clinic" data-position="Foreign">
+									<div class="img-container">
+										<img src="./images/clinic.jpg" alt="clinic image" />
+									</div>
+									<section class="information">
+										<h3 class="name">Tiho Dental Laboratory</h3>
+										<div class="number">
+											<a href="tel:+60102581285">+60 10-258-1285</a>
+										</div>
+										<div class="map">
+											<a
+												href="https://www.google.com/maps/place/Tiho+Dental+Clinic+%7C+Klinik+Pergigian+TIHO+(Dental+Clinic+Kuala+Lumpur)/@3.1490292,101.6966423,15z/data=!4m5!3m4!1s0x0:0x8ad88384f5ff16cb!8m2!3d3.1490292!4d101.6966423"
+												target="_KualaLumpurdentalLaboratory"
+												>2nd Floor,Wisma Lau Chung No. 11&13, Jalan Tun
+												Perak,50050 Kuala Lumpur, Malaysia</a
+											>
+										</div>
+										<div class="detail">
+											<p>
+												多少分享正常您是一座對不起領先職責，將其原料日月潭是我部落運用崗位執行疾病費用電話把你寶寶，夏天紅。
+											</p>
+										</div>
+									</section>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
 			</main>
 			<footer>
 				<div class="contact container flex fxJcSE fxAiC positionR">
@@ -172,7 +432,7 @@
 					<div class="line"></div>
 					<div class="clinic clinic-2 flex fxAiC">
 						<div class="clinic-name">
-							<span>台中鈦和牙醫診所</span>
+							<p>台中鈦和牙醫診所</p>
 						</div>
 						<div class="clinic-content">
 							<ul itemscope itemtype="https://schema.org/LocalBusiness">
@@ -191,6 +451,8 @@
 					</div>
 				</div>
 			</footer>
+
+			<script src="./js/app.js"></script>
 		</div>
 	</body>
 </html>

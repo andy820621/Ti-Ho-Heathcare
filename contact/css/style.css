@@ -1,5 +1,5 @@
 /* Nav */
-nav {
+.navbar {
 	background-color: hsl(var(--clr-white));
 }
 .navMenu a {
@@ -12,7 +12,6 @@ nav {
 .has-dropdown ul {
 	background-color: hsl(var(--clr-white));
 }
-/* Need???? */
 .navMenu li.active > a {
 	border-bottom: solid 2px hsl(var(--clr-primary-blue));
 }
@@ -176,7 +175,7 @@ body {
 	left: 0;
 	/* inactive */
 	opacity: 0;
-	transition: 0.4s ease;
+	transition: transform 0.4s ease, opacity 0.2s;
 }
 .clinic-container > div.clinic-taiwan {
 	transform: translateX(-100%);
@@ -187,12 +186,13 @@ body {
 .clinic-container > div.active {
 	opacity: 1;
 	transform: translateX(0%);
+	transition: 0.4s ease;
 }
 .clinic-container > div > div {
 	/* inactive */
 	opacity: 0;
 	transform: translateX(-50%);
-	transition: 0.4s ease;
+	transition: transform 0.4s ease, opacity 0.2s;
 }
 .clinic-container > div > .dental-workshop {
 	transform: translateX(50%);
@@ -200,6 +200,7 @@ body {
 .clinic-container > div > div.active {
 	opacity: 1;
 	transform: translateX(0%);
+	transition: 0.4s ease;
 }
 .clinic-taiwan {
 	display: grid;
@@ -246,13 +247,14 @@ body {
 	opacity: 0;
 	padding: 0;
 	max-height: 0;
-	transition: 0.4s ease;
+	transition: padding 0.4s ease, border 0.4s ease, max-height 0.4s ease;
 }
 .clinic-card.active {
 	border-bottom: solid 0.2em hsl(var(--clr-primary-yellow));
 	opacity: 1;
 	padding: 0.8rem 0;
 	max-height: initial;
+	transition: all 0.4s ease;
 }
 .clinic-card.active .name {
 	width: 33%;

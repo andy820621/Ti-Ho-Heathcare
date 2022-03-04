@@ -1,0 +1,300 @@
+/* Nav */
+.navbar {
+	background-color: hsl(var(--clr-white));
+}
+.navMenu a {
+	position: relative;
+	z-index: 1;
+}
+.has-dropdown ul {
+	background-color: transparent;
+}
+
+/* Main tag Start */
+body {
+	background-color: hsl(var(--clr-white));
+}
+
+.have-side-container {
+	--side-nav-width: clamp(8rem, 20%, 14rem);
+
+	width: min(92%, 100rem);
+	margin: 0 auto;
+}
+/* Side navigation */
+#side-navigation {
+	width: var(--side-nav-width);
+	padding-left: 1.24vw;
+}
+#side-navigation ul {
+	width: 100%;
+}
+#side-navigation a {
+	width: 100%;
+	display: block;
+	color: hsl(var(--clr-primary-blue));
+	margin-bottom: 1.3em;
+	font-weight: 500;
+	transition: 0.4s;
+}
+#side-navigation a:hover {
+	font-weight: 700;
+	letter-spacing: 1.5px;
+}
+.main-side-container {
+	--margin-right: -3vw;
+	width: calc(100% - var(--logo-width) - var(--margin-right));
+	margin-right: var(--margin-right);
+	padding-left: 2.4vw;
+}
+
+/* Banner */
+#banner {
+	width: 100%;
+	margin-top: calc(-1 * var(--nav-height));
+}
+#banner picture {
+	width: 100%;
+	aspect-ratio: 16 / 8;
+}
+#banner picture img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+.banner-content {
+	font-size: clamp(10px, 0.5rem + 0.4vw, 1rem + 0.1vw);
+	letter-spacing: 0.24em;
+	width: 50%;
+	height: max-content;
+	left: 5rem;
+	bottom: 5rem;
+	color: hsl(var(--clr-white));
+}
+.banner-content h2 {
+	line-height: 1.5em;
+	font-size: var(--fs-800);
+}
+/* bottom-line design start*/
+.bottom-line {
+	position: relative;
+}
+.bottom-line::after {
+	position: absolute;
+	content: "";
+	width: 5rem;
+	height: 2px;
+	left: 0;
+	bottom: 0;
+	background-color: hsl(var(--clr-primary-yellow));
+}
+/* bottom-line design end*/
+.banner-content p {
+	padding-top: 1.5em;
+	font-size: var(--fs-600);
+	line-height: 1.8em;
+}
+
+/* Company Introduction */
+#company-introduction {
+	--picture-width: 22rem;
+
+	width: 100%;
+	padding: 4.5rem 4.5rem;
+}
+#company-introduction picture {
+	width: var(--picture-width);
+	height: calc(1.2 * var(--picture-width));
+}
+#company-introduction picture img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+#company-introduction .content {
+	width: calc(100% - var(--picture-width));
+	padding-left: 3.5rem;
+}
+#company-introduction .content-title h2 {
+	letter-spacing: 0.4rem;
+	line-height: 2.4em;
+}
+#company-introduction .content-detail {
+	padding-top: 1em;
+	font-size: var(--fs-100);
+	line-height: 2em;
+}
+
+/* Digital Technology */
+#digital-technology {
+	background-color: hsl(var(--clr-lightgrey));
+}
+#digital-technology .title {
+	padding: 4rem 0;
+}
+/* title design start */
+.title h2 {
+	margin: 0 auto;
+	width: max-content;
+	padding: 0.24rem 1rem;
+	border: solid 2.4px hsl(var(--clr-primary-yellow));
+	position: relative;
+}
+.title h2::after {
+	position: absolute;
+	content: "";
+	width: 1.8px;
+	height: 2.4rem;
+	background-color: hsl(var(--clr-primary-yellow));
+	left: 50%;
+	bottom: -1rem;
+	transform: translate(-50%, 100%);
+}
+/* title design end */
+#digital-technology .content {
+	padding: 1.5rem 5rem 5rem;
+}
+#digital-technology .content-box {
+	--width: 4rem;
+	width: 50%;
+	padding: 2rem 0;
+}
+#digital-technology .content-box .circle {
+	width: var(--width);
+	height: var(--width);
+	border-radius: 50%;
+	border: solid 2px hsl(var(--clr-black));
+}
+#digital-technology .content-box .detail {
+	width: calc(100% - var(--width));
+	padding: 0 3rem;
+	letter-spacing: 0.24em;
+}
+#digital-technology .content-box .detail-title {
+	font-size: 0.9rem;
+	font-weight: 400;
+	padding-bottom: 0.6rem;
+}
+#digital-technology .content-box .detail-content {
+	font-size: 0.5rem;
+	font-weight: 400;
+	line-height: 2.4em;
+}
+
+/* Customization */
+#customization {
+	width: 100%;
+	padding: 0 5rem 5rem;
+}
+#customization .title {
+	padding: 4rem 0 5.5rem;
+}
+#customization .content {
+	--gap: 2rem;
+	gap: var(--gap);
+}
+#customization .content-box {
+	width: calc(50% - calc(var(--gap) / 2));
+	aspect-ratio: 395.21 / 263.47;
+	align-items: flex-end;
+	overflow: hidden;
+}
+#customization .content-box > * {
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+}
+#customization .content-box picture {
+	width: 100%;
+	height: 100%;
+}
+#customization .content-box picture img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+#customization .content-box .detail {
+	--line-height: 3rem;
+
+	background-color: hsl(var(--clr-lightblack) / 0.4);
+	color: hsl(var(--clr-white));
+	padding: 0 1.4rem;
+	transform: translateY(calc(100% - var(--line-height)));
+	transition: transform 0.4s ease, background-color 0.4s ease;
+}
+#customization .content-box .detail-title h3 {
+	font-size: 0.9em;
+	font-weight: 500;
+	line-height: var(--line-height);
+}
+#customization .content-box .detail-content {
+	font-weight: 100;
+	font-size: 0.7rem;
+	padding-bottom: 0.8rem;
+}
+#customization .content-box:hover .detail {
+	max-height: initial;
+	background-color: hsl(var(--clr-lightblack) / 0.81);
+	transform: translateY(0);
+}
+
+/* Contact */
+#contact {
+	background-color: hsl(var(--clr-lightgrey));
+}
+#contact .title {
+	padding: 3rem 0 5rem;
+}
+#contact .content {
+	width: inherit;
+	padding: 0 6rem 3rem;
+	margin-bottom: 5rem;
+}
+#contact .content {
+	width: inherit;
+}
+#contact .content .clinic {
+	scroll-snap-align: start;
+	width: 100%;
+	display: flex;
+	padding: 0.81rem;
+	border: solid 2.2px hsl(var(--clr-primary-yellow));
+	margin-bottom: 0.81rem;
+}
+#contact .content .clinic .img-container {
+	min-width: 300px;
+	aspect-ratio: 2 / 1;
+	margin-right: 1rem;
+}
+#contact .content .clinic .img-container img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: top;
+}
+#contact .content .clinic .information {
+	padding-right: 8%;
+}
+#contact .content .clinic h3 {
+	margin-bottom: 0.4rem;
+}
+#contact .content .clinic a {
+	color: hsl(var(--clr-primary-blue));
+	font-weight: 400;
+	font-size: 0.95rem;
+	display: inline-block;
+	margin-bottom: 0.4rem;
+	transition: 0.4s;
+}
+#contact .content .clinic a:hover {
+	font-weight: 600;
+}
+#contact .content .clinic .map {
+	margin-bottom: 0.4rem;
+}
+#contact .content .clinic .detail {
+	font-weight: 300;
+	font-size: 0.95rem;
+}

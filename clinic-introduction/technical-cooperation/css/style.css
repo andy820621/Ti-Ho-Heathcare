@@ -1,5 +1,5 @@
 /* Nav */
-nav {
+.navbar {
 	background-color: hsl(var(--clr-white));
 }
 .navMenu a {
@@ -12,7 +12,6 @@ nav {
 .has-dropdown ul {
 	background-color: hsl(var(--clr-white));
 }
-/* Need???? */
 .navMenu li.active > a {
 	border-bottom: solid 2px hsl(var(--clr-primary-blue));
 }
@@ -23,17 +22,15 @@ body {
 }
 
 .have-side-container {
-	--margin: calc((100% - 1280px) / 2);
 	--side-nav-width: clamp(8rem, 20%, 14rem);
 
-	width: min(100%, 90rem);
+	width: min(92%, 100rem);
 	margin: 0 auto;
-	padding-left: 4%;
 }
 /* Side navigation */
 #side-navigation {
-	flex-basis: var(--side-nav-width);
-	min-width: 8rem;
+	width: var(--side-nav-width);
+	padding-left: 1.24vw;
 }
 #side-navigation ul {
 	width: 100%;
@@ -54,7 +51,9 @@ body {
 	font-weight: 800;
 }
 .main-side-container {
-	flex-basis: calc(100% - var(--side-nav-width));
+	--margin-right: -3vw;
+	width: calc(100% - var(--logo-width) - var(--margin-right));
+	margin-right: var(--margin-right);
 }
 
 /* Banner */
