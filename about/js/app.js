@@ -1,16 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-	// Global EventListener
-	// function addGlobalEventListener(type, selector, callback) {
-	// 	document.body.addEventListener(type, (e) => {
-	// 		if (e.target.matches(selector)) callback(e);
-	// 	});
-	// }
-
 	// History Year
 	const yearTitle = document.querySelector(".year-title");
 	const year1 = document.querySelector(".year-1");
 	const year2 = document.querySelector(".year-2");
-	// console.log(year1);
 	const yearContainer = document.querySelector(".year-content-container");
 	const yearLinks = document.querySelectorAll(".history-title a");
 	const yearSections = yearContainer.querySelectorAll("section");
@@ -84,5 +76,11 @@ document.addEventListener("DOMContentLoaded", function () {
 			let distance = target.offsetTop - yearContainer.offsetTop;
 			yearContainer.scrollTo(0, distance);
 		});
+	});
+
+	// Make sure when scroll Header Navigation is hidden
+	yearContainer.addEventListener("scroll", (e) => {
+		if (document.querySelector(".header").classList.contains("nav-up")) return;
+		document.querySelector(".header").classList.add("nav-up");
 	});
 });

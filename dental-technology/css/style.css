@@ -1,13 +1,36 @@
 /* Nav */
+.header {
+	box-shadow: 0 5px 10px hsl(var(--clr-grey) / 0.24);
+}
+.header.transparent {
+	box-shadow: none;
+}
 .navbar {
 	background-color: hsl(var(--clr-white));
+	transition: 0.4s ease;
+}
+.header.transparent .navbar {
+	background-color: transparent;
 }
 .navMenu a {
-	position: relative;
-	z-index: 1;
+	color: hsl(var(--clr-primary-blue));
+}
+.header.transparent .navMenu a {
+	color: hsl(var(--clr-white));
+}
+.header .dropdown-icon {
+	color: hsl(var(--clr-primary-blue));
+}
+.header.transparent .dropdown-icon {
+	color: hsl(var(--clr-white));
 }
 .has-dropdown ul {
+	background-color: hsl(var(--clr-white));
+	box-shadow: 0 5px 10px hsl(var(--clr-grey) / 0.24);
+}
+.header.transparent .has-dropdown ul {
 	background-color: transparent;
+	box-shadow: none;
 }
 
 /* Main tag Start */
@@ -25,21 +48,47 @@ body {
 #side-navigation {
 	width: var(--side-nav-width);
 	padding-left: 1.24vw;
+	position: sticky;
+	height: max-content;
+	top: var(--nav-height);
+	transition: top 0.4s;
+}
+.nav-up #side-navigation {
+	top: 0;
 }
 #side-navigation ul {
 	width: 100%;
+	padding-top: 0.8rem;
 }
 #side-navigation a {
-	width: 100%;
+	width: max-content;
 	display: block;
 	color: hsl(var(--clr-primary-blue));
 	margin-bottom: 1.3em;
 	font-weight: 500;
 	transition: 0.4s;
+	position: relative;
 }
+#side-navigation a::after {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 2.4px;
+	background-color: hsl(var(--clr-primary-blue));
+	bottom: -3px;
+	left: 0;
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform 0.4s ease-in-out;
+}
+#side-navigation a.active,
 #side-navigation a:hover {
 	font-weight: 700;
-	letter-spacing: 1.5px;
+}
+#side-navigation a.active::after,
+#side-navigation a:hover::after {
+	transform: scaleX(100%);
+	transform-origin: left;
 }
 .main-side-container {
 	--margin-right: -3vw;
@@ -286,10 +335,12 @@ body {
 	font-size: 0.95rem;
 	display: inline-block;
 	margin-bottom: 0.4rem;
-	transition: 0.4s;
+	text-decoration: underline 1.24px transparent;
+	transition: text-decoration 0.4s ease, font-weight 0.4s ease;
 }
 #contact .content .clinic a:hover {
 	font-weight: 600;
+	text-decoration: underline 1.24px hsl(var(--clr-primary-blue));
 }
 #contact .content .clinic .map {
 	margin-bottom: 0.4rem;

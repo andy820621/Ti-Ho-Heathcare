@@ -1,40 +1,51 @@
 document.addEventListener("DOMContentLoaded", function () {
-	// Global EventListener
-	function addGlobalEventListener(type, selector, callback) {
-		document.body.addEventListener(type, (e) => {
-			if (e.target.matches(selector)) callback(e);
-		});
+	// Change Header Navigation backgroung-color when scroll-down/scroll-up
+	const header = document.querySelector(".header");
+	let noScrolling = 0,
+		navHeight = header.offsetHeight;
+
+	window.addEventListener("scroll", onScroll);
+	function onScroll() {
+		if (noScrolling) return;
+		requestAnimationFrame(removeTransparent);
+		noScrolling = true;
+	}
+	function removeTransparent() {
+		if (window.pageYOffset > navHeight) {
+			header.classList.remove("transparent");
+		} else {
+			header.classList.add("transparent");
+		}
+		noScrolling = false;
 	}
 
 	// Side Navigation click function
 	addGlobalEventListener("click", "#side-navigation a", (e) => {
 		e.preventDefault();
 		let target = document.querySelector(`#${e.target.dataset.link}`);
-		let targetPosition = target.offsetTop;
-		const startPosition = window.pageYOffset;
-		let distance = targetPosition - startPosition;
-		window.scrollTo(0, distance);
+		let targetPosition = document.body.classList.contains("nav-up")
+			? target.getBoundingClientRect().top
+			: target.getBoundingClientRect().top - navHeight;
+		window.scrollBy(0, targetPosition);
 	});
 
-	// Clinic Position Sort Function
-	const clinics = document.querySelectorAll(".clinic");
+	// Side Navigation active link when scroll to their own section
+	const sections = document.querySelectorAll(
+		".main-side-container > section:not(:nth-child(1))"
+	);
+	const sideNavOptions = {
+		rootMargin: "-45% 0px -55%",
+	};
 
-	addGlobalEventListener("click", ".position-navigation a", (e) => {
-		if (e.target.getAttribute("aria-selected") === "true") return;
-		document
-			.querySelector(`.position-navigation a[aria-selected="true"]`)
-			.setAttribute("aria-selected", "false");
-		e.target.setAttribute("aria-selected", "true");
-
-		let activeCity = e.target.dataset.city;
-		clinics.forEach((clinic) => {
-			if (activeCity === "all") {
-				clinic.classList.remove("disappear");
-				return;
-			}
-			clinic.dataset.position !== activeCity
-				? clinic.classList.add("disappear")
-				: clinic.classList.remove("disappear");
+	const sideNavObserver = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			document
+				.querySelector(`#side-navigation a[data-link ="${entry.target.id}"]`)
+				.classList.toggle("active", entry.isIntersecting);
 		});
+	}, sideNavOptions);
+
+	sections.forEach((section) => {
+		sideNavObserver.observe(section);
 	});
 });

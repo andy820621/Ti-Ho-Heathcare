@@ -1,25 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
-	// Global EventListener
-	function addGlobalEventListener(type, selector, callback) {
-		document.body.addEventListener(type, (e) => {
-			if (e.target.matches(selector)) callback(e);
-		});
-	}
-
 	// Map Navigation
 	let clinic = document.querySelector("#clinic");
 
-	addGlobalEventListener("click", ".banner-navigation li h2", (e) => {
-		if (e.target.closest("li").getAttribute("aria-selected") === "true") return;
-		document
-			.querySelector(`.banner-navigation li[aria-selected="true"]`)
-			.setAttribute("aria-selected", "false");
-		e.target.closest("li").setAttribute("aria-selected", "true");
+	addGlobalEventListener("click", ".banner-navigation li h3", (e) => {
 		let targetSelector = document.querySelector(
 			`.countries > li > h2[data-country="${e.target.dataset.country}"]`
 		);
 		CountryChangeFunction(targetSelector);
 		window.scrollTo(0, clinic.offsetTop);
+		if (e.target.closest("li").getAttribute("aria-selected") === "true") return;
+		document
+			.querySelector(`.banner-navigation li[aria-selected="true"]`)
+			.setAttribute("aria-selected", "false");
+		e.target.closest("li").setAttribute("aria-selected", "true");
 	});
 
 	// Clinic Navigation
