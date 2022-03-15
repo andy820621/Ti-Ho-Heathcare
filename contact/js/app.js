@@ -1,13 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
 	// Map Navigation
+	const navHeight = document.querySelector(".header").offsetHeight;
 	let clinic = document.querySelector("#clinic");
-
 	addGlobalEventListener("click", ".banner-navigation li h3", (e) => {
 		let targetSelector = document.querySelector(
-			`.countries > li > h2[data-country="${e.target.dataset.country}"]`
+			`.countries > li h2[data-country="${e.target.dataset.country}"]`
 		);
+		let targetPosition = document.body.classList.contains("nav-up")
+			? targetSelector.getBoundingClientRect().top
+			: targetSelector.getBoundingClientRect().top - navHeight;
+
 		CountryChangeFunction(targetSelector);
-		window.scrollTo(0, clinic.offsetTop);
+		window.scrollBy(0, targetPosition);
+
 		if (e.target.closest("li").getAttribute("aria-selected") === "true") return;
 		document
 			.querySelector(`.banner-navigation li[aria-selected="true"]`)

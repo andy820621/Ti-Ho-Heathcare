@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		// Set currentIndex
 		currentIndex = 0;
 	});
-	addGlobalEventListener("click", `.sort ul[aria-selected="true"] li `, (e) => {
+	addGlobalEventListener("click", `.sort ul[aria-selected="true"] li`, (e) => {
 		if (!e.target.classList.contains("active")) {
 			// Remove active
 			document

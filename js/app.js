@@ -35,4 +35,31 @@ document.addEventListener("DOMContentLoaded", function () {
 		lastScrollTop = windowScrollTop;
 		noScrolling = false;
 	}
+
+	// Fade in when Scroll to their section
+	const invisibles = document.querySelectorAll(".invisible");
+
+	const appearOptions = {
+		threshold: 0,
+		rootMargin: "0px 0px -24px 0px",
+	};
+
+	const appearOnScroll = new IntersectionObserver(function (
+		entries,
+		appearOnScroll
+	) {
+		entries.forEach((entry) => {
+			if (!entry.isIntersecting) {
+				return;
+			} else {
+				entry.target.classList.remove("invisible");
+				appearOnScroll.unobserve(entry.target);
+			}
+		});
+	},
+	appearOptions);
+
+	invisibles.forEach((invisible) => {
+		appearOnScroll.observe(invisible);
+	});
 });

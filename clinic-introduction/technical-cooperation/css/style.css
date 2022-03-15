@@ -137,7 +137,7 @@ body {
 }
 #pgy-traning .content span {
 	display: inline-block;
-	width: fill-available;
+	width: calc(100% - 2rem);
 	height: 1.5px;
 	margin: 0 1rem;
 	background-color: hsl(var(--clr-white));
@@ -333,8 +333,8 @@ body {
 }
 .scroll-container .clinic img {
 	transition: 0.6s ease;
-	transform-origin: center right;
+	transform-origin: top;
 }
 .scroll-container .clinic.disappear img {
-	transform: scaleX(0);
+	transform: scaleY(0);
 }

@@ -87,20 +87,32 @@
 	margin: 5rem 0 6rem;
 	font-size: 1.3rem;
 }
+
 .service-content {
+	--gap: calc(2vw + 2rem);
+	--img-width: 200px;
+	--content-width: 220px;
+	--img-padding: calc((var(--content-width) - var(--img-width)) / 2);
+	--img-gap: calc(var(--gap) + var(--content-width) - var(--img-width));
+	column-gap: var(--gap);
+}
+.service-content > div ~ div {
 	position: relative;
 }
-.service-content::before {
+.service-content > div ~ div::before {
 	position: absolute;
 	content: "";
-	width: 81%;
+	width: var(--img-gap);
 	height: 0.24rem;
 	background-color: hsl(var(--clr-white));
 	top: 100px;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	left: var(--img-padding);
+	transform: translate(-100%, -50%);
+	z-index: 999;
 }
-.service-content img {
+.service-content > div > img {
+	width: var(--img-width);
+	height: var(--img-width);
 	margin-bottom: 5rem;
 	position: relative;
 	z-index: 1;
@@ -122,6 +134,7 @@
 	transform: translateX(-50%);
 }
 .service-content p {
+	width: var(--content-width);
 	font-weight: 100;
 }
 .service-content p span {
@@ -272,6 +285,7 @@
 	padding-right: var(--padding-right);
 	width: calc(var(--year-box-1) * 4 + var(--padding-right));
 	max-height: var(--container-height);
+	overflow-x: hidden;
 	overflow-y: auto;
 	overscroll-behavior-inline: contain;
 	scroll-behavior: smooth;

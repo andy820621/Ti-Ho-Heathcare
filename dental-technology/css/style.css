@@ -271,7 +271,9 @@ body {
 	color: hsl(var(--clr-white));
 	padding: 0 1.4rem;
 	transform: translateY(calc(100% - var(--line-height)));
-	transition: transform 0.4s ease, background-color 0.4s ease;
+	transition: transform 0.4s ease, background-color 0.4s ease,
+		opacity 1s cubic-bezier(0, 0.24, 0.24, 1),
+		transform 1s cubic-bezier(0, 0.24, 0.24, 1);
 }
 #customization .content-box .detail-title h3 {
 	font-size: 0.9em;

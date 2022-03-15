@@ -141,6 +141,17 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (isDragging) requestAnimationFrame(dragAnimation);
 	}
 	function setSliderPosition() {
+		let moveBy = currentTranslate - prevTranslate;
+		if (currentIndex == 0 && moveBy > 0) {
+			sliderGallery.style.transform = `translateX(${currentTranslate / 10}px)`;
+			return;
+		}
+		if (currentIndex == sliderGalleryList.length - 1 && moveBy < 0) {
+			sliderGallery.style.transform = `translateX(${
+				currentTranslate - moveBy * 0.9
+			}px)`;
+			return;
+		}
 		sliderGallery.style.transform = `translateX(${currentTranslate}px)`;
 	}
 	function setPositionByIndex() {
