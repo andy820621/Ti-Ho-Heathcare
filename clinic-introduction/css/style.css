@@ -1,19 +1,10 @@
 /* Nav */
 .navbar {
-	background-color: hsl(var(--clr-white));
+	--clr-white: 216 61% 18%;
+	--clr-primary-blue: 0 0% 98%;
 }
-.navMenu a {
-	color: hsl(var(--clr-primary-blue));
+.navMenu ul li a {
 	font-weight: 400;
-}
-.dropdown-icon {
-	color: hsl(var(--clr-primary-blue));
-}
-.has-dropdown ul {
-	background-color: hsl(var(--clr-white));
-}
-.navMenu li.active > a {
-	border-bottom: solid 2px hsl(var(--clr-primary-blue));
 }
 
 /* Banner */

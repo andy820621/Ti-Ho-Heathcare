@@ -119,12 +119,33 @@ nav {
 .navMenu a {
 	font-weight: 300;
 	color: hsl(var(--clr-white));
+	padding-bottom: 0.5rem;
+	position: relative;
 	transition: 0.5s;
 }
-.navMenu > ul > li.active > a,
-.navMenu > ul > li:hover > a {
+.navMenu a:focus,
+.navMenu a.active,
+.navMenu a:hover {
 	font-weight: 500;
 	letter-spacing: 1.8px;
+}
+.navMenu a::after {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 2.4px;
+	border-radius: 1.2px;
+	background-color: hsl(var(--clr-white));
+	left: 0;
+	bottom: 0;
+	transform: scaleX(0%);
+	transform-origin: right;
+	transition: transform 0.5s ease-out;
+}
+.navMenu a:hover::after,
+.navMenu a.active::after {
+	transform: scaleX(100%);
+	transform-origin: left;
 }
 .dropdown-icon {
 	position: relative;
@@ -157,9 +178,6 @@ nav {
 	padding: 0 0 1rem 0;
 	width: inherit;
 }
-.has-dropdown a {
-	transition: 0.5s;
-}
 .has-dropdown:hover .dropdown-icon i {
 	transform: rotate(180deg);
 }
@@ -168,15 +186,6 @@ nav {
 	visibility: visible;
 	transform: translateY(0%);
 	transition: 0.5s;
-}
-:is(.has-dropdown li:hover, .has-dropdown li.active) a {
-	font-weight: 500;
-	letter-spacing: 1.5px;
-}
-.navMenu li.active > a {
-	padding-bottom: 5px;
-	border-bottom: solid 2px hsl(var(--clr-white));
-	border-radius: 1px;
 }
 /* Control burger */
 /* .hamburger {display: none;} */

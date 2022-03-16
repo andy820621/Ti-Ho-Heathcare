@@ -1,7 +1,4 @@
 /* Nav */
-.header {
-	box-shadow: 0 5px 10px hsl(var(--clr-grey) / 0.24);
-}
 .header.transparent {
 	box-shadow: none;
 }
@@ -17,6 +14,12 @@
 }
 .header.transparent .navMenu a {
 	color: hsl(var(--clr-white));
+}
+.navMenu a::after {
+	background-color: hsl(var(--clr-primary-blue));
+}
+.header.transparent .navMenu a::after {
+	background-color: hsl(var(--clr-white));
 }
 .header .dropdown-icon {
 	color: hsl(var(--clr-primary-blue));
