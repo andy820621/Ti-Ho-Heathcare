@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	let noScrolling = 0,
 		navHeight = header.offsetHeight;
 
-	window.addEventListener("scroll", onScroll);
+	const updateNavIfActive = throttle(onScroll, 500);
+	window.addEventListener("scroll", updateNavIfActive);
 	function onScroll() {
 		if (noScrolling) return;
 		requestAnimationFrame(removeTransparent);

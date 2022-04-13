@@ -4,6 +4,32 @@ function addGlobalEventListener(type, selector, callback) {
 		if (e.target.matches(selector)) callback(e);
 	});
 }
+// Throttle function
+function throttle(cb, delay = 1000) {
+	let shouldWait = false;
+	let waitingArgs;
+	const timeoutFunc = () => {
+		if (waitingArgs == null) {
+			shouldWait = false;
+		} else {
+			cb(...waitingArgs);
+			waitingArgs = null;
+			setTimeout(timeoutFunc, delay);
+		}
+	};
+
+	return (...args) => {
+		if (shouldWait) {
+			waitingArgs = args;
+			return;
+		}
+
+		cb(...args);
+		shouldWait = true;
+
+		setTimeout(timeoutFunc, delay);
+	};
+}
 
 document.addEventListener("DOMContentLoaded", function () {
 	// Hide or Show Header Navigation when scroll-down/scroll-up
@@ -12,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		lastScrollTop = 0,
 		navHeight = header.offsetHeight;
 
-	window.addEventListener("scroll", onScroll);
+	const updateNavIfActive = throttle(onScroll, 500);
+	window.addEventListener("scroll", updateNavIfActive);
 	function onScroll() {
 		if (noScrolling) return;
 		if (

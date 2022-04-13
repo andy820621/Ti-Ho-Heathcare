@@ -103,14 +103,14 @@ document.addEventListener("DOMContentLoaded", function () {
 	};
 
 	// SlideFunction EventListener
-	window.addEventListener("resize", function () {
+	const updateSliderSize = throttle(() => {
 		sliderWidth = sliderGalleryList[0].getBoundingClientRect().width;
 		sliderGallery.style.transform = `translateX(-${
 			currentIndex * sliderWidth
 		}px)`;
-
 		sliderOffsetHeight = slider.offsetHeight;
-	});
+	}, 100);
+	window.addEventListener("resize", updateSliderSize);
 	addGlobalEventListener("click", "button.fas", (e) => {
 		resetCounter();
 		e.target.classList.contains("prev") ? slide("prev") : slide();

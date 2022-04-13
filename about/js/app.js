@@ -79,8 +79,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	// Make sure when scroll Header Navigation is hidden
-	yearContainer.addEventListener("scroll", (e) => {
+	const updateNavState = throttle(() => {
 		if (document.querySelector(".header").classList.contains("nav-up")) return;
 		document.querySelector(".header").classList.add("nav-up");
-	});
+	}, 240);
+	yearContainer.addEventListener("scroll", updateNavState);
 });

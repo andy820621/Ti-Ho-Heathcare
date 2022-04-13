@@ -54,8 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Make sure when scroll Header Navigation is hidden
 	const scrollContainer = document.querySelector(".scroll-container");
-	scrollContainer.addEventListener("scroll", (e) => {
+	const updateNavState = throttle(() => {
 		if (document.body.classList.contains("nav-up")) return;
 		document.body.classList.add("nav-up");
-	});
+	}, 240);
+	scrollContainer.addEventListener("scroll", updateNavState);
 });

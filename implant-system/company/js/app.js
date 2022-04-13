@@ -50,14 +50,14 @@ document.addEventListener("DOMContentLoaded", function () {
 	let sliderWidth = sliderGalleryList[0].getBoundingClientRect().width;
 	let sliderOffsetHeight = slider.offsetHeight;
 
-	window.addEventListener("resize", function () {
+	const updateSliderSize = throttle(() => {
 		sliderWidth = sliderGalleryList[0].getBoundingClientRect().width;
 		sliderGallery.style.transform = `translateX(-${
 			currentIndex * sliderWidth
 		}px)`;
-
 		sliderOffsetHeight = slider.offsetHeight;
-	});
+	}, 100);
+	window.addEventListener("resize", updateSliderSize);
 	// Disable content menu
 	window.oncontextmenu = function (event) {
 		event.preventDefault();
@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	};
 
 	// AddEventListener
+	const updateSliderPosition = throttle(touchMove, 100);
 	sliderGalleryList.forEach((li, index) => {
 		const liImage = li.querySelector("img");
 		liImage.addEventListener("dragstart", (e) => e.preventDefault());
@@ -73,12 +74,13 @@ document.addEventListener("DOMContentLoaded", function () {
 		// Touch events
 		li.addEventListener("touchstart", touchStart(index));
 		li.addEventListener("touchend", touchEnd);
-		li.addEventListener("touchmove", touchMove);
+		li.addEventListener("touchcancel", touchEnd);
+		li.addEventListener("touchmove", updateSliderPosition);
 		// Mouse events
 		li.addEventListener("mousedown", touchStart(index));
 		li.addEventListener("mouseup", touchEnd);
 		li.addEventListener("mouseleave", touchEnd);
-		li.addEventListener("mousemove", touchMove);
+		li.addEventListener("mousemove", updateSliderPosition);
 	});
 	dots.forEach(function dot(e, index) {
 		e.addEventListener("click", function () {
