@@ -1,6 +1,114 @@
-@media screen and (min-width: 800px) {
-	/* Header */
-}
+@media (min-width: 768px) {
+	:root {
+		--fs-900: clamp(4rem, 6vw + 1rem, 7rem);
+		--fs-800: 3rem;
+		--fs-700: 1.3rem;
+		--fs-600: 1rem;
+		--fs-500: 0.95rem;
+		--fs-400: 0.9rem;
+		--fs-300: 0.85rem;
+		--fs-200: 0.8rem;
+		--fs-100: 0.75rem;
 
-@media screen and (min-width: 924px) {
+		--nav-height: 90px;
+		--logo-width: 175px;
+	}
+
+	/* Tablet Navigation */
+	.navMenu {
+		position: static;
+		display: flex;
+		transform: none;
+		width: auto;
+		background-color: transparent;
+		padding: 0;
+		opacity: 1;
+		visibility: visible;
+	}
+
+	.navMenu ul {
+		flex-direction: row;
+	}
+
+	.navMenu li {
+		width: auto;
+		opacity: 1;
+		transform: none;
+		padding: 0 1rem;
+	}
+
+	.dropdown-icon {
+		display: inline-block;
+	}
+
+	.has-dropdown {
+		position: relative;
+	}
+
+	.has-dropdown ul {
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background-color: hsl(var(--clr-primary-blue));
+		width: 200px;
+		padding: 0.5rem 0;
+	}
+
+	.has-dropdown:hover ul {
+		display: block;
+	}
+
+	/* Hide hamburger on tablet */
+	.hamburger {
+		display: none;
+	}
+
+	/* Footer for tablet */
+	footer {
+		/* height: 6rem; */
+		padding: 0;
+	}
+
+	.contact {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-start;
+		height: 100%;
+		padding: 1.2rem 0;
+	}
+
+	.clinic {
+		width: 45%;
+		margin-bottom: 0;
+	}
+
+	.clinic-2 {
+		padding-left: 1rem;
+	}
+
+	.clinic-name {
+		width: 33.33%;
+		text-align: left;
+		padding-right: 1rem;
+	}
+
+	.clinic-content {
+		width: 66.67%;
+		text-align: left;
+	}
+
+	.contact .line {
+		display: block;
+		width: 2px;
+		height: 10vh;
+		margin: 0;
+		background-color: hsl(var(--clr-primary-yellow));
+	}
+
+	/* Style Index Banner */
+	.banner-container {
+		min-height: 84vh;
+		padding: 2rem 0;
+	}
 }

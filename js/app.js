@@ -4,6 +4,9 @@ function addGlobalEventListener(type, selector, callback) {
 		if (e.target.matches(selector)) callback(e);
 	});
 }
+function stopPropagation(e) {
+    e.stopPropagation();
+}
 // Throttle function
 function throttle(cb, delay = 1000) {
 	let shouldWait = false;
@@ -31,7 +34,68 @@ function throttle(cb, delay = 1000) {
 	};
 }
 
+// Aria-expanded function
+function ArilExpanded(e) {
+	e.setAttribute(
+		"aria-expanded",
+		e.getAttribute("aria-expanded") == "true" ? "false" : "true"
+	);
+}
+function ArilExpandedFalse(e) {
+	e.setAttribute("aria-expanded", false);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
+	// Burger
+	const navbar = document.querySelector(".navbar");
+	const nav = document.querySelector("nav");
+	const burger = document.querySelector(".hamburger");
+	const navMenu = document.querySelector(".navMenu");
+	const navLists = document.querySelectorAll(".navMenu > ul > li");
+
+	// ClickBurger function
+	function clickburger() {
+    // Toggle Nav
+    navMenu.classList.toggle("active");
+
+    // Burger Animation
+    navbar.classList.toggle("cross");
+
+    // Animate Links
+    navLists.forEach((li, index) => {
+			if (navMenu.classList.contains("active")) {
+					li.style.animation = `navMenuFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+			} else {
+					li.style.animation = "";
+			}
+    });
+
+    ArilExpanded(navMenu);
+
+    if (navbar.classList.contains("cross")) {
+        navbar.addEventListener("click", stopPropagation);
+        document.querySelector("body>div").addEventListener("click", clickMenuLink);
+    } else {
+        navbar.removeEventListener("click", stopPropagation);
+        document.querySelector("body>div").removeEventListener("click", clickMenuLink);
+    }
+	};
+
+	function clickMenuLink() {
+    ArilExpandedFalse(navMenu);
+
+    // Close burger menu
+    navMenu.classList.remove("active");
+    navbar.classList.remove("cross");
+    
+    // Reset navMenu animate style
+    navLists.forEach((li) => {
+        li.style.animation = "";
+    });
+	}
+	// EventListener
+	burger.addEventListener("click", clickburger);
+
 	// Hide or Show Header Navigation when scroll-down/scroll-up
 	const header = document.querySelector(".header");
 	let noScrolling = 0,

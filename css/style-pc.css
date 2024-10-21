@@ -1,8 +1,89 @@
-@media screen and (min-width: 1023px) {
-	/* Header */
-}
+@media (min-width: 1024px) {
+	:root {
+		--fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+		--fs-800: 3.5rem;
+		--fs-700: 1.5rem;
+		--fs-600: 1rem;
+		--fs-500: 1rem;
+		--fs-400: 0.9375rem;
+		--fs-300: 1rem;
+		--fs-200: 0.875rem;
+		--fs-100: 0.81rem;
 
-@media screen and (min-width: 1500px) {
-}
-@media screen and (min-width: 1900px) {
+		--nav-height: 100px;
+		--logo-width: 240px;
+	}
+
+	nav {
+		width: max(35rem, 50%);
+	}
+
+	.navMenu li {
+		/* width: calc(100% / 5); */
+		text-align: center;
+		transition: 0.5s;
+	}
+
+	.navMenu a::after {
+		position: absolute;
+		content: "";
+		width: 100%;
+		height: 2.4px;
+		border-radius: 1.2px;
+		background-color: hsl(var(--clr-white));
+		left: 0;
+		bottom: 0;
+		transform: scaleX(0%);
+		transform-origin: right;
+		transition: transform 0.5s ease-out;
+	}
+
+	.navMenu a:hover::after,
+	.navMenu a.active::after {
+		transform: scaleX(100%);
+		transform-origin: left;
+	}
+
+	.has-dropdown ul {
+		width: 100%;
+		top: 24px;
+		margin-top: calc(calc(var(--nav-height) - 24px) / 2);
+		z-index: -1;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-50%);
+		transition: 0.5s 0.3s;
+	}
+
+	.has-dropdown:hover ul {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0%);
+		transition: 0.5s;
+	}
+
+	/* Footer for desktop */
+	footer {
+		height: 8.1rem;
+	}
+	.contact {
+		max-width: 1280px;
+	}
+
+	.clinic {
+		width: 42%;
+	}
+
+	.clinic-2 {
+		padding-left: 2.4rem;
+	}
+
+	.clinic-name {
+		padding-right: 1.5rem;
+	}
+
+	/* Style Index Banner */
+	.banner-container {
+		min-height: calc(100vh - var(--nav-height));
+	}
 }
