@@ -5,7 +5,7 @@ function addGlobalEventListener(type, selector, callback) {
 	});
 }
 // Throttle function
-function throttle(cb, delay = 999) {
+function throttle(cb, delay = 1000) {
 	let shouldWait = false;
 	let waitingArgs;
 	const timeoutFunc = () => {
