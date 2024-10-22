@@ -9,58 +9,105 @@
 }
 
 /* About */
+/* 共用樣式 */
 #about {
 	--image-height: 60vw;
-	margin-bottom: 24rem;
+	margin-bottom: 4rem;
 }
+
 .about-main {
 	width: 100%;
 	height: var(--image-height);
-	background-attachment: fixed;
+	background-attachment: scroll;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-image: url("../images/about-main.webp");
 }
+
 .about-main img {
 	width: 100%;
 	height: var(--image-height);
 	object-fit: cover;
 	object-position: center;
 }
+
 .about-second {
-	width: min(100%, 1980px);
-	/* max-width: 100%; */
-	top: calc(calc(var(--image-height) / 15) * 11.5);
-	left: 50%;
-	transform: translateX(-50%);
+	width: 100%;
+	padding: 0 1rem;
 }
+
 .about-content {
-	padding: 6.6rem 5rem 0;
+	padding: 2rem 1rem;
 }
 
 .about-title {
 	color: hsl(var(--clr-primary-yellow));
 	border: solid 3px hsl(var(--clr-primary-yellow));
 	text-align: center;
-	padding: 0 1.5rem;
+	padding: 0.5rem 1rem;
 	line-height: 1.8em;
 	width: fit-content;
 	font-size: clamp(1rem, 0.8rem + 1.5vw, 2rem);
 	font-weight: 700;
+	margin-bottom: 1rem;
 }
+
 .about-title span {
 	font-weight: 800;
 	padding-left: 0.47em;
 	white-space: nowrap;
 }
 .about-title-content {
-	max-width: 506px;
-	padding-top: 2.4rem;
-	font-weight: 300;
-	font-size: 0.9rem;
-	letter-spacing: 0.12rem;
-	line-height: 2.4em;
-	text-align: justify;
+	padding-top: 2.4vw;
+}
+
+/* 移動設備 */
+@media (max-width: 767px) {
+	.about-second {
+		flex-direction: column;
+	}
+
+	.about-second .col-6 {
+		width: 100%;
+	}
+
+	.about-content {
+		order: -1;
+	}
+}
+
+/* 平板電腦 */
+@media (min-width: 768px) and (max-width: 1023px) {
+	.about-second {
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.about-second .col-6 {
+		width: 50%;
+	}
+
+	.about-content {
+		padding: 2rem;
+	}
+}
+
+/* 桌面 */
+@media (min-width: 1024px) {
+	#about {
+		margin-bottom: 24rem;
+	}
+
+	.about-second {
+		position: absolute;
+		top: calc(calc(var(--image-height) / 15) * 11.5);
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.about-content {
+		padding: 6.6rem 5rem 0;
+	}
 }
 
 /* Service */

@@ -1,4 +1,42 @@
 document.addEventListener("DOMContentLoaded", function () {
+	// Sevice section
+	const serviceSection = document.getElementById("service");
+	const serviceContent = serviceSection.querySelector(".service-content");
+	let isScrollingHorizontally = false;
+	let lastScrollTop = 0;
+
+	window.addEventListener("scroll", (e) => {
+		if (window.innerWidth <= 767) {
+			const rect = serviceSection.getBoundingClientRect();
+			const scrollTop =
+				window.pageYOffset || document.documentElement.scrollTop;
+
+			if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+				if (!isScrollingHorizontally) {
+					isScrollingHorizontally = true;
+					document.body.style.overflow = "hidden";
+				}
+
+				const scrollPercentage = (scrollTop - lastScrollTop) / rect.height;
+				const scrollAmount = scrollPercentage * serviceContent.scrollWidth;
+				serviceContent.scrollLeft += scrollAmount;
+
+				if (
+					serviceContent.scrollLeft + serviceContent.clientWidth >=
+					serviceContent.scrollWidth
+				) {
+					isScrollingHorizontally = false;
+					document.body.style.overflow = "";
+				}
+
+				lastScrollTop = scrollTop;
+			} else {
+				isScrollingHorizontally = false;
+				document.body.style.overflow = "";
+			}
+		}
+	});
+
 	// History Year
 	const yearTitle = document.querySelector(".year-title");
 	const year1 = document.querySelector(".year-1");
