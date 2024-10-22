@@ -1,4 +1,9 @@
 /* Nav */
+.navbar {
+	--clr-white: 216 61% 18%;
+	--clr-primary-blue: 0 0% 98%;
+	--clr-sub-blue: 0 0% 95%;
+}
 .header.transparent {
 	box-shadow: none;
 }

@@ -5,7 +5,7 @@ function addGlobalEventListener(type, selector, callback) {
 	});
 }
 function stopPropagation(e) {
-    e.stopPropagation();
+	e.stopPropagation();
 }
 // Throttle function
 function throttle(cb, delay = 1000) {
@@ -55,46 +55,104 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// ClickBurger function
 	function clickburger() {
-    // Toggle Nav
-    navMenu.classList.toggle("active");
+		// Toggle Nav
+		navMenu.classList.toggle("active");
 
-    // Burger Animation
-    navbar.classList.toggle("cross");
+		// Burger Animation
+		navbar.classList.toggle("cross");
 
-    // Animate Links
-    navLists.forEach((li, index) => {
+		// Animate Links
+		navLists.forEach((li, index) => {
 			if (navMenu.classList.contains("active")) {
-					li.style.animation = `navMenuFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+				li.style.animation = `navMenuFade 0.5s ease forwards ${
+					index / 7 + 0.3
+				}s`;
 			} else {
-					li.style.animation = "";
+				li.style.animation = "";
 			}
-    });
+		});
 
-    ArilExpanded(navMenu);
+		ArilExpanded(navMenu);
 
-    if (navbar.classList.contains("cross")) {
-        navbar.addEventListener("click", stopPropagation);
-        document.querySelector("body>div").addEventListener("click", clickMenuLink);
-    } else {
-        navbar.removeEventListener("click", stopPropagation);
-        document.querySelector("body>div").removeEventListener("click", clickMenuLink);
-    }
-	};
+		if (navbar.classList.contains("cross")) {
+			navbar.addEventListener("click", stopPropagation);
+			document
+				.querySelector("body>div")
+				.addEventListener("click", clickMenuLink);
+		} else {
+			navbar.removeEventListener("click", stopPropagation);
+			document
+				.querySelector("body>div")
+				.removeEventListener("click", clickMenuLink);
+		}
+	}
 
 	function clickMenuLink() {
-    ArilExpandedFalse(navMenu);
+		ArilExpandedFalse(navMenu);
 
-    // Close burger menu
-    navMenu.classList.remove("active");
-    navbar.classList.remove("cross");
-    
-    // Reset navMenu animate style
-    navLists.forEach((li) => {
-        li.style.animation = "";
-    });
+		// Close burger menu
+		navMenu.classList.remove("active");
+		navbar.classList.remove("cross");
+
+		// Reset navMenu animate style
+		navLists.forEach((li) => {
+			li.style.animation = "";
+		});
 	}
 	// EventListener
 	burger.addEventListener("click", clickburger);
+
+	// Mobile NavMenu submenu click function
+	const dropdowns = document.querySelectorAll(".has-dropdown");
+
+	dropdowns.forEach((dropdown) => {
+		const link = dropdown.querySelector("a");
+		const dropdownIcon = dropdown.querySelector(".dropdown-icon");
+
+		// 為整個 dropdown 添加點擊事件
+		dropdown.addEventListener("click", (e) => {
+			// 防止點擊事件傳播到父元素
+			e.stopPropagation();
+
+			// 如果點擊的是下拉圖標，切換下拉菜單
+			if (e.target.closest(".dropdown-icon")) {
+				e.preventDefault();
+				dropdown.classList.toggle("active");
+			}
+			// 如果點擊的是 li 的空白區域，也切換下拉菜單
+			else if (e.target === dropdown) {
+				dropdown.classList.toggle("active");
+			}
+
+			// 關閉其他打開的下拉菜單
+			dropdowns.forEach((otherDropdown) => {
+				if (
+					otherDropdown !== dropdown &&
+					otherDropdown.classList.contains("active")
+				) {
+					otherDropdown.classList.remove("active");
+				}
+			});
+		});
+
+		// 為鏈接添加單獨的點擊事件，以確保它可以正常跳轉
+		link.addEventListener("click", (e) => {
+			// 如果點擊的不是下拉圖標，允許跳轉
+			if (!e.target.closest(".dropdown-icon")) {
+				console.log("click a");
+				// 跳轉將自動發生，不需要手動設置 window.location.href
+			} else {
+				e.preventDefault(); // 防止下拉圖標點擊時跳轉
+			}
+		});
+	});
+
+	// 點擊頁面其他地方時關閉所有下拉菜單
+	document.addEventListener("click", () => {
+		dropdowns.forEach((dropdown) => {
+			dropdown.classList.remove("active");
+		});
+	});
 
 	// Hide or Show Header Navigation when scroll-down/scroll-up
 	const header = document.querySelector(".header");

@@ -1,67 +1,118 @@
 @media (min-width: 768px) {
 	:root {
-		--fs-900: clamp(4rem, 6vw + 1rem, 7rem);
-		--fs-800: 3rem;
-		--fs-700: 1.3rem;
+		/* font-sizes */
+		--fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+		--fs-800: 3.5rem;
+		--fs-700: 1.5rem;
 		--fs-600: 1rem;
-		--fs-500: 0.95rem;
-		--fs-400: 0.9rem;
-		--fs-300: 0.85rem;
-		--fs-200: 0.8rem;
-		--fs-100: 0.75rem;
+		--fs-500: 1rem;
+		--fs-400: 0.9375rem;
+		--fs-300: 1rem;
+		--fs-200: 0.875rem;
+		--fs-100: 0.81rem;
 
-		--nav-height: 90px;
+		--nav-height: 120px;
 		--logo-width: 175px;
 	}
 
-	/* Tablet Navigation */
+	/* Header Design */
+	.logo {
+		width: max-content;
+	}
+	nav {
+		width: max(35rem, 50%);
+	}
+	.hamburger {
+		display: none;
+	}
 	.navMenu {
-		position: static;
-		display: flex;
-		transform: none;
-		width: auto;
-		background-color: transparent;
-		padding: 0;
-		opacity: 1;
-		visibility: visible;
+		display: block;
 	}
-
-	.navMenu ul {
-		flex-direction: row;
-	}
-
+	/* Tablet Navigation */
 	.navMenu li {
-		width: auto;
-		opacity: 1;
-		transform: none;
-		padding: 0 1rem;
+		width: calc(100% / 5);
+		transition: 0.5s;
 	}
-
-	.dropdown-icon {
-		display: inline-block;
-	}
-
-	.has-dropdown {
+	.navMenu a {
+		font-weight: 300;
+		color: hsl(var(--clr-white));
+		padding-bottom: 0.5rem;
 		position: relative;
+		transition: 0.5s;
+	}
+	.navMenu a:focus,
+	.navMenu a.active,
+	.navMenu a:hover {
+		font-weight: 500;
+		letter-spacing: 1.8px;
+	}
+	.navMenu a::after {
+		position: absolute;
+		content: "";
+		width: 100%;
+		height: 2.4px;
+		border-radius: 1.2px;
+		background-color: hsl(var(--clr-white));
+		left: 0;
+		bottom: 0;
+		transform: scaleX(0%);
+		transform-origin: right;
+		transition: transform 0.5s ease-out;
+	}
+	.navMenu a:hover::after,
+	.navMenu a.active::after {
+		transform: scaleX(100%);
+		transform-origin: left;
+	}
+	.dropdown-icon {
+		position: relative;
+		color: hsl(var(--clr-white));
+		font-size: 0.8rem;
+		left: 5px;
+		top: -2px;
+	}
+	.dropdown-icon i {
+		transition: transform 0.5s;
 	}
 
 	.has-dropdown ul {
-		display: none;
-		position: absolute;
-		top: 100%;
-		left: 0;
+		width: 100%;
 		background-color: hsl(var(--clr-primary-blue));
-		width: 200px;
-		padding: 0.5rem 0;
-	}
+		top: 24px;
+		height: max-content;
+		margin-top: calc(calc(var(--nav-height) - 24px) / 2);
+		z-index: -1;
 
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-50%);
+		transition: 0.5s 0.3s;
+	}
+	.has-dropdown li {
+		padding: 0 0 1rem 0;
+		width: inherit;
+	}
+	.has-dropdown:hover .dropdown-icon i {
+		transform: rotate(180deg);
+	}
 	.has-dropdown:hover ul {
-		display: block;
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0%);
+		transition: 0.5s;
+	}
+	/* Control burger */
+	/* .hamburger {display: none;} */
+	.hamburger span {
+		display: none;
 	}
 
-	/* Hide hamburger on tablet */
+	/* Burger Design */
 	.hamburger {
 		display: none;
+	}
+	.navMenu {
+		display: block;
 	}
 
 	/* Footer for tablet */

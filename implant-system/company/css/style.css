@@ -2,6 +2,7 @@
 .navbar {
 	--clr-white: 216 61% 18%;
 	--clr-primary-blue: 0 0% 98%;
+	--clr-sub-blue: 0 0% 95%;
 }
 .navMenu ul li a {
 	font-weight: 400;
