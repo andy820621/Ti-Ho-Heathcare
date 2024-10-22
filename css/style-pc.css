@@ -11,6 +11,7 @@
 		--fs-100: 0.81rem;
 
 		--logo-width: 240px;
+		--footer-height: 8.1rem;
 	}
 
 	nav {
@@ -62,9 +63,6 @@
 	}
 
 	/* Footer for desktop */
-	footer {
-		height: 8.1rem;
-	}
 	.contact {
 		max-width: 1280px;
 	}
@@ -79,10 +77,5 @@
 
 	.clinic-name {
 		padding-right: 1.5rem;
-	}
-
-	/* Style Index Banner */
-	.banner-container {
-		min-height: calc(100vh - var(--nav-height));
 	}
 }

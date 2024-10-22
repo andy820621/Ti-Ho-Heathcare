@@ -30,6 +30,7 @@
 
 	--nav-height: 88px;
 	--logo-width: 180px;
+	--footer-height: 255px;
 }
 
 html {
@@ -345,7 +346,10 @@ footer {
 	height: auto;
 	background-color: hsl(var(--clr-primary-blue));
 	color: hsl(var(--clr-white));
-	padding: 1rem 0;
+	height: var(--footer-height);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .contact {
@@ -418,7 +422,7 @@ footer {
 /* Style Index Banner */
 .banner-container {
 	width: 100%;
-	min-height: 65vh;
+	min-height: calc(100vh - var(--nav-height) - var(--footer-height));
 	padding: 2rem 0;
 	display: grid;
 	place-items: center;
@@ -426,7 +430,37 @@ footer {
 .banner-container img {
 	--img-heght: 450px;
 	width: min(81vw, 1280px);
-	height: var(--img-heght);
+	max-height: var(--img-heght);
 	object-fit: cover;
 	object-position: 50% 38%;
+}
+
+/* Basic Button Design */
+.home-btn-container {
+	align-self: flex-start;
+}
+.home-btn-container .btn {
+	width: 100%;
+	margin: 0 auto;
+}
+.home-btn-container button {
+	background-color: transparent;
+	border: none;
+}
+.home-btn-container button a {
+	padding: 0.8rem calc(2rem + 2vw);
+	display: block;
+	border-radius: 1.5rem;
+	border: solid 2px hsl(var(--clr-primary-blue));
+	word-spacing: 0.24em;
+	font-size: calc(0.75rem + 0.7vw);
+	font-weight: 800;
+	letter-spacing: 1.45px;
+	color: hsl(var(--clr-primary-blue));
+	transition: 0.4s linear;
+}
+.home-btn-container button a:hover {
+	background-color: hsl(var(--clr-primary-blue));
+	color: hsl(var(--clr-white));
+	letter-spacing: 0.08em;
 }

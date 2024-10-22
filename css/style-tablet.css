@@ -13,6 +13,7 @@
 
 		--nav-height: 120px;
 		--logo-width: 175px;
+		--footer-height: 140px;
 	}
 
 	/* Header Design */
@@ -117,7 +118,6 @@
 
 	/* Footer for tablet */
 	footer {
-		/* height: 6rem; */
 		padding: 0;
 	}
 
@@ -155,11 +155,5 @@
 		height: 10vh;
 		margin: 0;
 		background-color: hsl(var(--clr-primary-yellow));
-	}
-
-	/* Style Index Banner */
-	.banner-container {
-		min-height: 84vh;
-		padding: 2rem 0;
 	}
 }
