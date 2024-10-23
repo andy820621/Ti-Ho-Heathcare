@@ -112,6 +112,7 @@
 
 /* Service */
 #service {
+	position: relative;
 	background-color: hsl(var(--clr-primary-blue));
 	color: hsl(var(--clr-white));
 	padding-bottom: 8.1rem;
@@ -127,13 +128,30 @@
 	font-size: 1.3rem;
 }
 
+.service-container {
+	overflow: hidden;
+	width: 100%;
+	scroll-behavior: smooth;
+}
 .service-content {
 	--gap: calc(2vw + 2rem);
-	--img-width: 200px;
-	--content-width: 220px;
+	--img-width: 160px;
+	--content-width: 180px;
 	--img-padding: calc((var(--content-width) - var(--img-width)) / 2);
 	--img-gap: calc(var(--gap) + var(--content-width) - var(--img-width));
 	column-gap: var(--gap);
+
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	transition: transform 0.3s ease;
+	min-width: max-content;
+}
+.service-content.grab {
+	cursor: grab;
+}
+.service-content.grabbing {
+	cursor: grabbing;
 }
 .service-content > div ~ div {
 	position: relative;
@@ -144,7 +162,7 @@
 	width: var(--img-gap);
 	height: 0.24rem;
 	background-color: hsl(var(--clr-white));
-	top: 100px;
+	top: calc(var(--img-width) / 2);
 	left: var(--img-padding);
 	transform: translate(-100%, -50%);
 	z-index: 999;
@@ -166,7 +184,7 @@
 	position: absolute;
 	content: "";
 	width: 4.5rem;
-	height: 0.6rem;
+	height: 0.5rem;
 	background-color: hsl(var(--clr-primary-yellow));
 	bottom: -2.3rem;
 	left: 50%;
@@ -178,6 +196,125 @@
 }
 .service-content p span {
 	font-weight: 700;
+}
+
+/* Tablet & Mobile */
+@media screen and (max-width: 1200px) {
+	#service > div {
+		width: 90%;
+	}
+
+	.service-content {
+		--gap: calc(1.5vw + 1.5rem);
+
+		justify-content: flex-start;
+		user-select: none;
+	}
+
+	.service-content h3 {
+		font-size: 1.2rem;
+		margin-bottom: 4rem;
+	}
+
+	.service-content > div > img {
+		margin-bottom: 3rem;
+	}
+
+	.service-container {
+		padding: 0 2rem;
+	}
+	/* 漸層 */
+	/* 
+	#service > div::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 4rem;
+		height: 100%;
+		background: linear-gradient(
+			to right,
+			hsl(var(--clr-primary-blue)) 24%,
+			hsla(var(--clr-primary-blue) / 0.24) 81%,
+			transparent 100%
+		);
+		pointer-events: none;
+		z-index: 5;
+	}
+	#service > div::after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 4rem;
+		height: 100%;
+		background: linear-gradient(
+			to left,
+			hsl(var(--clr-primary-blue)) 24%,
+			hsla(var(--clr-primary-blue) / 0.24) 81%,
+			transparent 100%
+		);
+		pointer-events: none;
+		z-index: 5;
+	} */
+}
+
+@media screen and (max-width: 767px) {
+	#service > div {
+		width: calc(100% - 8.1rem);
+	}
+}
+
+/* Scroll Hint */
+.scroll-hint {
+	position: absolute;
+	bottom: 2rem;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+	color: hsl(var(--clr-white));
+	opacity: 0.8;
+	transition: opacity 0.3s ease;
+	opacity: 0; /* 預設隱藏 */
+	visibility: hidden; /* 預設隱藏 */
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* 新增這個 class 來控制顯示 */
+.showScrollHint .scroll-hint {
+	opacity: 0.8;
+	visibility: visible;
+}
+
+.scroll-hint i {
+	font-size: max(1.5vw, 1.2rem);
+	animation: leftRight 2s ease-in-out infinite;
+}
+
+.scroll-hint p {
+	font-size: max(1.2vw, 0.81rem);
+	font-weight: 300;
+	color: #eeeeee81;
+}
+
+/* 當使用者開始拖曳時隱藏提示 */
+.service-container:active + .scroll-hint {
+	opacity: 0;
+}
+
+@keyframes leftRight {
+	0% {
+		transform: translateX(-10px);
+	}
+	50% {
+		transform: translateX(10px);
+	}
+	100% {
+		transform: translateX(-10px);
+	}
 }
 
 /* History */

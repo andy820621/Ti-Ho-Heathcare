@@ -1,40 +1,61 @@
 document.addEventListener("DOMContentLoaded", function () {
 	// Sevice section
-	const serviceSection = document.getElementById("service");
-	const serviceContent = serviceSection.querySelector(".service-content");
-	let isScrollingHorizontally = false;
-	let lastScrollTop = 0;
+	const serviceContainer = document.querySelector(".service-container");
+	const serviceContent = document.querySelector(".service-content");
+	const service = document.querySelector("#service");
 
-	window.addEventListener("scroll", (e) => {
-		if (window.innerWidth <= 767) {
-			const rect = serviceSection.getBoundingClientRect();
-			const scrollTop =
-				window.pageYOffset || document.documentElement.scrollTop;
-
-			if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
-				if (!isScrollingHorizontally) {
-					isScrollingHorizontally = true;
-					document.body.style.overflow = "hidden";
-				}
-
-				const scrollPercentage = (scrollTop - lastScrollTop) / rect.height;
-				const scrollAmount = scrollPercentage * serviceContent.scrollWidth;
-				serviceContent.scrollLeft += scrollAmount;
-
-				if (
-					serviceContent.scrollLeft + serviceContent.clientWidth >=
-					serviceContent.scrollWidth
-				) {
-					isScrollingHorizontally = false;
-					document.body.style.overflow = "";
-				}
-
-				lastScrollTop = scrollTop;
-			} else {
-				isScrollingHorizontally = false;
-				document.body.style.overflow = "";
-			}
+	// 檢查是否需要顯示提示的函數
+	function checkScrollHint() {
+		if (serviceContent.offsetWidth > serviceContainer.offsetWidth) {
+			service.classList.add("showScrollHint");
+			serviceContent.classList.add("grab");
+		} else {
+			service.classList.remove("showScrollHint");
+			serviceContent.classList.remove("grab");
 		}
+	}
+
+	// 初始檢查
+	checkScrollHint();
+
+	// 監聽視窗大小改變
+	window.addEventListener("resize", checkScrollHint);
+
+	let isDragging = false;
+	let startX;
+	let scrollLeft;
+
+	serviceContainer.addEventListener("mousedown", (e) => {
+		isDragging = true;
+		startX = e.pageX - serviceContainer.offsetLeft;
+		scrollLeft = serviceContainer.scrollLeft;
+		service.classList.remove("showScrollHint");
+		serviceContent.classList.add("grabbing");
+	});
+
+	serviceContainer.addEventListener("mouseleave", () => {
+		isDragging = false;
+		checkScrollHint();
+	});
+
+	serviceContainer.addEventListener("mouseup", () => {
+		isDragging = false;
+		checkScrollHint();
+		serviceContent.classList.remove("grabbing");
+	});
+
+	serviceContainer.addEventListener("mousemove", (e) => {
+		if (!isDragging) return;
+		e.preventDefault();
+		const x = e.pageX - serviceContainer.offsetLeft;
+		const walk = (x - startX) * 2;
+		serviceContainer.scrollLeft = scrollLeft - walk;
+	});
+
+	// 滾輪事件
+	serviceContainer.addEventListener("wheel", (e) => {
+		e.preventDefault();
+		serviceContainer.scrollLeft += e.deltaY;
 	});
 
 	// History Year
