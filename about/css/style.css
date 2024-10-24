@@ -379,7 +379,7 @@
 	border-radius: 1px;
 	background-color: hsl(var(--clr-primary-yellow));
 }
-.history-title .year span {
+.history-title .year span:not([class]) {
 	font-size: 0.85rem;
 }
 
@@ -393,9 +393,6 @@
 	padding-top: 5rem;
 	transition: all 0.3;
 }
-.history-content .year-title p {
-	transition: all 0.3;
-}
 .history-content .year-title h3 {
 	width: max-content;
 	padding: 0 2.4rem 1.5rem 1rem;
@@ -404,17 +401,18 @@
 .history-content .year-title h3::after {
 	position: absolute;
 	content: "";
-	width: 100%;
+	width: var(--year-box-1);
 	height: 0.5rem;
 	bottom: 0;
 	left: 0;
 	background-color: hsl(var(--clr-primary-yellow));
-	border-radius: 2.4px;
+	border-radius: 0.25rem;
 }
 .history-content .year-title p {
 	font-size: clamp(1.2rem, 1rem + 2.4vw, 3rem);
 	letter-spacing: 0.24rem;
 	width: max-content;
+	transition: all 0.3;
 }
 .history-content .year-title .year-1 {
 	position: relative;
@@ -535,4 +533,81 @@
 }
 .article-with-image img {
 	margin-left: 2.4rem;
+}
+
+/* 平板版本 (768px ~ 1024px) */
+@media screen and (max-width: 1024px) {
+	.history-title .year a {
+		font-size: 1rem;
+	}
+
+	.year-content-container {
+		--padding-right: 10vw;
+		padding-left: 2rem;
+	}
+
+	.article-with-image {
+		flex-direction: column;
+	}
+	.article-with-image img {
+		margin-left: 0;
+		margin-top: 1.2rem;
+		max-width: 100%;
+	}
+
+	.history-content .year-title {
+		margin-top: -0.8rem;
+	}
+	.history-content .year-title h3 {
+		padding: 0 2rem 1rem 1rem;
+	}
+	.history-content .year-title h3::after {
+		height: 0.38rem;
+	}
+	.history-content .year-title p {
+		font-size: 3vw;
+		letter-spacing: 0.12rem;
+	}
+	.history-content .year-title .year-1 {
+		margin-bottom: 0.5rem;
+	}
+}
+
+/* 手機版本 (< 768px) */
+@media screen and (max-width: 768px) {
+	#history {
+		--padding-left: 8vw;
+		--year-box-1: 16.8vw;
+	}
+
+	.history-content .year-title {
+		display: none;
+	}
+
+	.history-content .year-content {
+		width: 100%;
+		padding: 2.4rem var(--padding-left);
+	}
+	.year-content-container {
+		width: 100%;
+		padding: 0 5vw 0 0;
+	}
+
+	/* 年度垂直排列 */
+	.history-title .year p {
+		display: grid;
+		line-height: 1.2;
+	}
+
+	.history-title .year .year-divider {
+		text-orientation: upright;
+		transform: rotate(90deg);
+	}
+}
+
+@media screen and (max-width: 450px) {
+	#history {
+		--padding-left: 5.5vw;
+		--year-box-1: 17.8vw;
+	}
 }
