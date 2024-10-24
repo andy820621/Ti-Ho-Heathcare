@@ -3,10 +3,20 @@ document.addEventListener("DOMContentLoaded", function () {
 	addGlobalEventListener("click", "#side-navigation a", (e) => {
 		e.preventDefault();
 		const navHeight = document.querySelector(".header").offsetHeight;
+		const sideNavHeight =
+			document.querySelector("#side-navigation").offsetHeight;
 		let target = document.querySelector(`#${e.target.dataset.link}`);
+
+		const isTablet = window.innerWidth <= 1023;
+
 		let targetPosition = document.body.classList.contains("nav-up")
 			? target.getBoundingClientRect().top
 			: target.getBoundingClientRect().top - navHeight;
+
+		if (isTablet) {
+			targetPosition -= sideNavHeight;
+		}
+
 		window.scrollBy(0, targetPosition);
 	});
 

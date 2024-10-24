@@ -210,7 +210,11 @@ body {
 @supports (scrollbar-color: red blue) {
 	.scroll-container {
 		scrollbar-color: hsl(var(--clr-primary-blue)) hsl(var(--clr-lightgrey));
-		scrollbar-width: thin;
+		scrollbar-width: thin; /* Firefox */
+		-ms-overflow-style: none; /* IE and Edge */
+		&::-webkit-scrollbar {
+			width: 0.7rem; /* Chrome, Safari and Opera */
+		}
 	}
 }
 /* Scrollbar Design End */
@@ -221,6 +225,7 @@ body {
 	padding: 0.81rem;
 	border: solid 2.2px hsl(var(--clr-primary-yellow));
 	margin-bottom: 0.81rem;
+	flex-wrap: nowrap;
 }
 .scroll-container .clinic .img-container {
 	min-width: 300px;
@@ -291,4 +296,147 @@ body {
 }
 .scroll-container .clinic.disappear img {
 	transform: scaleY(0);
+}
+
+/* Tablet (768px - 1023px) */
+@media screen and (max-width: 1023px) {
+	/* Side Navigation */
+	.have-side-container {
+		flex-direction: column;
+		width: 100%;
+	}
+
+	#side-navigation {
+		width: 100%;
+		position: sticky;
+		top: var(--nav-height);
+		background-color: hsl(var(--clr-light-blue));
+		z-index: 1;
+		box-shadow: 0 5px 10px hsl(var(--clr-grey) / 0.24);
+	}
+
+	#side-navigation ul {
+		display: flex;
+		justify-content: center;
+		padding-top: 0;
+		gap: 2rem;
+		padding: 1rem 0 1.4rem;
+	}
+
+	#side-navigation a {
+		margin: 0;
+		padding: 0.5rem 0 0.24rem;
+	}
+
+	.main-side-container {
+		width: min(92%, 100rem);
+		margin: 0 auto;
+	}
+
+	/* Banner */
+	.banner-content {
+		width: 80%;
+		padding: 3rem 0 8rem;
+		font-size: 1.5vw;
+	}
+
+	/* Clinic Service */
+	#clinic-service .content {
+		width: 81%;
+	}
+
+	/* Clinic Position */
+	#clinic-position .content {
+		padding: 0 0.24rem 0 1rem;
+	}
+	.scroll-container {
+		padding-right: 2.4vw;
+		height: 60vh;
+	}
+}
+
+/* Mobile (767px and below) */
+@media screen and (max-width: 767px) {
+	/* Side Navigation */
+	#side-navigation ul {
+		gap: 3rem;
+	}
+
+	/* Banner */
+	.banner-content {
+		padding: 2rem 0 5rem;
+		font-size: 14px;
+	}
+
+	/* Clinic Service */
+	#clinic-service .card {
+		margin-bottom: 3rem;
+	}
+	#clinic-service .card img {
+		max-width: 80px;
+	}
+
+	/* Clinic Position */
+	.position-navigation {
+		padding-bottom: 2.4rem;
+	}
+	.position-navigation ul {
+		margin: 0 auto;
+		justify-content: space-between;
+		width: calc(100% - 2rem - 8vw);
+	}
+	.position-navigation a {
+		font-size: 1rem;
+	}
+
+	.scroll-container .clinic {
+		display: grid;
+		max-height: initial;
+		height: auto;
+	}
+	.scroll-container .clinic .img-container {
+		--margin-bottom: 1.8rem;
+
+		max-width: fit-content;
+		min-width: 94%;
+		margin: 0.24rem auto var(--margin-bottom);
+		position: relative;
+		width: 100%;
+	}
+	.scroll-container .clinic .img-container::after {
+		position: absolute;
+		content: "";
+		width: 81%;
+		height: 2px;
+		left: 50%;
+		bottom: calc(-1 * var(--margin-bottom));
+		transform: translateX(-50%);
+		background-color: hsl(var(--clr-primary-blue));
+	}
+	.scroll-container .clinic .information {
+		padding: 0 1rem;
+		width: 94%;
+		text-align: center;
+	}
+	.scroll-container .clinic h3 {
+		font-size: 1.1rem;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	/* Clinic Service */
+	#clinic-service .content {
+		width: 100%;
+	}
+	#clinic-service .card {
+		flex-basis: 50%;
+	}
+
+	/* Clinic Position */
+	.position-navigation {
+		padding-bottom: 2.4rem;
+	}
+	.position-navigation ul {
+		width: calc(100% - 8vw);
+	}
 }
