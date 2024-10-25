@@ -11,8 +11,8 @@
 		--fs-200: 0.875rem;
 		--fs-100: 0.81rem;
 
-		--nav-height: 120px;
-		--logo-width: 175px;
+		--nav-height: 110px;
+		--logo-width: 120px;
 		--footer-height: 140px;
 	}
 
@@ -20,8 +20,17 @@
 	.logo {
 		width: max-content;
 	}
+	.logo h1 a .logo-image {
+		width: 6vw;
+	}
+	.logo h1 a .logo-text {
+		width: 18vw;
+	}
 	nav {
 		width: max(35rem, 50%);
+	}
+	.navbar > .container {
+		width: 100%;
 	}
 	.hamburger {
 		display: none;

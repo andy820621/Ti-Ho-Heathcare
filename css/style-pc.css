@@ -14,6 +14,10 @@
 		--footer-height: 8.1rem;
 	}
 
+	.logo h1 a :is(.logo-image, .logo-text) {
+		width: initial;
+	}
+
 	nav {
 		width: max(35rem, 50%);
 	}
