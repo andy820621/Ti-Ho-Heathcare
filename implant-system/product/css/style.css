@@ -11,6 +11,7 @@
 /* Main tag Start */
 body {
 	background-color: hsl(var(--clr-white));
+	overflow-x: hidden;
 }
 
 /* Banner */
@@ -115,7 +116,6 @@ body {
 	width: min(75%, 1280px);
 	margin: 3rem auto 8rem;
 	position: relative;
-	margin-top: 3rem;
 }
 .slider-container {
 	width: 100%;
@@ -201,4 +201,49 @@ body {
 .dot-container .dot:hover {
 	background-color: hsl(var(--clr-primary-blue));
 	border: solid 0.15rem hsl(var(--clr-white));
+}
+
+/* Tablet (768px - 1023px) */
+@media screen and (max-width: 1023px) {
+	/* Sort */
+	.sort-container li {
+		font-size: 1.124rem;
+	}
+	/* Slider */
+	.product-content {
+		width: 81%;
+	}
+}
+
+/* Mobile (320px - 767px) */
+@media screen and (max-width: 767px) {
+	/* Sort */
+	.sort-container li {
+		font-size: 1.08rem;
+	}
+	/* Slider */
+	.product-content {
+		width: 100%;
+	}
+
+	/* Btn Design */
+	.product-content button {
+		/* display: block; */
+		padding: 0 0.24rem;
+		background-color: hsl(var(--clr-primary-blue) / 0.4);
+		backdrop-filter: blur(0.35rem);
+		font-size: 2rem;
+	}
+	.product-content .prev {
+		left: 0;
+	}
+	.product-content .next {
+		right: 0;
+	}
+	.product-content .prev::before {
+		margin-right: -2px;
+	}
+	.product-content .next::before {
+		margin-left: -2px;
+	}
 }

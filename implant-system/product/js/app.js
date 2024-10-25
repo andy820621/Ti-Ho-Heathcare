@@ -275,4 +275,94 @@ document.addEventListener("DOMContentLoaded", function () {
 			currentIndex = 0;
 		}
 	});
+
+	// 滑動控制
+	let isDragging = false;
+	let startPos = 0;
+	let currentTranslate = 0;
+	let prevTranslate = 0;
+	let animationID = 0;
+	// 初始化
+	sliderGallery.style.cursor = "grab";
+
+	function touchStart(event) {
+		isDragging = true;
+		startPos = getPositionX(event);
+
+		// 更新初始位置為當前滑動位置
+		prevTranslate = -currentIndex * sliderWidth;
+		currentTranslate = prevTranslate;
+
+		animationID = requestAnimationFrame(animation);
+		sliderGallery.style.cursor = "grabbing";
+		sliderGallery.style.transition = "none";
+	}
+
+	function touchEnd() {
+		isDragging = false;
+		cancelAnimationFrame(animationID);
+		sliderGallery.style.cursor = "grab";
+
+		const movedBy = currentTranslate - prevTranslate;
+
+		if (Math.abs(movedBy) > sliderWidth * 0.15) {
+			if (movedBy < 0 && currentIndex < sliderGalleryList.length - 1) {
+				currentIndex++;
+			} else if (movedBy > 0 && currentIndex > 0) {
+				currentIndex--;
+			}
+		}
+
+		// 更新最終位置
+		currentTranslate = -currentIndex * sliderWidth;
+		prevTranslate = currentTranslate;
+
+		sliderGallery.style.transition = "0.5s ease";
+		sliderGallery.style.transform = `translateX(${currentTranslate}px)`;
+
+		detectIfNeedtoAddInactive(currentIndex);
+		SetDotActive(currentIndex);
+	}
+
+	function touchMove(event) {
+		if (isDragging) {
+			const currentPosition = getPositionX(event);
+			currentTranslate = prevTranslate + currentPosition - startPos;
+		}
+	}
+
+	function getPositionX(event) {
+		return event.type.includes("mouse")
+			? event.pageX
+			: event.touches[0].clientX;
+	}
+
+	function animation() {
+		if (isDragging) {
+			const maxTranslate = 0;
+			const minTranslate = -(sliderWidth * (sliderGalleryList.length - 1));
+			currentTranslate = Math.max(
+				Math.min(currentTranslate, maxTranslate),
+				minTranslate
+			);
+			setSliderPosition();
+			requestAnimationFrame(animation);
+		}
+	}
+
+	function setSliderPosition() {
+		sliderGallery.style.transform = `translateX(${currentTranslate}px)`;
+	}
+
+	// 添加事件監聽器
+	sliderGallery.addEventListener("mousedown", touchStart);
+	sliderGallery.addEventListener("touchstart", touchStart);
+
+	window.addEventListener("mouseup", touchEnd);
+	window.addEventListener("touchend", touchEnd);
+
+	window.addEventListener("mousemove", touchMove);
+	window.addEventListener("touchmove", touchMove);
+
+	sliderGallery.addEventListener("dragstart", (e) => e.preventDefault());
 });
