@@ -38,6 +38,10 @@
 html {
 	scroll-behavior: smooth;
 }
+html,
+body {
+	overflow-x: hidden;
+}
 
 body {
 	font-family: "Lato", "Noto Sans TC", sans-serif;
@@ -45,7 +49,6 @@ body {
 	letter-spacing: 1.3px;
 	color: hsl(var(--clr-primary-blue));
 	color: hsl(216, 61%, 33%);
-	overflow-x: hidden;
 }
 main {
 	padding-top: var(--nav-height);
