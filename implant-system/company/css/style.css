@@ -95,7 +95,7 @@ body {
 	margin: 0 auto;
 }
 
-/* Clinic Service */
+/* Clinic Concept */
 #concept {
 	width: 100%;
 	background-color: hsl(var(--clr-primary-lightblue));
@@ -116,17 +116,25 @@ body {
 	margin: 0 auto;
 	flex-wrap: wrap;
 }
+
 .card {
-	flex-basis: 100%;
-	display: flex;
-	text-align: left;
-	justify-content: center;
+	display: grid;
+	grid-template-columns: calc(100% / 4) calc(100% / 8 * 3) calc(100% / 8 * 3);
+	grid-template-rows: 35px min-content;
 	padding: 3rem 0;
 }
-.card ~ .card {
-	border-top: solid 2px hsl(0, 0%, 81%);
+.card img {
+	grid-column: 1 / 2;
+	grid-row: 1 / 3;
+	max-height: 8.1rem;
+	object-fit: contain;
+	object-position: center;
+	margin: 0 auto;
 }
 .card .card-title {
+	grid-column: 2 / 4;
+	grid-row: 1 / 2;
+
 	font-weight: 600;
 	font-size: 1rem;
 	border: solid 0.1em hsl(var(--clr-primary-yellow));
@@ -134,24 +142,24 @@ body {
 	width: max-content;
 	padding: 0.24em 0.5em;
 }
-.card .card-title .fontfat {
-	font-weight: 800;
-}
 .card .card-detail {
+	grid-column: 2 / 4;
+	grid-row: 2 / 3;
+
 	font-size: 0.81rem;
 	font-weight: 400;
 	letter-spacing: 0.25em;
 	line-height: 2em;
 	padding-top: 1em;
 }
-.card img {
-	width: min(calc(100% / 12 * 3), 8.1rem);
-	object-fit: contain;
-	object-position: center;
-	margin: 0 auto;
+.card ~ .card {
+	border-top: solid 2px hsl(0, 0%, 81%);
 }
-.card .card-content {
-	width: calc(100% / 12 * 9);
+.card .card-title .fontfat {
+	font-weight: 800;
+}
+.card .card-title .padding-left {
+	padding-left: 0.5rem;
 }
 
 /* Implant System */
@@ -196,8 +204,10 @@ body {
 	top: 0;
 	left: 0;
 	display: flex;
+	align-items: center;
 	transition: transform 0.5s ease;
 	transform: translateX(0);
+	background-color: hsl(var(--clr-primary-blue));
 }
 .content ul.grabbing {
 	transition: none;
@@ -206,7 +216,6 @@ body {
 	width: 50%;
 	display: flex;
 	align-items: center;
-	background-color: hsl(var(--clr-primary-blue));
 	margin: 0;
 	user-select: none;
 	cursor: grab;
@@ -219,11 +228,12 @@ body {
 .content .content-caption {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	width: 50%;
 	aspect-ratio: 700 / 467;
 	color: hsl(var(--clr-white));
 	padding: 0 4rem;
+	margin-top: 1rem;
 }
 .content .content-caption h3 {
 	font-weight: 800;
@@ -282,4 +292,157 @@ body {
 .button-container button:hover,
 .button-container button[aria-selected="true"] {
 	background-color: hsl(var(--clr-primary-blue));
+}
+
+/* Tablet (768px - 1023px) */
+@media screen and (max-width: 1023px) {
+	/* Side Navigation */
+	.have-side-container {
+		flex-direction: column;
+		width: 100%;
+	}
+
+	#side-navigation {
+		width: 100%;
+		position: sticky;
+		top: var(--nav-height);
+		background-color: hsl(var(--clr-light-blue));
+		z-index: 1;
+		box-shadow: 0 5px 10px hsl(var(--clr-grey) / 0.24);
+	}
+
+	#side-navigation ul {
+		display: flex;
+		justify-content: center;
+		padding-top: 0;
+		gap: 2rem;
+		padding: 1rem 0 1.4rem;
+	}
+
+	#side-navigation a {
+		margin: 0;
+		padding: 0.5rem 0 0.24rem;
+	}
+
+	.main-side-container {
+		width: min(92%, 100rem);
+		margin: 0 auto;
+	}
+
+	/* Banner */
+	.banner-content {
+		width: 80%;
+		padding: 3rem 0 8rem;
+		font-size: max(1.5vw, 0.9rem);
+	}
+
+	/* Clinic Concept */
+	.title {
+		padding: 2em 0 0.8em;
+	}
+	#concept .content {
+		width: 90%;
+	}
+	.card {
+		padding: 2.2rem 0;
+	}
+	.card .card-title {
+		letter-spacing: 0.15em;
+	}
+	.card .card-title .padding-left {
+		padding-left: 0.5rem;
+	}
+
+	/* Education Training */
+	#education-training .content {
+		width: 100%;
+	}
+	#education-training .caption {
+		line-height: 2em;
+	}
+	.content .content-caption {
+		padding: 0 2rem 0 2.4rem;
+	}
+	.content .content-caption h3 {
+		letter-spacing: 0.1em;
+	}
+}
+@media screen and (max-width: 850px) {
+	.card {
+		width: 100%;
+		grid-template-rows: auto min-content;
+	}
+	.card img {
+		grid-column: 1 / 2;
+		grid-row: 2 / 3;
+
+		max-height: 7rem;
+	}
+	.card .card-title {
+		grid-column: 1 / 4;
+		grid-row: 1 / 2;
+
+		--margin: 7vw;
+
+		width: calc(100% - var(--margin) * 2);
+		text-align: center;
+		margin: 0 var(--margin) 1.4rem;
+	}
+}
+
+/* Mobile (767px and below) */
+@media screen and (max-width: 767px) {
+	.main-side-container {
+		width: 100%;
+	}
+	/* Side Navigation */
+	#side-navigation ul {
+		gap: 3rem;
+	}
+
+	/* Banner */
+	.banner-content {
+		padding: 2rem 0 5rem;
+		font-size: 14px;
+	}
+
+	/* Clinic Concept */
+	.card .card-title {
+		--margin: 2.4vw;
+	}
+	.card .card-detail {
+		padding-left: 1rem;
+	}
+
+	/* Implant System */
+	#implant-system {
+		padding-bottom: 8vw;
+	}
+	#implant-system .title {
+		padding: 5vw 0;
+	}
+	#implant-system picture {
+		padding: 0 2.4vw;
+	}
+
+	/* Education Training */
+	#education-training .content li {
+		height: max-content;
+		padding: 0 0 0.8rem;
+		flex-direction: column-reverse;
+	}
+	#education-training .content li .img-container {
+		width: 100%;
+		max-height: 170px;
+	}
+	.content .content-caption {
+		padding: 0 8vw;
+		width: 100%;
+	}
+	.content .content-caption h3 {
+		margin: 0 auto;
+	}
+	.content .content-caption p {
+		line-height: 1.8em;
+	}
 }

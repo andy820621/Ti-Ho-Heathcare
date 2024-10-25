@@ -3,12 +3,23 @@ document.addEventListener("DOMContentLoaded", function () {
 	addGlobalEventListener("click", "#side-navigation a", (e) => {
 		e.preventDefault();
 		const navHeight = document.querySelector(".header").offsetHeight;
+		const sideNavHeight =
+			document.querySelector("#side-navigation").offsetHeight;
 		let target = document.querySelector(`#${e.target.dataset.link}`);
+
+		const isTablet = window.innerWidth <= 1023;
+
 		let targetPosition = document.body.classList.contains("nav-up")
 			? target.getBoundingClientRect().top
 			: target.getBoundingClientRect().top - navHeight;
+
+		if (isTablet) {
+			targetPosition -= sideNavHeight;
+		}
+
 		window.scrollBy(0, targetPosition);
 	});
+
 	// Side Navigation active link when scroll to their own section
 	const sections = document.querySelectorAll(
 		".main-side-container > section:not(:nth-child(1))"
@@ -186,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (window.pageYOffset + window.innerHeight >= slider.offsetTop) {
 			slideCounter++;
 			// console.log(slideCounter);
-			if (slideCounter % 300 === 0) {
+			if (slideCounter % 360 === 0) {
 				slide();
 			}
 		}
