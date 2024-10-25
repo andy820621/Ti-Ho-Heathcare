@@ -414,7 +414,7 @@ body {
 		background-color: hsl(var(--clr-primary-blue));
 	}
 	.scroll-container .clinic .information {
-		padding: 0 1rem;
+		padding: 0.8rem 1rem 0.24rem;
 		width: 94%;
 		text-align: center;
 	}

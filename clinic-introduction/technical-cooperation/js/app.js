@@ -3,10 +3,20 @@ document.addEventListener("DOMContentLoaded", function () {
 	addGlobalEventListener("click", "#side-navigation a", (e) => {
 		e.preventDefault();
 		const navHeight = document.querySelector(".header").offsetHeight;
+		const sideNavHeight =
+			document.querySelector("#side-navigation").offsetHeight;
 		let target = document.querySelector(`#${e.target.dataset.link}`);
+
+		const isTablet = window.innerWidth <= 1023;
+
 		let targetPosition = document.body.classList.contains("nav-up")
 			? target.getBoundingClientRect().top
 			: target.getBoundingClientRect().top - navHeight;
+
+		if (isTablet) {
+			targetPosition -= sideNavHeight;
+		}
+
 		window.scrollBy(0, targetPosition);
 	});
 	// Side Navigation active link when scroll to their own section
@@ -32,6 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Clinic Position Sort Function
 	const clinics = document.querySelectorAll(".clinic");
 	const navContents = document.querySelectorAll(".detail-container>div");
+	const positionNavigation = document.querySelector(".position-navigation");
+
+	// 初始化時計算一次
+	adjustPadding();
 
 	addGlobalEventListener("click", ".position-navigation a", (e) => {
 		// Active Link
@@ -40,16 +54,23 @@ document.addEventListener("DOMContentLoaded", function () {
 			.querySelector(`.position-navigation a[aria-selected="true"]`)
 			.setAttribute("aria-selected", "false");
 		e.target.setAttribute("aria-selected", "true");
+
 		// Active Content
 		let activeCity = e.target.dataset.city;
 		let activeSort = document.querySelector(".detail-container>div.visible");
 
 		activeSort.classList.remove("visible");
 		activeSort.style.animation = `leave 1s 1`;
+
 		navContents.forEach((navContent) => {
 			if (activeCity === navContent.dataset.sort) {
 				navContent.style.animation ? (navContent.style.animation = "") : "";
 				navContent.classList.add("visible");
+
+				// 使用 setTimeout 確保在動畫完成後再計算高度
+				setTimeout(() => {
+					adjustPadding();
+				}, 100); // 可以根據需要調整延遲時間
 			}
 		});
 
@@ -63,6 +84,22 @@ document.addEventListener("DOMContentLoaded", function () {
 				: clinic.classList.remove("disappear");
 		});
 	});
+
+	// 監聽視窗大小改變，重新計算高度
+	window.addEventListener("resize", adjustPadding);
+
+	// 計算內容高度並設置 padding-bottom 的函數
+	function adjustPadding() {
+		const activeContent = document.querySelector(
+			".detail-container>div.visible"
+		);
+		if (activeContent) {
+			// 取得實際內容高度
+			const contentHeight = activeContent.getBoundingClientRect().height;
+			// 設置 padding-bottom (加上基本間距 5em)
+			positionNavigation.style.paddingBottom = `calc(${contentHeight}px)`;
+		}
+	}
 
 	// Make sure when scroll Header Navigation is hidden
 	const scrollContainer = document.querySelector(".scroll-container");
