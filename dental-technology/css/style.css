@@ -4,41 +4,8 @@
 	--clr-primary-blue: 0 0% 98%;
 	--clr-sub-blue: 0 0% 95%;
 }
-.header.transparent {
-	box-shadow: none;
-}
-.navbar {
-	background-color: hsl(var(--clr-white));
-	transition: 0.4s ease;
-}
-.header.transparent .navbar {
-	background-color: transparent;
-}
-.navMenu a {
-	color: hsl(var(--clr-primary-blue));
-}
-.header.transparent .navMenu a {
-	color: hsl(var(--clr-white));
-}
-.navMenu a::after {
-	background-color: hsl(var(--clr-primary-blue));
-}
-.header.transparent .navMenu a::after {
-	background-color: hsl(var(--clr-white));
-}
-.header .dropdown-icon {
-	color: hsl(var(--clr-primary-blue));
-}
-.header.transparent .dropdown-icon {
-	color: hsl(var(--clr-white));
-}
-.has-dropdown ul {
-	background-color: hsl(var(--clr-white));
-	box-shadow: 0 5px 10px hsl(var(--clr-grey) / 0.24);
-}
-.header.transparent .has-dropdown ul {
-	background-color: transparent;
-	box-shadow: none;
+.navMenu ul li a {
+	font-weight: 400;
 }
 
 /* Main tag Start */
@@ -102,13 +69,11 @@ body {
 	--margin-right: -3vw;
 	width: calc(100% - var(--logo-width) - var(--margin-right));
 	margin-right: var(--margin-right);
-	padding-left: 2.4vw;
 }
 
 /* Banner */
 #banner {
 	width: 100%;
-	margin-top: calc(-1 * var(--nav-height));
 }
 #banner picture {
 	width: 100%;
@@ -158,7 +123,7 @@ body {
 	--picture-width: 22rem;
 
 	width: 100%;
-	padding: 4.5rem 4.5rem;
+	padding: 4.5rem 2vw 4.5rem 2vw;
 }
 #company-introduction picture {
 	width: var(--picture-width);
@@ -172,11 +137,12 @@ body {
 }
 #company-introduction .content {
 	width: calc(100% - var(--picture-width));
-	padding-left: 3.5rem;
+	padding-left: 3vw;
 }
 #company-introduction .content-title h2 {
 	letter-spacing: 0.4rem;
 	line-height: 2.4em;
+	font-size: 2vw;
 }
 #company-introduction .content-detail {
 	padding-top: 1em;
@@ -308,7 +274,7 @@ body {
 }
 #contact .content {
 	width: inherit;
-	padding: 0 6rem 3rem;
+	padding: 0 5vw 3rem;
 	margin-bottom: 5rem;
 }
 #contact .content {
@@ -318,6 +284,7 @@ body {
 	scroll-snap-align: start;
 	width: 100%;
 	display: flex;
+	flex-wrap: nowrap;
 	padding: 0.81rem;
 	border: solid 2.2px hsl(var(--clr-primary-yellow));
 	margin-bottom: 0.81rem;
@@ -358,4 +325,180 @@ body {
 #contact .content .clinic .detail {
 	font-weight: 300;
 	font-size: 0.95rem;
+}
+
+/* Tablet (768px - 1023px) */
+@media screen and (max-width: 1023px) {
+	/* Side Navigation */
+	.have-side-container {
+		flex-direction: column;
+		width: 100%;
+	}
+
+	#side-navigation {
+		width: 100%;
+		position: sticky;
+		top: var(--nav-height);
+		background-color: hsl(var(--clr-light-blue));
+		z-index: 1;
+		box-shadow: 0 5px 10px hsl(var(--clr-grey) / 0.24);
+	}
+
+	#side-navigation ul {
+		display: flex;
+		justify-content: center;
+		padding-top: 0;
+		gap: 2rem;
+		padding: 1rem 0 1.4rem;
+	}
+
+	#side-navigation a {
+		margin: 0;
+		padding: 0.5rem 0 0.24rem;
+	}
+
+	.main-side-container {
+		width: min(92%, 100rem);
+		margin: 0 auto;
+	}
+
+	/* Banner */
+	.banner-content {
+		width: 80%;
+		font-size: 1.5vw;
+	}
+	.banner-content h2 {
+		font-size: 4.5vw;
+	}
+}
+
+/* Mobile (767px and below) */
+@media screen and (max-width: 767px) {
+	.main-side-container {
+		width: 100%;
+	}
+	/* Side Navigation */
+	#side-navigation ul {
+		gap: 3rem;
+	}
+
+	/* Banner */
+	.banner-content {
+		font-size: 14px;
+		width: calc(90% - 5rem);
+	}
+
+	/* Company Introduction */
+	#company-introduction {
+		--picture-width: 40vw;
+		padding: 4.5rem 5vw;
+	}
+	#company-introduction .content-title h2 {
+		font-size: 1rem;
+	}
+
+	/* title design end */
+	#digital-technology .content {
+		padding: 1.5rem 4vw 5rem;
+	}
+	#digital-technology .content-box {
+		--width: 6rem;
+
+		flex-direction: column;
+		gap: 1rem;
+		text-align: center;
+	}
+	#digital-technology .content-box .detail {
+		width: 81%;
+		padding: 0;
+	}
+	#digital-technology .content-box .detail-content {
+		font-size: 0.8rem;
+		line-height: 2em;
+	}
+
+	/* Customization */
+	#customization {
+		padding: 0 5vw 5rem;
+	}
+
+	/* Clinic Position */
+	#contact .content {
+		padding: 0 5vw;
+	}
+
+	/* Contact */
+	#contact .content .clinic {
+		display: grid;
+		max-height: initial;
+		height: auto;
+	}
+
+	#contact .content .clinic .img-container {
+		--margin-bottom: 1.8rem;
+		max-width: fit-content;
+		min-width: 94%;
+		margin: 0.24rem auto var(--margin-bottom);
+		position: relative;
+		width: 100%;
+	}
+
+	#contact .content .clinic .img-container::after {
+		position: absolute;
+		content: "";
+		width: 81%;
+		height: 2px;
+		left: 50%;
+		bottom: calc(-1 * var(--margin-bottom));
+		transform: translateX(-50%);
+		background-color: hsl(var(--clr-primary-blue));
+	}
+
+	#contact .content .clinic .information {
+		padding: 0.8rem 1rem 0.24rem;
+		width: 94%;
+		text-align: center;
+	}
+
+	#contact .content .clinic h3 {
+		font-size: 1.1rem;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	#side-navigation ul {
+		gap: 0;
+		justify-content: space-around;
+	}
+	/* Banner */
+	#banner picture {
+		width: 100%;
+		aspect-ratio: 16 / 10;
+	}
+	.banner-content {
+		bottom: 6.5vw;
+		left: 8vw;
+		width: calc(92% - 8vw);
+	}
+	.banner-content h2 {
+		font-size: 1.5rem;
+	}
+	.banner-content .from-little-bottom p {
+		font-size: 0.8rem;
+	}
+
+	/* Company Introduction */
+	#digital-technology .content-box .detail-content {
+		line-height: 1.5em;
+	}
+
+	/* Customization */
+	#customization {
+		padding: 0 10vw 5rem;
+	}
+
+	#customization .content-box {
+		width: 100%;
+		text-align: center;
+	}
 }

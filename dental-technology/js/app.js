@@ -1,32 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
-	// Change Header Navigation backgroung-color when scroll-down/scroll-up
-	const header = document.querySelector(".header");
-	let noScrolling = 0,
-		navHeight = header.offsetHeight;
-
-	const updateNavIfActive = throttle(onScroll, 500);
-	window.addEventListener("scroll", updateNavIfActive);
-	function onScroll() {
-		if (noScrolling) return;
-		requestAnimationFrame(removeTransparent);
-		noScrolling = true;
-	}
-	function removeTransparent() {
-		if (window.pageYOffset > navHeight) {
-			header.classList.remove("transparent");
-		} else {
-			header.classList.add("transparent");
-		}
-		noScrolling = false;
-	}
-
 	// Side Navigation click function
 	addGlobalEventListener("click", "#side-navigation a", (e) => {
 		e.preventDefault();
+		const navHeight = document.querySelector(".header").offsetHeight;
+		const sideNavHeight =
+			document.querySelector("#side-navigation").offsetHeight;
 		let target = document.querySelector(`#${e.target.dataset.link}`);
+
+		const isTablet = window.innerWidth <= 1023;
+
 		let targetPosition = document.body.classList.contains("nav-up")
 			? target.getBoundingClientRect().top
 			: target.getBoundingClientRect().top - navHeight;
+
+		if (isTablet) {
+			targetPosition -= sideNavHeight;
+		}
+
 		window.scrollBy(0, targetPosition);
 	});
 

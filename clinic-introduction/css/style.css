@@ -1,3 +1,6 @@
+body {
+	overflow-x: hidden;
+}
 /* Nav */
 .navbar {
 	--clr-white: 216 61% 18%;
