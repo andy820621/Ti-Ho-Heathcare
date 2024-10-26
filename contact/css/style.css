@@ -314,3 +314,80 @@ body {
 	opacity: 1;
 	transform: scaleX(100%);
 }
+
+/* 平板版本 (768px ~ 1024px) */
+@media screen and (max-width: 1024px) {
+	#banner {
+		--move-y: -5rem;
+	}
+	#banner > * {
+		width: 90%;
+	}
+	#banner picture img {
+		object-position: center var(--move-y);
+		aspect-ratio: 16 / 8;
+	}
+	.banner-navigation .taiwan-link {
+		transform: translateY(calc(var(--move-y) / 2));
+	}
+}
+
+/* 手機版本 (< 768px) */
+@media screen and (max-width: 768px) {
+	#banner {
+		--move-y: -1rem;
+	}
+	#banner > * {
+		width: 100%;
+	}
+	#banner picture {
+		overflow: hidden;
+	}
+	#banner picture img {
+		aspect-ratio: initial;
+		transform: scale(1.5);
+	}
+	.banner-navigation .taiwan-link {
+		transform: translateY(0);
+		top: 20%;
+		left: 60%;
+	}
+	.banner-navigation .malaysia-link {
+		left: 38%;
+	}
+
+	.banner-navigation li {
+		font-size: 0.8rem;
+		/* width: max(12%, 5.5rem); */
+		width: auto;
+		padding: 0.2em 0.8em;
+	}
+
+	/* Clinic */
+	.clinic-card {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.clinic-card.active .name {
+		width: 81%;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.countries {
+		display: flex;
+		width: 92%;
+		margin: 0 auto;
+		justify-content: space-around;
+	}
+	.lists {
+		width: 100%;
+		justify-content: space-around;
+	}
+	.lists li ~ li {
+		padding-left: 0;
+	}
+	.lists li h3 {
+		font-size: 1rem;
+	}
+}
