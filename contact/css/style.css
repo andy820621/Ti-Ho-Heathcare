@@ -153,7 +153,6 @@ body {
 	margin: 0 auto;
 	position: relative;
 	min-height: 38rem;
-	/* overflow-x: hidden; */
 	overflow: hidden;
 	margin-top: 4.5rem;
 }

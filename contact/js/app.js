@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Clinic Navigation
 	const clinicContainer = document.querySelector(".clinic-container");
 
+	resetClinicContainerHeight();
 	function resetClinicContainerHeight() {
 		setTimeout(() => {
 			clinicContainer.style.minHeight =

@@ -3,8 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	addGlobalEventListener("click", "#side-navigation a", (e) => {
 		e.preventDefault();
 		const navHeight = document.querySelector(".header").offsetHeight;
-		const sideNavHeight =
-			document.querySelector("#side-navigation").offsetHeight;
+		const sideNavHeight = document.querySelector(
+			"#side-navigation ul"
+		).offsetHeight;
 		let target = document.querySelector(`#${e.target.dataset.link}`);
 
 		const isTablet = window.innerWidth <= 1023;

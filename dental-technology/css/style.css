@@ -34,6 +34,7 @@ body {
 #side-navigation ul {
 	width: 100%;
 	padding-top: 0.8rem;
+	position: fixed;
 }
 #side-navigation a {
 	width: max-content;
@@ -277,9 +278,6 @@ body {
 	padding: 0 5vw 3rem;
 	margin-bottom: 5rem;
 }
-#contact .content {
-	width: inherit;
-}
 #contact .content .clinic {
 	scroll-snap-align: start;
 	width: 100%;
@@ -337,11 +335,10 @@ body {
 
 	#side-navigation {
 		width: 100%;
-		position: sticky;
-		top: var(--nav-height);
 		background-color: hsl(var(--clr-light-blue));
 		z-index: 1;
 		box-shadow: 0 5px 10px hsl(var(--clr-grey) / 0.24);
+		padding-left: 0;
 	}
 
 	#side-navigation ul {
@@ -350,6 +347,7 @@ body {
 		padding-top: 0;
 		gap: 2rem;
 		padding: 1rem 0 1.4rem;
+		background-color: hsl(var(--clr-light-blue));
 	}
 
 	#side-navigation a {
@@ -359,7 +357,7 @@ body {
 
 	.main-side-container {
 		width: min(92%, 100rem);
-		margin: 0 auto;
+		margin: 75px auto 0;
 	}
 
 	/* Banner */
@@ -424,7 +422,7 @@ body {
 
 	/* Clinic Position */
 	#contact .content {
-		padding: 0 5vw;
+		margin-bottom: 0;
 	}
 
 	/* Contact */
